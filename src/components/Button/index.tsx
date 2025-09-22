@@ -16,14 +16,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     useGSAP(() => {
       const button = document.querySelector("button");
 
-      console.log({ button });
-
       button?.addEventListener("mouseenter", () => {
-        gsap.to(button, { scale: 1.1 });
+        gsap.to(button, { scale: 1.1, duration: 0.2 });
       });
 
       button?.addEventListener("mouseleave", () => {
-        gsap.to(button, { scale: 1 });
+        gsap.to(button, { scale: 1, duration: 0.2 });
       });
     }, []);
 

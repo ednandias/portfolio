@@ -4,15 +4,15 @@ import { toRem } from "../../utils/toRem";
 export const Container = styled.main`
   width: 100%;
   height: 100%;
+  height: auto;
 
-  overflow: hidden;
-
-  background: #000000;
+  background: #111d4a;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(13, 27, 42, 1) 100%
+    rgba(17, 29, 74, 1) 25%,
+    rgba(0, 0, 0, 1) 100%
   );
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
@@ -21,14 +21,15 @@ export const Container = styled.main`
 export const Header = styled.header`
   width: 50%;
   height: ${toRem(50)};
+  margin: ${toRem(16)} auto;
 
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.5);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-
-  margin: ${toRem(10)} auto;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
 
   display: flex;
   align-items: center;
@@ -42,13 +43,34 @@ export const Header = styled.header`
     gap: ${toRem(5)};
 
     p {
-      color: #fcf7f8;
       font-weight: bold;
     }
   }
 `;
 
-export const Content = styled.section`
+export const Section = styled.section`
+  flex: 1;
+  height: 100vh;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #fcf7f8;
+
+  h1 {
+    font-weight: 700;
+    font-size: ${toRem(50)};
+    margin-bottom: ${toRem(10)};
+  }
+
+  p {
+    font-weight: 400;
+    font-size: ${toRem(20)};
+  }
+`;
+
+export const Presentation = styled.div`
   flex: 1;
 
   display: flex;
@@ -56,16 +78,5 @@ export const Content = styled.section`
   align-items: center;
   justify-content: center;
 
-  h1 {
-    color: #fcf7f8;
-    font-weight: 700;
-    font-size: ${toRem(50)};
-    margin-bottom: ${toRem(10)};
-  }
-
-  p {
-    color: #fcf7f8;
-    font-weight: 400;
-    font-size: ${toRem(20)};
-  }
+  color: white;
 `;
