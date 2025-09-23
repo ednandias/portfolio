@@ -5,9 +5,6 @@ import { Welcome } from "./components/Welcome";
 import { Container, Section } from "./styles";
 
 export function Home() {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin);
-
   return (
     <Container className="container">
       <Welcome />
