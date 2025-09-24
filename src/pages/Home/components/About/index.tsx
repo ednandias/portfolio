@@ -10,34 +10,39 @@ interface AboutProps {
 
 export function About({ id }: AboutProps) {
   gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(ScrollToPlugin);
 
   useGSAP(() => {
-    gsap.to("h1", {
-      x: 100,
-      scrollTrigger: {
-        trigger: "h1",
-        start: "top bottom",
-        end: "center center",
-        scrub: true,
-      },
-    });
-
-    gsap.to("h1", {
-      x: 200,
-      scrollTrigger: {
-        trigger: "h1",
-        start: "center center",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    // gsap.fromTo(
+    //   ".text",
+    //   {
+    //     opacity: 0,
+    //     y: 50,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: ".text",
+    //       start: "bottom top",
+    //       toggleActions: "restart pause reverse pause",
+    //       markers: true,
+    //       scrub: true,
+    //     },
+    //     opacity: 1,
+    //     y: 0,
+    //   }
+    // );
   }, []);
 
   return (
     <Section id={id}>
       <Content>
-        <h1 className="text">Sobre</h1>
+        {/* <h1 className="text">Sobre</h1> */}
+
+        <p>
+          Me chamo Ednan e moro no interior do estado de São Paulo, nerd por
+          natureza, programador por amor, ingressei no mundo do desenvolvimento
+          web há mais ou menos 8 anos atrás, onde tive meu primeiro contato com
+          as tecnologias que
+        </p>
       </Content>
     </Section>
   );

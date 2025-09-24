@@ -17,6 +17,8 @@ export const Container = styled.main`
 
   display: flex;
   flex-direction: column;
+
+  position: relative;
 `;
 
 export const Section = styled.section`

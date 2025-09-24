@@ -1,11 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/all";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
 import { Header, Presentation } from "./styles";
 
 export function Welcome() {
+  gsap.registerPlugin(ScrollToPlugin);
+
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -19,8 +22,7 @@ export function Welcome() {
 
         gsap.to(window, {
           scrollTo: container?.offsetTop,
-          duration: 1,
-          ease: "elastic.out",
+          duration: 0.3,
         });
       });
 
@@ -37,8 +39,7 @@ export function Welcome() {
 
             gsap.to(window, {
               scrollTo: container?.offsetTop,
-              duration: 1,
-              ease: "elastic.out",
+              duration: 0.3,
             });
           }
         });
