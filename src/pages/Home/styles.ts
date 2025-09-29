@@ -6,6 +6,7 @@ export const Container = styled.main`
   height: auto;
 
   overflow-x: hidden;
+  position: relative;
 
   background: #111d4a;
   background: linear-gradient(
@@ -18,7 +19,15 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
 
-  position: relative;
+  button#arrow-up {
+    background: none;
+    border: none;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: ${toRem(20)};
+  }
 `;
 
 export const Section = styled.section`
