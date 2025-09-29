@@ -4,7 +4,7 @@ import { ScrollToPlugin } from "gsap/all";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
-import { Header, Presentation } from "./styles";
+import { ButtonsView, Header, Presentation } from "./styles";
 
 export function Welcome() {
   gsap.registerPlugin(ScrollToPlugin);
@@ -72,15 +72,8 @@ export function Welcome() {
 
         <a href="#projects">
           <article>
-            <Icon iconName="Brain" color="#fcf7f8" size={25} />
+            <Icon iconName="Briefcase" color="#fcf7f8" size={25} />
             <p>Projetos</p>
-          </article>
-        </a>
-
-        <a href="#skills">
-          <article>
-            <Icon iconName="Wrench" color="#fcf7f8" size={25} />
-            <p>Tecnologias</p>
           </article>
         </a>
 
@@ -99,7 +92,15 @@ export function Welcome() {
           Que tal conhecer um pouco mais sobre o meu trabalho? 👨🏻‍💻
         </p>
 
-        <Button className="know-more" icon="HandTap" title="Conhecer" mt={10} />
+        <ButtonsView>
+          <Button className="know-more" icon="HandTap" title="Conhecer" />
+          <Button
+            className="know-more"
+            icon="ReadCvLogo"
+            title="Baixar Currículo"
+            disabled
+          />
+        </ButtonsView>
       </Presentation>
     </Section>
   );

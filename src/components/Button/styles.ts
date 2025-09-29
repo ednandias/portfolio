@@ -6,8 +6,11 @@ interface ContainerProps {
 }
 
 export const Container = styled.button<ContainerProps>`
-  width: ${toRem(150)};
+  width: auto;
+  min-width: ${toRem(150)};
   height: ${toRem(50)};
+  padding: 0 ${toRem(20)};
+
   /* background: #1b263b; */
   background: #fcf7f8;
   border-radius: 15px;
@@ -23,5 +26,10 @@ export const Container = styled.button<ContainerProps>`
     color: #0d1b2a !important;
     font-size: ${toRem(16)};
     font-weight: bold;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.5);
   }
 `;

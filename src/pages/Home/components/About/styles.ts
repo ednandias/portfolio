@@ -18,11 +18,11 @@ export const AboutMe = styled.div`
   padding: 0 ${toRem(40)};
 
   h1 {
-    font-size: ${toRem(30)};
+    font-size: ${toRem(50)};
   }
 
   p {
-    font-size: ${toRem(30)};
+    font-size: ${toRem(20)};
     text-align: justify;
     text-indent: 20px;
     text-transform: none;

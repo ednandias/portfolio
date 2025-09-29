@@ -8,14 +8,9 @@ export const Presentation = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: ${toRem(10)};
 
   color: white;
-
-  div#square {
-    width: 60px;
-    height: 60px;
-    background: red;
-  }
 `;
 
 export const Header = styled.header`
@@ -49,4 +44,9 @@ export const Header = styled.header`
       font-weight: bold;
     }
   }
+`;
+
+export const ButtonsView = styled.div`
+  display: flex;
+  gap: ${toRem(10)};
 `;

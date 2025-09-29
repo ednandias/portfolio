@@ -1,28 +1,41 @@
-import { useEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/all";
+import { useRef } from "react";
 import { Icon } from "../../components/Icon";
 import { About } from "./components/About";
+import { Projects } from "./components/Projects";
 import { Welcome } from "./components/Welcome";
 import { Container, Section } from "./styles";
 
 export function Home() {
   const containerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    function onScroll(e: Event) {
-      console.log("pageYOffset", window.pageYOffset);
+  gsap.registerPlugin(ScrollToPlugin);
 
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
+  function backToTop() {
+    gsap.to(window, {
+      scrollTo: 0,
+      duration: 0.3,
+    });
+  }
 
-      const scrollPercent = (window.pageYOffset / maxScroll) * 100;
-      console.log(`Porcentagem scrollada: ${scrollPercent}%`);
-    }
-
-    containerRef.current?.addEventListener("wheel", onScroll);
-
-    return () => {
-      containerRef.current?.removeEventListener("wheel", onScroll);
-    };
+  useGSAP(() => {
+    gsap.fromTo(
+      "#arrow-up",
+      {
+        scale: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: "#arrow-up",
+          start: "top center",
+          toggleActions: "restart pause resume reverse",
+          scrub: true,
+        },
+        scale: 1,
+      }
+    );
   }, []);
 
   return (
@@ -30,41 +43,7 @@ export function Home() {
       <Welcome />
       <About id="about" />
 
-      <Section
-        id="projects"
-        style={{
-          background: "blue",
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1>Projetos</h1>
-        </div>
-      </Section>
-
-      <Section
-        id="skills"
-        style={{
-          background: "green",
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1>Tecnologias</h1>
-        </div>
-      </Section>
+      <Projects id="projects" />
 
       <Section
         id="contact"
@@ -84,13 +63,8 @@ export function Home() {
         </div>
       </Section>
 
-      <button id="arrow-up">
-        <Icon
-          iconName="ArrowCircleUp"
-          color="white"
-          weight="duotone"
-          size={50}
-        />
+      <button id="arrow-up" onClick={backToTop}>
+        <Icon iconName="ArrowCircleUp" color="white" weight="fill" size={40} />
       </button>
     </Container>
   );
