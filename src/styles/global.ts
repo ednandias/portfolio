@@ -31,9 +31,15 @@ export default createGlobalStyle`
     font-style: normal;
   }
 
+
+
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  h1, p {
+    color: ${({ theme }) => theme.colors.fonts};
   }
 
   button {

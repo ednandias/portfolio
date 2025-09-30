@@ -1,14 +1,11 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/all";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
 import { ButtonsView, Header, Presentation } from "./styles";
 
 export function Welcome() {
-  gsap.registerPlugin(ScrollToPlugin);
-
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -86,7 +83,7 @@ export function Welcome() {
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">Olá, Seja Bem Vindo 🖖🏻</h1>
+        <h1 className="welcome">Olá, Seja Bem Vindo 👋🏻</h1>
 
         <p className="name">
           Que tal conhecer um pouco mais sobre o meu trabalho? 👨🏻‍💻

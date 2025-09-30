@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { Section } from "../../styles";
 import { AboutMe, Content, Photo } from "./styles";
 
@@ -11,18 +10,16 @@ interface AboutProps {
 }
 
 export function About({ id }: AboutProps) {
-  gsap.registerPlugin(ScrollTrigger);
-
   useGSAP(() => {
     gsap.fromTo(
-      ".up",
+      `#${id} .up`,
       {
         opacity: 0,
         y: 100,
       },
       {
         scrollTrigger: {
-          trigger: ".up",
+          trigger: `#${id} .up`,
           start: "top center",
           toggleActions: "restart pause resume reverse",
         },

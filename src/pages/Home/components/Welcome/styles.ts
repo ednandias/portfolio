@@ -21,7 +21,7 @@ export const Header = styled.header`
   position: fixed;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 999;
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;

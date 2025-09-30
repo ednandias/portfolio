@@ -18,7 +18,7 @@ export const AboutMe = styled.div`
   padding: 0 ${toRem(40)};
 
   h1 {
-    font-size: ${toRem(50)};
+    font-size: ${toRem(40)};
   }
 
   p {
