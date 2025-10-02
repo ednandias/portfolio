@@ -2,7 +2,7 @@ import { Card } from "../../../../../components/Card";
 import { Modal } from "../../../../../components/Modal";
 import { drawCardTechs } from "../../../../../utils/drawCardTechs";
 import type { Project } from "../projects";
-import { Container, Content, Info, ProjectCard, Visit } from "./styles";
+import { Container, Content, Info, Visit } from "./styles";
 
 interface ModalProjectProps {
   isOpen: boolean;

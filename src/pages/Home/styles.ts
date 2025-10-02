@@ -14,6 +14,7 @@ export const Container = styled.main`
     rgba(17, 29, 74, 1) 25%,
     rgba(0, 0, 0, 1) 100%
   );
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
