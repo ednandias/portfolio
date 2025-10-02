@@ -1,8 +1,9 @@
+import { Button } from "../../../../../components/Button";
 import { Card } from "../../../../../components/Card";
 import { Modal } from "../../../../../components/Modal";
-import { drawCardTechs } from "../../../../../utils/drawCardTechs";
+import { renderCardTechs } from "../../../../../utils/renderCardTechs";
 import type { Project } from "../projects";
-import { Container, Content, Info, Visit } from "./styles";
+import { Container, Content, Info, Techs } from "./styles";
 
 interface ModalProjectProps {
   isOpen: boolean;
@@ -15,20 +16,23 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
     <Modal isOpen={isOpen} onClose={onClose} size="md">
       <Container>
         <Info>
-          <Card imgUrl={project.image} />
+          <Card imgUrl={project.image} noAnimate />
 
           <h1>{project.title}</h1>
+
+          <Techs>
+            {renderCardTechs(project.techs, {
+              size: 60,
+              imageSize: 30,
+            })}
+          </Techs>
+
+          <Button full title="Visitar" />
         </Info>
 
         <Content>
           <p>{project.about}</p>
         </Content>
-
-        <Visit>
-          <p>Techs</p>
-
-          {drawCardTechs(project.techs)}
-        </Visit>
       </Container>
     </Modal>
   );

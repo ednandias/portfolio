@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { toRem } from "../../utils/toRem";
 
-export const Container = styled.button`
-  width: ${toRem(150)};
-  height: ${toRem(150)};
+interface ContainerProps {
+  size?: number;
+  imageSize?: number;
+}
+
+export const Container = styled.button<ContainerProps>`
+  width: ${({ size }) => toRem(size ? size : 150)};
+  height: ${({ size }) => toRem(size ? size : 150)};
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -17,6 +22,6 @@ export const Container = styled.button`
   justify-content: center;
 
   img {
-    width: ${toRem(100)};
+    width: ${({ imageSize }) => toRem(imageSize ? imageSize : 100)};
   }
 `;

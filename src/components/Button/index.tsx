@@ -9,10 +9,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   icon?: IconOptions;
   mt?: number;
+  full?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ title, icon, mt, className, ...rest }, ref) => {
+  ({ title, icon, mt, className, full, ...rest }, ref) => {
     useGSAP(() => {
       const button = document.querySelector("button");
 
@@ -30,6 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={`${className} custom-button`}
         ref={ref}
         mt={mt}
+        full={full}
         {...rest}
       >
         {icon && (

@@ -5,13 +5,28 @@ export const Container = styled.div`
   flex: 1;
 
   display: grid;
-  grid-template-columns: 25% 50% 25%;
+  grid-template-columns: 25% auto;
 `;
 
 export const Info = styled.div`
+  padding: 0 ${toRem(20)};
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  gap: ${toRem(10)};
+
+  h1 {
+    font-size: ${toRem(20)};
+  }
+`;
+
+export const Techs = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
   gap: ${toRem(10)};
 `;
 
@@ -20,6 +35,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${toRem(10)};
+  padding: ${toRem(20)};
 
   p {
     font-size: ${toRem(20)};
@@ -30,5 +46,3 @@ export const Content = styled.div`
     user-select: none;
   }
 `;
-
-export const Visit = styled.div``;
