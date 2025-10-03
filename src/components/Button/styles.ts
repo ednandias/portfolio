@@ -3,12 +3,12 @@ import { toRem } from "../../utils/toRem";
 
 interface ContainerProps {
   mt?: number;
-  full?: boolean;
+  size?: "full";
 }
 
 export const Container = styled.button<ContainerProps>`
   width: auto;
-  min-width: ${({ full }) => (full ? "100%" : toRem(150))};
+  min-width: ${({ size }) => (size === "full" ? "100%" : toRem(150))};
 
   height: ${toRem(50)};
   padding: 0 ${toRem(20)};

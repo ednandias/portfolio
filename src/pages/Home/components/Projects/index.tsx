@@ -5,7 +5,7 @@ import { Section } from "../../styles";
 
 import { Card } from "../../../../components/Card";
 import { ModalProject } from "./ModalProject";
-import { projects, type Project } from "./projects";
+import { projects, type Project } from "./data/projects";
 import { Content, MyProjects } from "./styles";
 
 interface ProjectsProps {
@@ -43,12 +43,10 @@ export function Projects({ id }: ProjectsProps) {
     const cards = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const card of cards) {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, { y: -10 });
-      });
-
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, { y: 0 });
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        card.addEventListener(event, () => {
+          gsap.to(card, { y: event === "mouseenter" ? -10 : 0 });
+        });
       });
     }
 

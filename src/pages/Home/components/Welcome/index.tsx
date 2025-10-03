@@ -91,6 +91,7 @@ export function Welcome() {
 
         <ButtonsView>
           <Button className="know-more" icon="HandTap" title="Conhecer" />
+
           <Button
             className="know-more"
             icon="ReadCvLogo"

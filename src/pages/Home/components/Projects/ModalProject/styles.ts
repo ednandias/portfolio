@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Info = styled.div`
-  padding: 0 ${toRem(20)};
+  padding: ${toRem(20)};
 
   display: flex;
   flex-direction: column;
@@ -19,6 +19,10 @@ export const Info = styled.div`
 
   h1 {
     font-size: ${toRem(20)};
+  }
+
+  a {
+    width: 100%;
   }
 `;
 

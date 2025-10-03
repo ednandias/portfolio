@@ -1,43 +1,64 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import type { ButtonHTMLAttributes } from "react";
+import { useRef, type ButtonHTMLAttributes } from "react";
 import { Container } from "./styles";
 
 interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   imgUrl: string;
   size?: number;
-  imageSize?: number;
+  imagesize?: number;
   noAnimate?: boolean;
+  animation?: "slide-up" | "rotate";
 }
 
 export function Card({
   imgUrl,
   size,
-  imageSize,
+  imagesize,
+  animation,
   noAnimate,
   ...rest
 }: CardProps) {
-  useGSAP(() => {
-    const cards = gsap.utils.toArray<HTMLButtonElement>(".card");
+  const containerRef = useRef<HTMLButtonElement>(null);
 
-    for (const card of cards) {
-      ["mouseenter", "mouseleave"].forEach((mouseEvent) => {
-        card.addEventListener(mouseEvent, () => {
+  useGSAP(() => {
+    ["mouseenter", "mouseleave"].forEach((mouseEvent) => {
+      if (containerRef.current) {
+        containerRef.current.addEventListener(mouseEvent, () => {
           if (noAnimate) {
             return;
           }
 
-          gsap.to(card, {
-            scale: mouseEvent === "mouseenter" ? 1.1 : 1,
-            duration: 0.1,
-          });
+          switch (animation) {
+            case "slide-up": {
+              gsap.to(containerRef.current, {
+                y: mouseEvent === "mouseenter" ? -10 : 0,
+              });
+
+              break;
+            }
+
+            case "rotate": {
+              gsap.to(containerRef.current, {
+                y: mouseEvent === "mouseenter" ? 360 : 0,
+              });
+
+              break;
+            }
+          }
         });
-      });
-    }
+      }
+    });
   });
 
   return (
-    <Container className="card" size={size} imageSize={imageSize} {...rest}>
+    <Container
+      ref={containerRef}
+      className="card"
+      size={size}
+      imagesize={imagesize}
+      {...rest}
+    >
       <img src={imgUrl} />
     </Container>
   );

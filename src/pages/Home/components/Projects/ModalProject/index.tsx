@@ -2,7 +2,7 @@ import { Button } from "../../../../../components/Button";
 import { Card } from "../../../../../components/Card";
 import { Modal } from "../../../../../components/Modal";
 import { renderCardTechs } from "../../../../../utils/renderCardTechs";
-import type { Project } from "../projects";
+import type { Project } from "../data/projects";
 import { Container, Content, Info, Techs } from "./styles";
 
 interface ModalProjectProps {
@@ -22,12 +22,14 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
 
           <Techs>
             {renderCardTechs(project.techs, {
-              size: 60,
-              imageSize: 30,
+              size: 50,
+              imagesize: 30,
             })}
           </Techs>
 
-          <Button full title="Visitar" />
+          <a href={project.url} target="_blank">
+            <Button icon="ArrowSquareOut" title="Visitar" size="full" />
+          </a>
         </Info>
 
         <Content>
