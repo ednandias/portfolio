@@ -37,7 +37,7 @@ export function Home() {
 
   return (
     <Container ref={containerRef} className="container">
-      <Welcome />
+      <Welcome id="welcome" />
       <About id="about" />
       <Projects id="projects" />
 

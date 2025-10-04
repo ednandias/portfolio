@@ -1,24 +1,34 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface ContainerProps {
-  text?: string;
   isVisible?: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
   position: relative;
 
+  cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* &::before {
-    width: auto;
-    height: auto;
-    background: ${({ theme }) => theme.colors.fonts};
-    padding: 10px;
-    border-radius: 16px;
-    position: absolute;
-    top: -30px;
-  } */
+  z-index: 9999;
+`;
+
+export const Popup = styled.span`
+  width: auto;
+  min-width: max-content;
+  height: auto;
+  z-index: 9999;
+
+  background: ${({ theme }) => theme.colors.fonts};
+  padding: 10px;
+  border-radius: 16px;
+  position: absolute;
+  top: -35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

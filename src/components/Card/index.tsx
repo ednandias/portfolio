@@ -40,7 +40,7 @@ export function Card({
 
             case "rotate": {
               gsap.to(containerRef.current, {
-                y: mouseEvent === "mouseenter" ? 360 : 0,
+                rotate: mouseEvent === "mouseenter" ? 360 : 0,
               });
 
               break;

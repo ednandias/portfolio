@@ -23,16 +23,16 @@ export function renderCardTechs(techs: Tech[], options?: Options) {
   }
 
   return techs.map((tech) => {
-    console.log({ tech });
     const image = imagesTech.find((imageTech) => imageTech.name === tech.value);
 
     return (
-      <Popover key={v4()} text="Salveeeeeee">
+      <Popover key={v4()} text={tech.label}>
         <Card
           title={tech.label}
           imgUrl={image?.baseUrl ?? ""}
           size={options?.size}
           imagesize={options?.imagesize}
+          noAnimate
         />
       </Popover>
     );

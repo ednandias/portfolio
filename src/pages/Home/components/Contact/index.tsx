@@ -9,57 +9,57 @@ interface WelcomeProps {
   id: string;
 }
 
-export function Welcome({ id }: WelcomeProps) {
-  useGSAP(() => {
-    const tl = gsap.timeline();
+export function Contact({ id }: WelcomeProps) {
+  // useGSAP(() => {
+  //   const tl = gsap.timeline();
 
-    tl.fromTo(".header", { y: "-100%" }, { y: "0%", ease: "back.out" });
-    tl.fromTo("#presentation", { scale: 0 }, { scale: 1, ease: "back.out" });
+  //   tl.fromTo(".header", { y: "-100%" }, { y: "0%", ease: "back.out" });
+  //   tl.fromTo("#presentation", { scale: 0 }, { scale: 1, ease: "back.out" });
 
-    document
-      .querySelector<HTMLButtonElement>("button.know-more")
-      ?.addEventListener("click", () => {
-        const container = document.querySelector<HTMLElement>("#about");
+  //   document
+  //     .querySelector<HTMLButtonElement>("button.know-more")
+  //     ?.addEventListener("click", () => {
+  //       const container = document.querySelector<HTMLElement>("#about");
 
-        gsap.to(window, {
-          scrollTo: container?.offsetTop,
-          duration: 0.3,
-        });
-      });
+  //       gsap.to(window, {
+  //         scrollTo: container?.offsetTop,
+  //         duration: 0.3,
+  //       });
+  //     });
 
-    gsap.utils
-      .toArray<HTMLAnchorElement>("header a")
-      .forEach((element, _, array) => {
-        element.addEventListener("click", (e) => {
-          e.preventDefault();
+  //   gsap.utils
+  //     .toArray<HTMLAnchorElement>("header a")
+  //     .forEach((element, _, array) => {
+  //       element.addEventListener("click", (e) => {
+  //         e.preventDefault();
 
-          const target = element.getAttribute("href");
+  //         const target = element.getAttribute("href");
 
-          if (target) {
-            const container = document.querySelector<HTMLElement>(target);
+  //         if (target) {
+  //           const container = document.querySelector<HTMLElement>(target);
 
-            gsap.to(window, {
-              scrollTo: container?.offsetTop,
-              duration: 0.3,
-            });
-          }
-        });
+  //           gsap.to(window, {
+  //             scrollTo: container?.offsetTop,
+  //             duration: 0.3,
+  //           });
+  //         }
+  //       });
 
-        element.addEventListener("mouseenter", () => {
-          array
-            .filter((el) => el !== element)
-            .forEach((el) => {
-              gsap.to(el, { opacity: 0.3 });
-            });
-        });
+  //       element.addEventListener("mouseenter", () => {
+  //         array
+  //           .filter((el) => el !== element)
+  //           .forEach((el) => {
+  //             gsap.to(el, { opacity: 0.3 });
+  //           });
+  //       });
 
-        element.addEventListener("mouseleave", () => {
-          array.forEach((el) => {
-            gsap.to(el, { opacity: 1 });
-          });
-        });
-      });
-  });
+  //       element.addEventListener("mouseleave", () => {
+  //         array.forEach((el) => {
+  //           gsap.to(el, { opacity: 1 });
+  //         });
+  //       });
+  //     });
+  // });
 
   return (
     <Section id={id}>

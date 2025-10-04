@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef, useState, type ReactNode } from "react";
-import { Container } from "./styles";
+import { useRef, type ReactNode } from "react";
+import { Container, Popup } from "./styles";
 
 interface PopoverProps {
   children: ReactNode;
@@ -9,40 +9,33 @@ interface PopoverProps {
 }
 
 export function Popover({ children, text }: PopoverProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
   const containerRef = useRef<HTMLDivElement>(null);
+  const popupRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (containerRef.current) {
-      gsap.to(containerRef.current, {
-        opacity: 1,
+      const child = containerRef.current?.firstChild;
+
+      gsap.set(popupRef.current, {
+        opacity: 0,
       });
 
-      containerRef.current.addEventListener("mouseenter", () => {
-        gsap.to(containerRef.current, {
-          opacity: 1,
-          content: text,
-        });
-      });
-
-      containerRef.current.addEventListener("mouseleave", () => {
-        gsap.to(containerRef.current, {
-          opacity: 0,
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        child?.addEventListener(event, () => {
+          gsap.to(popupRef.current, {
+            opacity: event === "mouseenter" ? 1 : 0,
+            y: event === "mouseenter" ? -10 : 0,
+          });
         });
       });
     }
   }, []);
 
   return (
-    <Container
-      ref={containerRef}
-      text={text}
-      isVisible={isVisible}
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-    >
+    <Container ref={containerRef}>
       {children}
+
+      <Popup ref={popupRef}>{text}</Popup>
     </Container>
   );
 }
