@@ -47,6 +47,5 @@ export const Content = styled.div`
     text-indent: 20px;
     text-transform: none;
     white-space: break-spaces;
-    user-select: none;
   }
 `;

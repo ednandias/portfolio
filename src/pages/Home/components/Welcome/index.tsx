@@ -94,21 +94,23 @@ export function Welcome({ id }: WelcomeProps) {
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">Olá, Boas Vindas 👋🏻</h1>
+        <h1 className="welcome">Olá, Bem Vindo</h1>
 
         <p className="name">
-          Que tal conhecer um pouco mais sobre o meu trabalho? 👨🏻‍💻
+          Que tal conhecer um pouco mais sobre o meu trabalho?
         </p>
 
         <ButtonsView>
           <Button className="know-more" icon="HandTap" title="Conhecer" />
 
-          <Button
-            className="know-more"
-            icon="ReadCvLogo"
-            title="Baixar Currículo"
-            disabled
-          />
+          <a href="/download/curriculo.pdf" download="Currículo Ednan Dias.pdf">
+            <Button
+              type="submit"
+              className="know-more"
+              icon="ReadCvLogo"
+              title="Baixar Currículo"
+            />
+          </a>
         </ButtonsView>
       </Presentation>
     </Section>

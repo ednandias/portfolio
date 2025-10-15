@@ -24,16 +24,18 @@ export function Button({
 
   useGSAP(() => {
     ["mouseenter", "mouseleave"].forEach((event) => {
-      if (containerRef?.current) {
-        containerRef.current.addEventListener(event, () => {
-          gsap.to(containerRef.current, {
-            scale: event === "mouseenter" ? 1.1 : 1,
-            duration: 0.2,
+      if (!rest.disabled) {
+        if (containerRef?.current) {
+          containerRef.current.addEventListener(event, () => {
+            gsap.to(containerRef.current, {
+              scale: event === "mouseenter" ? 1.1 : 1,
+              duration: 0.2,
+            });
           });
-        });
+        }
       }
     });
-  });
+  }, []);
 
   return (
     <Container

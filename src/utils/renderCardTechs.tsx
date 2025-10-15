@@ -1,6 +1,4 @@
-import { v4 } from "uuid";
 import { Card } from "../components/Card";
-import { Popover } from "../components/Popover";
 import type { Tech } from "../pages/Home/components/Projects/data/projects";
 
 type ImageImport = Record<string, { default: string }>;
@@ -26,15 +24,13 @@ export function renderCardTechs(techs: Tech[], options?: Options) {
     const image = imagesTech.find((imageTech) => imageTech.name === tech.value);
 
     return (
-      <Popover key={v4()} text={tech.label}>
-        <Card
-          title={tech.label}
-          imgUrl={image?.baseUrl ?? ""}
-          size={options?.size}
-          imagesize={options?.imagesize}
-          noAnimate
-        />
-      </Popover>
+      <Card
+        title={tech.label}
+        imgUrl={image?.baseUrl ?? ""}
+        size={options?.size}
+        imagesize={options?.imagesize}
+        noAnimate
+      />
     );
   });
 }
