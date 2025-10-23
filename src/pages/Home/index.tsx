@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useRef } from "react";
 import { Icon } from "../../components/Icon";
 import { About } from "./components/About";
+import { Contact } from "./components/Contact";
 import { Projects } from "./components/Projects";
 import { Welcome } from "./components/Welcome";
 import { Container } from "./styles";
@@ -40,6 +41,7 @@ export function Home() {
       <Welcome id="welcome" />
       <About id="about" />
       <Projects id="projects" />
+      <Contact id="contact" />
 
       <button id="arrow-up" onClick={backToTop}>
         <Icon iconName="ArrowCircleUp" color="white" weight="fill" size={40} />
