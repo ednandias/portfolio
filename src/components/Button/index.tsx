@@ -28,7 +28,7 @@ export function Button({
         if (containerRef?.current) {
           containerRef.current.addEventListener(event, () => {
             gsap.to(containerRef.current, {
-              scale: event === "mouseenter" ? 1.1 : 1,
+              scale: event === "mouseenter" ? 1.05 : 1,
               duration: 0.2,
             });
           });

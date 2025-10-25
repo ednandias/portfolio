@@ -59,7 +59,7 @@ export function Welcome({ id }: WelcomeProps) {
           });
         });
       });
-  });
+  }, []);
 
   return (
     <Section id={id}>
@@ -94,11 +94,9 @@ export function Welcome({ id }: WelcomeProps) {
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">Olá, Bem Vindo</h1>
+        <h1 className="welcome">Bem Vindo!</h1>
 
-        <p className="name">
-          Que tal conhecer um pouco mais sobre o meu trabalho?
-        </p>
+        <p>Conheça um pouco mais sobre o meu trabalho 👇🏻</p>
 
         <ButtonsView>
           <Button className="know-more" icon="HandTap" title="Conhecer" />

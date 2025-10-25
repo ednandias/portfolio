@@ -49,7 +49,7 @@ export function Card({
         });
       }
     });
-  });
+  }, []);
 
   return (
     <Container

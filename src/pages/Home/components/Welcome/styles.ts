@@ -11,6 +11,10 @@ export const Presentation = styled.div`
   gap: ${toRem(10)};
 
   color: white;
+
+  h1 {
+    margin: 0;
+  }
 `;
 
 export const Header = styled.header`

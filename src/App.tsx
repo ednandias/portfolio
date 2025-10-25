@@ -7,9 +7,9 @@ import GlobalStyles from "./styles/global";
 import theme from "./styles/theme";
 
 export function App() {
-  gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
+  gsap.registerPlugin(useGSAP);
 
   return (
     <ThemeProvider theme={theme}>

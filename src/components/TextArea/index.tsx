@@ -1,14 +1,14 @@
-import { useState, type InputHTMLAttributes } from "react";
+import { useState, type TextareaHTMLAttributes } from "react";
 import type { IconOptions } from "../../interfaces";
 import { Icon } from "../Icon";
 import { Container, IconView, StyledInput } from "./styles";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   icon?: IconOptions;
   mask?: string | (string | RegExp)[];
 }
 
-export function Input({ icon, mask = "", ...rest }: InputProps) {
+export function TextArea({ icon, ...rest }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -24,9 +24,6 @@ export function Input({ icon, mask = "", ...rest }: InputProps) {
       </IconView>
 
       <StyledInput
-        mask={mask}
-        maskChar=""
-        alwaysShowMask={false}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         {...rest}
