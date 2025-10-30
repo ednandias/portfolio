@@ -15,13 +15,13 @@ export const Content = styled.div`
 `;
 
 export const Form = styled.section`
-  min-width: 100%;
+  min-width: ${toRem(450)};
   height: 100%;
   padding: ${toRem(10)};
-  gap: ${toRem(10)};
 
-  display: grid;
-  grid-template-columns: 20% auto auto;
+  display: flex;
+  flex-direction: column;
+  gap: ${toRem(10)};
 `;
 
 export const Info = styled.article`
@@ -30,7 +30,3 @@ export const Info = styled.article`
   justify-content: center;
   gap: ${toRem(10)};
 `;
-
-export const About = styled.article``;
-
-export const Choose = styled.article``;

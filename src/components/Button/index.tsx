@@ -23,18 +23,18 @@ export function Button({
   const containerRef = useRef<HTMLButtonElement>(null);
 
   useGSAP(() => {
-    ["mouseenter", "mouseleave"].forEach((event) => {
-      if (!rest.disabled) {
-        if (containerRef?.current) {
-          containerRef.current.addEventListener(event, () => {
-            gsap.to(containerRef.current, {
-              scale: event === "mouseenter" ? 1.05 : 1,
-              duration: 0.2,
-            });
-          });
-        }
-      }
-    });
+    // ["mouseenter", "mouseleave"].forEach((event) => {
+    //   if (!rest.disabled) {
+    //     if (containerRef?.current) {
+    //       containerRef.current.addEventListener(event, () => {
+    //         gsap.to(containerRef.current, {
+    //           scale: event === "mouseenter" ? 1.05 : 1,
+    //           duration: 0.2,
+    //         });
+    //       });
+    //     }
+    //   }
+    // });
   }, []);
 
   return (

@@ -18,7 +18,7 @@ export function Input({ icon, mask = "", ...rest }: InputProps) {
           <Icon
             iconName={icon}
             color={isFocused ? "#111d4a" : "#747172"}
-            size={30}
+            size={25}
           />
         )}
       </IconView>

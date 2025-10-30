@@ -9,7 +9,6 @@ export const Container = styled.div`
   border-radius: 15px;
 
   display: flex;
-  align-items: center;
 `;
 
 export const IconView = styled.div`
@@ -21,7 +20,7 @@ export const IconView = styled.div`
   justify-content: center;
 `;
 
-export const StyledInput = styled.textarea`
+export const StyledTextArea = styled.textarea`
   min-height: 100%;
   padding: ${toRem(10)};
 

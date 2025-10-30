@@ -1,7 +1,7 @@
 import { useState, type TextareaHTMLAttributes } from "react";
 import type { IconOptions } from "../../interfaces";
 import { Icon } from "../Icon";
-import { Container, IconView, StyledInput } from "./styles";
+import { Container, IconView, StyledTextArea } from "./styles";
 
 interface InputProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   icon?: IconOptions;
@@ -18,14 +18,15 @@ export function TextArea({ icon, ...rest }: InputProps) {
           <Icon
             iconName={icon}
             color={isFocused ? "#111d4a" : "#747172"}
-            size={30}
+            size={25}
           />
         )}
       </IconView>
 
-      <StyledInput
+      <StyledTextArea
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        rows={5}
         {...rest}
       />
     </Container>
