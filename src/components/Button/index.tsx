@@ -1,6 +1,4 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useRef, type ButtonHTMLAttributes } from "react";
+import { type ButtonHTMLAttributes } from "react";
 import type { IconOptions } from "../../interfaces";
 import { Icon } from "../Icon";
 import { Container } from "./styles";
@@ -20,26 +18,8 @@ export function Button({
   size,
   ...rest
 }: ButtonProps) {
-  const containerRef = useRef<HTMLButtonElement>(null);
-
-  useGSAP(() => {
-    // ["mouseenter", "mouseleave"].forEach((event) => {
-    //   if (!rest.disabled) {
-    //     if (containerRef?.current) {
-    //       containerRef.current.addEventListener(event, () => {
-    //         gsap.to(containerRef.current, {
-    //           scale: event === "mouseenter" ? 1.05 : 1,
-    //           duration: 0.2,
-    //         });
-    //       });
-    //     }
-    //   }
-    // });
-  }, []);
-
   return (
     <Container
-      ref={containerRef}
       className={`${className} custom-button`}
       mt={mt}
       size={size}

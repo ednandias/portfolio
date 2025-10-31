@@ -3,7 +3,7 @@ import { Button } from "../../../../components/Button";
 import { Input } from "../../../../components/Input";
 import { TextArea } from "../../../../components/TextArea";
 import { Section } from "../../styles";
-import { Content, Form } from "./styles";
+import { ButtonSelect, Content, Form } from "./styles";
 
 interface ContactProps {
   id: string;
@@ -25,9 +25,10 @@ export function Contact({ id }: ContactProps) {
     <Section id={id}>
       <Content>
         <h1 className="up">Vamos tirar sua ideia do papel ✍🏻</h1>
-        <p>Me conte um pouco mais sobre seu projeto 👇🏻</p>
 
         <Form>
+          <p>Me conte um pouco mais sobre seu projeto 👇🏻</p>
+
           <Input
             name="name"
             value={data.name}
@@ -54,22 +55,26 @@ export function Contact({ id }: ContactProps) {
             mask="(**) *****-****"
           />
 
+          <TextArea
+            icon="ArticleNyTimes"
+            placeholder="Conte um pouco sobre a sua ideia..."
+          />
+
           <div
             style={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "red",
+              gap: 10,
             }}
           >
-            <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
-            <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
+            <ButtonSelect size="full" icon="Globe" title="Quero um Site" />
+            <ButtonSelect
+              size="full"
+              icon="DeviceMobile"
+              title="Quero um App"
+            />
           </div>
-
-          <TextArea
-            icon="ArticleNyTimes"
-            placeholder="Conte um pouco sobre a sua ideia..."
-          />
 
           <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
         </Form>

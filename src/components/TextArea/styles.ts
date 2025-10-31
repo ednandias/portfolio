@@ -21,16 +21,11 @@ export const IconView = styled.div`
 `;
 
 export const StyledTextArea = styled.textarea`
-  min-height: 100%;
-  padding: ${toRem(10)};
-
   outline: 0;
   border: 0;
   background: inherit;
-
-  border-radius: 15px;
-
   resize: none;
-
   flex: 1;
+  padding: 10px 0;
+  border-radius: 15px;
 `;

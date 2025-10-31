@@ -26,9 +26,6 @@ export default createGlobalStyle`
   body, button, input, textarea, select {
     font-size: 1rem;
     font-family: "Rubik", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-optical-sizing: auto;
-    font-style: normal;
   }
 
   a {
