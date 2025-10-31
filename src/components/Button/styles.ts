@@ -13,8 +13,10 @@ export const Container = styled.button<ContainerProps>`
   padding: 0 ${toRem(20)};
   border-radius: 15px;
 
-  /* background: #1b263b; */
-  background-color: #fcf7f8;
+  background: #fcf7f8;
+  color: #0d1b2a !important;
+  font-size: ${toRem(16)};
+  font-weight: bold;
 
   margin-top: ${({ mt }) => mt && toRem(mt)};
 
@@ -23,35 +25,22 @@ export const Container = styled.button<ContainerProps>`
   justify-content: center;
   gap: ${toRem(5)};
 
-  transition: background-color 0.4s;
-
-  &:hover {
+  &:not(:disabled):hover {
     background: #30bced;
     background: linear-gradient(
       270deg,
       rgba(48, 188, 237, 1) 20%,
       rgba(37, 99, 235, 1) 80%
     );
-
-    p {
-      color: #fffaff !important;
-      transition: color 0.4s;
-    }
+    color: white !important;
 
     svg {
-      fill: #fffaff !important;
-      transition: fill 0.4s;
+      fill: white !important;
     }
   }
 
   &:disabled {
     cursor: not-allowed;
     filter: brightness(0.5);
-  }
-
-  p {
-    color: #0d1b2a !important;
-    font-size: ${toRem(16)};
-    font-weight: bold;
   }
 `;

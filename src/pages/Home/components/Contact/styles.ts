@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { Button } from "../../../../components/Button";
+import styled, { css } from "styled-components";
 import { toRem } from "../../../../utils/toRem";
 
 export const Content = styled.div`
@@ -39,18 +38,40 @@ export const Info = styled.article`
   gap: ${toRem(10)};
 `;
 
-export const ButtonSelect = styled(Button)`
+export const ButtonSelect = styled.button<{ selected: boolean }>`
+  min-width: ${toRem(150)};
+  width: 100%;
+  height: ${toRem(50)};
+  padding: 0 ${toRem(20)};
+  border-radius: 15px;
+
+  background: #fcf7f8;
+  color: #0d1b2a !important;
+  font-size: ${toRem(16)};
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${toRem(5)};
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      background: #30bced;
+      background: linear-gradient(
+        270deg,
+        rgba(48, 188, 237, 1) 20%,
+        rgba(37, 99, 235, 1) 80%
+      );
+      color: white !important;
+
+      svg {
+        fill: white !important;
+      }
+    `}
+
   &:hover {
-    background-color: #fcf7f8;
-
-    p {
-      color: #0d1b2a !important;
-      transition: none;
-    }
-
-    svg {
-      fill: #0d1b2a !important;
-      transition: none;
-    }
+    filter: brightness(0.8);
   }
 `;

@@ -29,7 +29,7 @@ export function Button({
         <Icon iconName={icon} weight="duotone" color="#0d1b2a" size={20} />
       )}
 
-      <p>{title}</p>
+      {title}
     </Container>
   );
 }

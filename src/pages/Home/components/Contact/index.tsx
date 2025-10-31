@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import { Button } from "../../../../components/Button";
+import { Icon } from "../../../../components/Icon";
 import { Input } from "../../../../components/Input";
 import { TextArea } from "../../../../components/TextArea";
 import { Section } from "../../styles";
@@ -10,14 +11,33 @@ interface ContactProps {
 }
 
 export function Contact({ id }: ContactProps) {
-  const [data, setData] = useState({ name: "", email: "", phone: "" });
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    observations: "",
+    platforms: [] as String[],
+  });
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     const { name, value } = e.target;
 
     setData((prevState) => ({
       ...prevState,
       [name]: value,
+    }));
+  }
+
+  console.log(data);
+
+  function selectPlatform(platform: string) {
+    setData((prevState) => ({
+      ...prevState,
+      platforms: prevState.platforms.includes(platform)
+        ? prevState.platforms.filter((pltf) => pltf !== platform)
+        : [...prevState.platforms, platform],
     }));
   }
 
@@ -56,6 +76,9 @@ export function Contact({ id }: ContactProps) {
           />
 
           <TextArea
+            name="observations"
+            value={data.observations}
+            onChange={handleChange}
             icon="ArticleNyTimes"
             placeholder="Conte um pouco sobre a sua ideia..."
           />
@@ -68,15 +91,34 @@ export function Contact({ id }: ContactProps) {
               gap: 10,
             }}
           >
-            <ButtonSelect size="full" icon="Globe" title="Quero um Site" />
             <ButtonSelect
-              size="full"
-              icon="DeviceMobile"
-              title="Quero um App"
-            />
+              selected={data.platforms.includes("web")}
+              onClick={() => selectPlatform("web")}
+            >
+              <Icon
+                iconName="Globe"
+                weight="duotone"
+                color="#0d1b2a"
+                size={20}
+              />
+              Quero um Site
+            </ButtonSelect>
+
+            <ButtonSelect
+              selected={data.platforms.includes("app")}
+              onClick={() => selectPlatform("app")}
+            >
+              <Icon
+                iconName="DeviceMobile"
+                weight="duotone"
+                color="#0d1b2a"
+                size={20}
+              />
+              Quero um App
+            </ButtonSelect>
           </div>
 
-          <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
+          <Button icon="PaperPlaneTilt" title="Enviar E-mail" disabled />
         </Form>
       </Content>
     </Section>

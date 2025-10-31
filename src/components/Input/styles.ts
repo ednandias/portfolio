@@ -8,6 +8,8 @@ export const Container = styled.div`
   background: #fcf7f8;
   border-radius: 15px;
 
+  padding-right: ${toRem(20)};
+
   display: flex;
   align-items: center;
 `;
@@ -25,4 +27,5 @@ export const StyledInput = styled(InputMask)`
   outline: 0;
   border: 0;
   background: inherit;
+  flex: 1;
 `;
