@@ -19,6 +19,7 @@ export const AboutMe = styled.div`
 
   h1 {
     font-size: ${toRem(40)};
+    color: ${({ theme }) => theme.colors.gold};
   }
 
   p {

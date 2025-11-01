@@ -3,6 +3,7 @@ import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Input } from "../../../../components/Input";
 import { TextArea } from "../../../../components/TextArea";
+import { useForm } from "../../../../hooks/useForm";
 import { Section } from "../../styles";
 import { ButtonSelect, Content, Form } from "./styles";
 
@@ -19,6 +20,10 @@ export function Contact({ id }: ContactProps) {
     platforms: [] as String[],
   });
 
+  const { getErrorMessage } = useForm(data, [
+    { email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) },
+  ]);
+
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -29,8 +34,6 @@ export function Contact({ id }: ContactProps) {
       [name]: value,
     }));
   }
-
-  console.log(data);
 
   function selectPlatform(platform: string) {
     setData((prevState) => ({
@@ -47,7 +50,7 @@ export function Contact({ id }: ContactProps) {
         <h1 className="up">Vamos tirar sua ideia do papel ✍🏻</h1>
 
         <Form>
-          <p>Me conte um pouco mais sobre seu projeto 👇🏻</p>
+          <p>Informações do projeto</p>
 
           <Input
             name="name"
@@ -64,6 +67,7 @@ export function Contact({ id }: ContactProps) {
             onChange={handleChange}
             icon="Mailbox"
             placeholder="E-mail"
+            error={getErrorMessage("email")}
           />
 
           <Input
@@ -118,7 +122,7 @@ export function Contact({ id }: ContactProps) {
             </ButtonSelect>
           </div>
 
-          <Button icon="PaperPlaneTilt" title="Enviar E-mail" disabled />
+          <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
         </Form>
       </Content>
     </Section>

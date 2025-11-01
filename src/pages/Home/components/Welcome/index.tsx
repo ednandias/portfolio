@@ -94,7 +94,7 @@ export function Welcome({ id }: WelcomeProps) {
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">Olá, Seja Bem Vindo</h1>
+        <h1 className="welcome">Bem Vindo</h1>
 
         <p>Conheça um pouco mais sobre o meu trabalho 👇🏻</p>
 

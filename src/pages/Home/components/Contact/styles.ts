@@ -11,6 +11,7 @@ export const Content = styled.div`
 
   h1 {
     font-size: ${toRem(40)};
+    color: ${({ theme }) => theme.colors.gold};
   }
 `;
 
@@ -29,6 +30,10 @@ export const Form = styled.section`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+
+  p {
+    text-align: center;
+  }
 `;
 
 export const Info = styled.article`
@@ -58,20 +63,11 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
   ${({ selected }) =>
     selected &&
     css`
-      background: #30bced;
-      background: linear-gradient(
-        270deg,
-        rgba(48, 188, 237, 1) 20%,
-        rgba(37, 99, 235, 1) 80%
-      );
+      background: #2563eb;
       color: white !important;
 
       svg {
         fill: white !important;
       }
     `}
-
-  &:hover {
-    filter: brightness(0.8);
-  }
 `;

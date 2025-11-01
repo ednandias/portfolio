@@ -45,9 +45,4 @@ export const Section = styled.section`
     font-size: ${toRem(50)};
     margin-bottom: ${toRem(10)};
   }
-
-  p {
-    font-weight: 400;
-    font-size: ${toRem(20)};
-  }
 `;

@@ -14,6 +14,12 @@ export const Presentation = styled.div`
 
   h1 {
     margin: 0;
+    color: ${({ theme }) => theme.colors.gold};
+  }
+
+  p {
+    font-weight: 400;
+    font-size: ${toRem(20)};
   }
 `;
 

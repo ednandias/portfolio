@@ -26,12 +26,7 @@ export const Container = styled.button<ContainerProps>`
   gap: ${toRem(5)};
 
   &:not(:disabled):hover {
-    background: #30bced;
-    background: linear-gradient(
-      270deg,
-      rgba(48, 188, 237, 1) 20%,
-      rgba(37, 99, 235, 1) 80%
-    );
+    background: #2563eb;
     color: white !important;
 
     svg {
