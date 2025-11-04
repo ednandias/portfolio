@@ -60,11 +60,18 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
   justify-content: center;
   gap: ${toRem(5)};
 
+  input {
+    cursor: pointer;
+  }
+
+  filter: brightness(0.5);
+
   ${({ selected }) =>
     selected &&
     css`
       background: #2563eb;
       color: white !important;
+      filter: brightness(1);
 
       svg {
         fill: white !important;

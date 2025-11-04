@@ -8,11 +8,11 @@ interface InputProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   mask?: string | (string | RegExp)[];
 }
 
-export function TextArea({ icon, ...rest }: InputProps) {
+export function TextArea({ icon, className, ...rest }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Container>
+    <Container className={className}>
       <IconView>
         {icon && (
           <Icon

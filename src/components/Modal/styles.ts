@@ -29,7 +29,6 @@ export const Container = styled.div<ContainerProps>`
   height: auto;
 
   border-radius: ${toRem(20)};
-  overflow-y: auto;
 
   background: #111d4a;
 
@@ -57,7 +56,5 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   flex: 1;
-  overflow-y: scroll;
-
   display: flex;
 `;

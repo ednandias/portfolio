@@ -1,4 +1,5 @@
 import { Card } from "../components/Card";
+import { Tooltip } from "../components/Tooltip";
 import type { Tech } from "../pages/Home/components/Projects/data/projects";
 
 type ImageImport = Record<string, { default: string }>;
@@ -24,13 +25,14 @@ export function renderCardTechs(techs: Tech[], options?: Options) {
     const image = imagesTech.find((imageTech) => imageTech.name === tech.value);
 
     return (
-      <Card
-        title={tech.label}
-        imgUrl={image?.baseUrl ?? ""}
-        size={options?.size}
-        imagesize={options?.imagesize}
-        noAnimate
-      />
+      <Tooltip text={tech.label}>
+        <Card
+          imgUrl={image?.baseUrl ?? ""}
+          size={options?.size}
+          imagesize={options?.imagesize}
+          noAnimate
+        />
+      </Tooltip>
     );
   });
 }

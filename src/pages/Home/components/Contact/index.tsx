@@ -1,9 +1,11 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useState, type ChangeEvent } from "react";
 import { Button } from "../../../../components/Button";
+import { Checkbox } from "../../../../components/Checkbox";
 import { Icon } from "../../../../components/Icon";
 import { Input } from "../../../../components/Input";
 import { TextArea } from "../../../../components/TextArea";
-import { useForm } from "../../../../hooks/useForm";
 import { Section } from "../../styles";
 import { ButtonSelect, Content, Form } from "./styles";
 
@@ -11,18 +13,22 @@ interface ContactProps {
   id: string;
 }
 
+interface ContactState {
+  name: string;
+  email: string;
+  phone: string;
+  observations: string;
+  platforms: string[];
+}
+
 export function Contact({ id }: ContactProps) {
-  const [data, setData] = useState({
+  const [data, setData] = useState<ContactState>({
     name: "",
     email: "",
     phone: "",
     observations: "",
-    platforms: [] as String[],
+    platforms: [],
   });
-
-  const { getErrorMessage } = useForm(data, [
-    { email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) },
-  ]);
 
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,6 +40,25 @@ export function Contact({ id }: ContactProps) {
       [name]: value,
     }));
   }
+
+  useGSAP(() => {
+    gsap.fromTo(
+      `#${id} .up`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        scrollTrigger: {
+          trigger: `#${id} .up`,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        opacity: 1,
+        y: 0,
+      }
+    );
+  });
 
   function selectPlatform(platform: string) {
     setData((prevState) => ({
@@ -47,17 +72,16 @@ export function Contact({ id }: ContactProps) {
   return (
     <Section id={id}>
       <Content>
-        <h1 className="up">Vamos tirar sua ideia do papel ✍🏻</h1>
+        <h1 className="up">Contato</h1>
 
-        <Form>
-          <p>Informações do projeto</p>
-
+        <Form className="up">
           <Input
             name="name"
             value={data.name}
             onChange={handleChange}
             icon="UserCircle"
             placeholder="Nome"
+            className="up"
           />
 
           <Input
@@ -67,7 +91,7 @@ export function Contact({ id }: ContactProps) {
             onChange={handleChange}
             icon="Mailbox"
             placeholder="E-mail"
-            error={getErrorMessage("email")}
+            className="up"
           />
 
           <Input
@@ -77,6 +101,7 @@ export function Contact({ id }: ContactProps) {
             icon="Phone"
             placeholder="Telefone"
             mask="(**) *****-****"
+            className="up"
           />
 
           <TextArea
@@ -85,6 +110,7 @@ export function Contact({ id }: ContactProps) {
             onChange={handleChange}
             icon="ArticleNyTimes"
             placeholder="Conte um pouco sobre a sua ideia..."
+            className="up"
           />
 
           <div
@@ -98,7 +124,9 @@ export function Contact({ id }: ContactProps) {
             <ButtonSelect
               selected={data.platforms.includes("web")}
               onClick={() => selectPlatform("web")}
+              className="up"
             >
+              <Checkbox checked={data.platforms.includes("web")} />
               <Icon
                 iconName="Globe"
                 weight="duotone"
@@ -111,7 +139,9 @@ export function Contact({ id }: ContactProps) {
             <ButtonSelect
               selected={data.platforms.includes("app")}
               onClick={() => selectPlatform("app")}
+              className="up"
             >
+              <Checkbox checked={data.platforms.includes("app")} />
               <Icon
                 iconName="DeviceMobile"
                 weight="duotone"
@@ -122,7 +152,14 @@ export function Contact({ id }: ContactProps) {
             </ButtonSelect>
           </div>
 
-          <Button icon="PaperPlaneTilt" title="Enviar E-mail" />
+          <Button
+            icon="PaperPlaneTilt"
+            title="Enviar"
+            className="up"
+            disabled={
+              !data.name || !data.email || !data.phone || !data.observations
+            }
+          />
         </Form>
       </Content>
     </Section>

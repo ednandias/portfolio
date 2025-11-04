@@ -20,6 +20,8 @@ export const Container = styled.button<ContainerProps>`
 
   margin-top: ${({ mt }) => mt && toRem(mt)};
 
+  transition: background 0.5s;
+
   display: flex;
   align-items: center;
   justify-content: center;

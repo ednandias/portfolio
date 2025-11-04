@@ -10,22 +10,20 @@ interface WelcomeProps {
 }
 
 export function Welcome({ id }: WelcomeProps) {
+  function handleGoTo() {
+    const container = document.querySelector<HTMLElement>("#about");
+
+    gsap.to(window, {
+      scrollTo: container?.offsetTop,
+      duration: 0.3,
+    });
+  }
+
   useGSAP(() => {
     const tl = gsap.timeline();
 
     tl.fromTo(".header", { y: "-100%" }, { y: "0%", ease: "back.out" });
     tl.fromTo("#presentation", { scale: 0 }, { scale: 1, ease: "back.out" });
-
-    document
-      .querySelector<HTMLButtonElement>("button.know-more")
-      ?.addEventListener("click", () => {
-        const container = document.querySelector<HTMLElement>("#about");
-
-        gsap.to(window, {
-          scrollTo: container?.offsetTop,
-          duration: 0.3,
-        });
-      });
 
     gsap.utils
       .toArray<HTMLAnchorElement>("header a")
@@ -59,7 +57,7 @@ export function Welcome({ id }: WelcomeProps) {
           });
         });
       });
-  }, []);
+  });
 
   return (
     <Section id={id}>
@@ -99,7 +97,12 @@ export function Welcome({ id }: WelcomeProps) {
         <p>Conheça um pouco mais sobre o meu trabalho 👇🏻</p>
 
         <ButtonsView>
-          <Button className="know-more" icon="HandTap" title="Conhecer" />
+          <Button
+            className="know-more"
+            icon="HandTap"
+            title="Conhecer"
+            onClick={handleGoTo}
+          />
 
           <a href="/download/curriculo.pdf" download="Currículo Ednan Dias.pdf">
             <Button

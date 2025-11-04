@@ -31,12 +31,11 @@ export function Projects({ id }: ProjectsProps) {
       {
         scrollTrigger: {
           trigger: `#${id} .up`,
-          start: "top center",
-          toggleActions: "restart pause resume reverse",
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
         opacity: 1,
         y: 0,
-        duration: 1,
       }
     );
 
@@ -59,8 +58,8 @@ export function Projects({ id }: ProjectsProps) {
       {
         scrollTrigger: {
           trigger: `#${id} .up`,
-          start: "top center",
-          toggleActions: "restart pause resume reverse",
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
         y: 0,
         opacity: 1,
