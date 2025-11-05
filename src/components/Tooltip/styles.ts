@@ -13,6 +13,7 @@ export const Text = styled.span`
   bottom: 120%;
   left: 50%;
   margin-left: -60px;
+  font-size: 14px;
 
   &::after {
     content: "";

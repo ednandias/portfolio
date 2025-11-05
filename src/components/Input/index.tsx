@@ -20,8 +20,6 @@ export function Input({
 }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
-  console.log(error, icon);
-
   const theme = useTheme();
 
   return (

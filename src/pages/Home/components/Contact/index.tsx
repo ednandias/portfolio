@@ -6,6 +6,8 @@ import { Checkbox } from "../../../../components/Checkbox";
 import { Icon } from "../../../../components/Icon";
 import { Input } from "../../../../components/Input";
 import { TextArea } from "../../../../components/TextArea";
+import { useForm } from "../../../../hooks/useForm";
+import { validation } from "../../../../utils/validation";
 import { Section } from "../../styles";
 import { ButtonSelect, Content, Form } from "./styles";
 
@@ -28,6 +30,23 @@ export function Contact({ id }: ContactProps) {
     phone: "",
     observations: "",
     platforms: [],
+  });
+
+  const { errors } = useForm({
+    validations: [
+      {
+        field: "email",
+        value: data.email,
+        regex: validation.email,
+        message: "E-mail inválido",
+      },
+      {
+        field: "phone",
+        value: data.phone,
+        regex: validation.phone,
+        message: "Telefone inválido",
+      },
+    ],
   });
 
   function handleChange(
@@ -92,6 +111,7 @@ export function Contact({ id }: ContactProps) {
             icon="Mailbox"
             placeholder="E-mail"
             className="up"
+            error={errors.email}
           />
 
           <Input
@@ -102,6 +122,7 @@ export function Contact({ id }: ContactProps) {
             placeholder="Telefone"
             mask="(**) *****-****"
             className="up"
+            error={errors.phone}
           />
 
           <TextArea
