@@ -16,7 +16,12 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
     <Modal isOpen={isOpen} onClose={onClose} size="md">
       <Container>
         <Info>
-          <Card imgUrl={project.image} noAnimate />
+          <Card
+            imgUrl={project.image}
+            noAnimate
+            noGlass={!!project.projectCardBackground}
+            backColor={project.projectCardBackground}
+          />
 
           <h1>{project.title}</h1>
 
@@ -27,7 +32,7 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
             })}
           </Techs>
 
-          <a href={project.url} target="_blank">
+          <a href={project.url} target="_blank" rel="noreferrer">
             <Button icon="ArrowSquareOut" title="Visitar" size="full" />
           </a>
         </Info>

@@ -1,3 +1,5 @@
+import { createArray } from "../utils/createArray";
+
 interface Validation {
   field: string;
   value: string;
@@ -23,7 +25,7 @@ export function useForm({ validations }: UseFormProps) {
     delete errors[key];
   }
 
-  function checkAuth() {
+  function checkData() {
     for (const validation of validations) {
       const { field, value, regex, message } = validation;
 
@@ -39,7 +41,7 @@ export function useForm({ validations }: UseFormProps) {
     }
   }
 
-  checkAuth();
+  checkData();
 
-  return { errors };
+  return { errors, hasErrors: !!createArray(errors).length };
 }

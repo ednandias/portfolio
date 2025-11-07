@@ -1,17 +1,8 @@
 import InputMask from "@mona-health/react-input-mask";
-import { type InputHTMLAttributes } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { toRem } from "../../utils/toRem";
 
-interface StyledInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: string;
-}
-
-interface ContainerProps {
-  error?: string;
-}
-
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div`
   width: 100%;
   height: ${toRem(50)};
   background: #fcf7f8;
@@ -22,12 +13,6 @@ export const Container = styled.div<ContainerProps>`
 
   display: flex;
   align-items: center;
-
-  ${({ error }) =>
-    error &&
-    css`
-      outline: 2px solid red;
-    `}
 `;
 
 export const IconView = styled.div`
@@ -39,7 +24,7 @@ export const IconView = styled.div`
   justify-content: center;
 `;
 
-export const StyledInput = styled(InputMask)<StyledInputProps>`
+export const StyledInput = styled(InputMask)`
   outline: 0;
   border: 0;
   background: inherit;

@@ -24,14 +24,12 @@ export function Input({
 
   return (
     <>
-      <Container className={className} error={error}>
+      <Container className={className}>
         <IconView>
           {icon && (
             <Icon
               iconName={icon}
-              color={
-                error ? theme.colors.danger : isFocused ? "#111d4a" : "#747172"
-              }
+              color={isFocused ? "#111d4a" : "#747172"}
               size={25}
             />
           )}

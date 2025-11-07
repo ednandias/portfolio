@@ -9,6 +9,8 @@ interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   imagesize?: number;
   noAnimate?: boolean;
   animation?: "slide-up" | "rotate";
+  noGlass?: boolean;
+  backColor?: string;
 }
 
 export function Card({
@@ -17,39 +19,39 @@ export function Card({
   imagesize,
   animation,
   noAnimate,
+  noGlass,
+  backColor,
   ...rest
 }: CardProps) {
   const containerRef = useRef<HTMLButtonElement>(null);
 
   useGSAP(() => {
-    ["mouseenter", "mouseleave"].forEach((mouseEvent) => {
-      if (containerRef.current) {
-        containerRef.current.addEventListener(mouseEvent, () => {
-          if (noAnimate) {
-            return;
-          }
+    if (!noAnimate) {
+      ["mouseenter", "mouseleave"].forEach((mouseEvent) => {
+        if (containerRef.current) {
+          containerRef.current.addEventListener(mouseEvent, () => {
+            switch (animation) {
+              case "slide-up": {
+                gsap.to(containerRef.current, {
+                  y: mouseEvent === "mouseenter" ? -10 : 0,
+                });
 
-          switch (animation) {
-            case "slide-up": {
-              gsap.to(containerRef.current, {
-                y: mouseEvent === "mouseenter" ? -10 : 0,
-              });
+                break;
+              }
 
-              break;
+              case "rotate": {
+                gsap.to(containerRef.current, {
+                  rotate: mouseEvent === "mouseenter" ? 360 : 0,
+                });
+
+                break;
+              }
             }
-
-            case "rotate": {
-              gsap.to(containerRef.current, {
-                rotate: mouseEvent === "mouseenter" ? 360 : 0,
-              });
-
-              break;
-            }
-          }
-        });
-      }
-    });
-  }, []);
+          });
+        }
+      });
+    }
+  });
 
   return (
     <Container
@@ -57,6 +59,8 @@ export function Card({
       className="card"
       size={size}
       imagesize={imagesize}
+      noGlass={noGlass}
+      backColor={backColor}
       {...rest}
     >
       <img src={imgUrl} />

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Section } from "../../styles";
 
 import { Card } from "../../../../components/Card";
+import { Tooltip } from "../../../../components/Tooltip";
 import { ModalProject } from "./ModalProject";
 import { projects, type Project } from "./data/projects";
 import { Content, MyProjects } from "./styles";
@@ -39,16 +40,6 @@ export function Projects({ id }: ProjectsProps) {
       }
     );
 
-    const cards = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
-
-    for (const card of cards) {
-      ["mouseenter", "mouseleave"].forEach((event) => {
-        card.addEventListener(event, () => {
-          gsap.to(card, { y: event === "mouseenter" ? -10 : 0 });
-        });
-      });
-    }
-
     gsap.fromTo(
       `#${id} .card`,
       {
@@ -76,11 +67,15 @@ export function Projects({ id }: ProjectsProps) {
 
           <MyProjects className="up">
             {projects.map((project) => (
-              <Card
-                key={project.id}
-                imgUrl={project.image}
-                onClick={() => handleSelectProject(project)}
-              />
+              <Tooltip key={project.id} text={project.title} direction="bottom">
+                <Card
+                  noAnimate
+                  imgUrl={project.image}
+                  onClick={() => handleSelectProject(project)}
+                  noGlass={!!project.projectCardBackground}
+                  backColor={project.projectCardBackground}
+                />
+              </Tooltip>
             ))}
           </MyProjects>
         </Content>

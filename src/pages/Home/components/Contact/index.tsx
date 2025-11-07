@@ -32,7 +32,7 @@ export function Contact({ id }: ContactProps) {
     platforms: [],
   });
 
-  const { errors } = useForm({
+  const { errors, hasErrors } = useForm({
     validations: [
       {
         field: "email",
@@ -178,7 +178,12 @@ export function Contact({ id }: ContactProps) {
             title="Enviar"
             className="up"
             disabled={
-              !data.name || !data.email || !data.phone || !data.observations
+              !data.name ||
+              !data.email ||
+              !data.phone ||
+              !data.observations ||
+              hasErrors ||
+              data.platforms.length === 0
             }
           />
         </Form>

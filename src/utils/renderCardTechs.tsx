@@ -25,7 +25,7 @@ export function renderCardTechs(techs: Tech[], options?: Options) {
     const image = imagesTech.find((imageTech) => imageTech.name === tech.value);
 
     return (
-      <Tooltip text={tech.label}>
+      <Tooltip text={tech.label} key={tech.value}>
         <Card
           imgUrl={image?.baseUrl ?? ""}
           size={options?.size}
