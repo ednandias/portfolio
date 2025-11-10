@@ -90,4 +90,40 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: v4(),
+    title: "ZipHub",
+    url: "https://isabelanaildesigner.netlify.app/",
+    image: isaNailSvg,
+    projectCardBackground: "#fff",
+    about: `Desenvolvi este site para uma cliente com o objetivo de tornar sua rotina mais simples e organizada. Trata-se de uma plataforma prática e intuitiva para agendamento de serviços de manicure, que permite incluir novos serviços, ajustar valores, criar promoções e gerenciar dias e horários de trabalho de forma ágil e eficiente.
+    O sistema conta com um painel administrativo completo, no qual é possível controlar todos os aspectos do negócio com facilidade. Para o cliente final, o agendamento é ainda mais simples: não há necessidade de criar uma conta, basta escolher o serviço desejado e selecionar o horário disponível.
+    Os dias e horários são gerados automaticamente a partir de configurações pré-definidas, eliminando riscos de erro ou perda de tempo. Assim, a profissional pode dedicar toda a sua atenção ao que realmente importa: oferecer um excelente atendimento e a melhor experiência para seus clientes.`,
+    techs: [
+      {
+        label: "React",
+        value: "react",
+      },
+      {
+        label: "React Native",
+        value: "react-native",
+      },
+      {
+        label: "Node",
+        value: "node",
+      },
+      {
+        label: "PostgreSQL",
+        value: "postgresql",
+      },
+      {
+        label: "Docker",
+        value: "docker",
+      },
+      {
+        label: "Nginx",
+        value: "nginx",
+      },
+    ],
+  },
 ];

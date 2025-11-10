@@ -1,0 +1,18 @@
+{
+  "header": {
+    "changeLanguage": "Change language",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "welcome": {
+    "greetings": "Hi, Welcome!",
+    "knowAbout": "Learn a little more about my work 👇🏻",
+    "knowButton": "Learn About",
+    "downloadButton": "Download Resume"
+  },
+  "about": {
+    "title": "About"
+  }
+}

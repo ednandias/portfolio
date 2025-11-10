@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
 import { Section } from "../../styles";
 import { Content } from "./styles";
 
@@ -8,6 +9,8 @@ interface AboutProps {
 }
 
 export function About({ id }: AboutProps) {
+  const { t, i18n } = useTranslation();
+
   useGSAP(() => {
     gsap.fromTo(
       `#${id} .up`,
@@ -30,27 +33,44 @@ export function About({ id }: AboutProps) {
   return (
     <Section id={id}>
       <Content>
-        <h1 className="up">Sobre</h1>
+        <h1 className="up">{t("about.title")}</h1>
 
-        <p className="up">
-          Prazer, me chamo Ednan e moro no interior do estado de São Paulo, nerd
-          por natureza, programador por amor. Tive meu primeiro contato com
-          programação há quase 8 anos atrás, desde lá passei por algumas
-          empresas criando soluções e resolvendo problemas de maneira rápida,
-          eficiente e criativa, já atuei como suporte na retaguarda da equipe de
-          desenvolvimento, na solução de bugs e refatoração de códigos, assim
-          como já tomei frente na criação de sites de produtos de clientes do
-          mundo inteiro; agora estou me aventurando como freelancer, onde já
-          desenvolvi alguns projetos de médio/pequeno porte. Apesar de ter
-          bastante experiência com o ecossistema JavaScript (Node, React e React
-          Native), estou sempre estudando e me desafiando a aprender algo novo,
-          e até reforçar os conhecimentos que já possuo, também sou um grande
-          entusiasta da língua Inglesa, da qual sigo estudando com o objetivo de
-          me tornar fluente. Espero poder te ajudar a tirar sua ideia do papel e
-          transformar em um produto/serviço, dando sempre o melhor de mim, com
-          extrema eficiência, carinho e o que mais prezo nessa área: qualidade e
-          atenção aos detalhes. Muito obrigado por ler até aqui.
-        </p>
+        {i18n.language === "pt-BR" ? (
+          <p>
+            Prazer, me chamo Ednan Dias, sou desenvolvedor Full-Stack Pleno
+            JavaScript/TypeScript. Minha história com programação começou com um
+            curso técnico presencial de Análise e Desenvolvimento de Sistemas,
+            foi lá onde tive meu primeiro contato com tecnologias web como HTML,
+            CSS e JavaScript. Este curso foi o responsável por despertar meu
+            interesse pela área, depois que me formei, fui atrás de cursos para
+            me profissionalizar e me especializar, pois já tinha me decidido de
+            que seria desenvolvedor web. Comecei com cursos grátis e depois
+            investi em alguns cursos renomados entre a comunidade dev, estou
+            atuando na área há 5 anos, nesse meio tempo já atuei como suporte de
+            projetos, corrigindo bugs e implementando novas features, também já
+            tomei frente de projetos maiores, sendo responsável por todo o
+            ecossistema da aplicação (frontend, backend e mobile). Apesar de já
+            estar na área há algum tempo, nunca parei de estudar, e tenho esse
+            hábito até hoje, pois creio que qualquer ponto que possa ser
+            melhorado, deve ser melhorado, então sigo buscando o melhor de mim
+            profissionalmente. Hoje me considerado Pleno, pois já passei todo
+            esse tempo atuando como Júnior e adquiri experiência suficiente para
+            analisar, decidir e implementar demandas/solicitações de forma
+            eficiente e com a maior qualidade possível. Apesar de sempre ter
+            trabalhado com empresas, atuo também como freelancer, onde já fiz
+            alguns projetos para clientes de pequeno/médio porte. Creio que
+            posso te ajudar a tirar sua ideia do papel e e ajudar a
+            transforma-lá em realidade. Muito obrigado pela sua atenção!
+          </p>
+        ) : (
+          <p>
+            Hi there! My name is Ednan Dias and I&apos;m a JavaScript/TypeScript
+            full-stack developer. I started my programming journey with an
+            in-person technical course in System Analysis and Development.
+            That&apos;s where I first encountered web technologias such as HTML,
+            CSS and JavaScript.
+          </p>
+        )}
       </Content>
     </Section>
   );

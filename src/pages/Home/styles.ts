@@ -9,11 +9,11 @@ export const Container = styled.main`
   position: relative;
 
   background: #111d4a;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(17, 29, 74, 1) 25%,
     rgba(0, 0, 0, 1) 100%
-  );
+  ); */
   background-attachment: fixed;
 
   display: flex;

@@ -1,5 +1,11 @@
+import { GhostButton } from "@components/GhostButton";
+import { Tooltip } from "@components/Tooltip";
 import { useGSAP } from "@gsap/react";
+import { MoonIcon } from "@phosphor-icons/react";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
+import BrazilFlag from "../../../../assets/images/brazil.svg?react";
+import UsaFlag from "../../../../assets/images/usa.svg?react";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
@@ -10,6 +16,8 @@ interface WelcomeProps {
 }
 
 export function Welcome({ id }: WelcomeProps) {
+  const { t, i18n } = useTranslation();
+
   function handleGoTo() {
     const container = document.querySelector<HTMLElement>("#about");
 
@@ -62,45 +70,61 @@ export function Welcome({ id }: WelcomeProps) {
   return (
     <Section id={id}>
       <Header className="header">
+        <MoonIcon size={25} />
+
         <a href="#welcome">
           <article>
             <Icon iconName="House" color="#fcf7f8" size={25} />
-            <p>Início</p>
+            <p>{t("header.home")}</p>
           </article>
         </a>
 
         <a href="#about">
           <article>
             <Icon iconName="UserCircle" color="#fcf7f8" size={25} />
-            <p>Sobre</p>
+            <p>{t("header.about")}</p>
           </article>
         </a>
 
         <a href="#projects">
           <article>
             <Icon iconName="Briefcase" color="#fcf7f8" size={25} />
-            <p>Projetos</p>
+            <p>{t("header.projects")}</p>
           </article>
         </a>
 
         <a href="#contact">
           <article>
             <Icon iconName="Mailbox" color="#fcf7f8" size={25} />
-            <p>Contato</p>
+            <p>{t("header.contact")}</p>
           </article>
         </a>
+
+        <Tooltip text={t("header.changeLanguage")} direction="bottom">
+          <GhostButton
+            onClick={() =>
+              i18n.changeLanguage(i18n.language === "pt-BR" ? "en-US" : "pt-BR")
+            }
+          >
+            {i18n.language === "pt-BR" ? (
+              <BrazilFlag width={25} />
+            ) : (
+              <UsaFlag width={25} />
+            )}
+          </GhostButton>
+        </Tooltip>
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">Bem Vindo</h1>
+        <h1 className="welcome">{t("welcome.greetings")}</h1>
 
-        <p>Conheça um pouco mais sobre o meu trabalho 👇🏻</p>
+        <p>{t("welcome.knowAbout")}</p>
 
         <ButtonsView>
           <Button
             className="know-more"
             icon="HandTap"
-            title="Conhecer"
+            title={t("welcome.knowButton")}
             onClick={handleGoTo}
           />
 
@@ -109,7 +133,7 @@ export function Welcome({ id }: WelcomeProps) {
               type="submit"
               className="know-more"
               icon="ReadCvLogo"
-              title="Baixar Currículo"
+              title={t("welcome.downloadButton")}
             />
           </a>
         </ButtonsView>
