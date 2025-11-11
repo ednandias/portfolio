@@ -1,22 +1,52 @@
-import { GhostButton } from "@components/GhostButton";
-import { Tooltip } from "@components/Tooltip";
 import { useGSAP } from "@gsap/react";
-import { MoonIcon } from "@phosphor-icons/react";
+import NodeSvg from "@images/techs/node.svg?react";
+import ReactNativeSvg from "@images/techs/react-native.svg?react";
+import ReactSvg from "@images/techs/react.svg?react";
+import type { IconOptions } from "@interfaces/index";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
-import BrazilFlag from "../../../../assets/images/brazil.svg?react";
-import UsaFlag from "../../../../assets/images/usa.svg?react";
+import { useTheme } from "styled-components";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
-import { ButtonsView, Header, Presentation } from "./styles";
+import {
+  ButtonsView,
+  Description,
+  Divider,
+  Header,
+  Presentation,
+} from "./styles";
 
 interface WelcomeProps {
   id: string;
 }
 
 export function Welcome({ id }: WelcomeProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const anchors: { to: string; icon: IconOptions; text: string }[] = [
+    {
+      to: "#welcome",
+      icon: "House",
+      text: t("header.home"),
+    },
+    {
+      to: "#about",
+      icon: "UserCircle",
+      text: t("header.about"),
+    },
+    {
+      to: "#projects",
+      icon: "Briefcase",
+      text: t("header.projects"),
+    },
+    {
+      to: "#contact",
+      icon: "Mailbox",
+      text: t("header.contact"),
+    },
+  ];
 
   function handleGoTo() {
     const container = document.querySelector<HTMLElement>("#about");
@@ -70,55 +100,35 @@ export function Welcome({ id }: WelcomeProps) {
   return (
     <Section id={id}>
       <Header className="header">
-        <MoonIcon size={25} />
-
-        <a href="#welcome">
-          <article>
-            <Icon iconName="House" color="#fcf7f8" size={25} />
-            <p>{t("header.home")}</p>
-          </article>
-        </a>
-
-        <a href="#about">
-          <article>
-            <Icon iconName="UserCircle" color="#fcf7f8" size={25} />
-            <p>{t("header.about")}</p>
-          </article>
-        </a>
-
-        <a href="#projects">
-          <article>
-            <Icon iconName="Briefcase" color="#fcf7f8" size={25} />
-            <p>{t("header.projects")}</p>
-          </article>
-        </a>
-
-        <a href="#contact">
-          <article>
-            <Icon iconName="Mailbox" color="#fcf7f8" size={25} />
-            <p>{t("header.contact")}</p>
-          </article>
-        </a>
-
-        <Tooltip text={t("header.changeLanguage")} direction="bottom">
-          <GhostButton
-            onClick={() =>
-              i18n.changeLanguage(i18n.language === "pt-BR" ? "en-US" : "pt-BR")
-            }
-          >
-            {i18n.language === "pt-BR" ? (
-              <BrazilFlag width={25} />
-            ) : (
-              <UsaFlag width={25} />
-            )}
-          </GhostButton>
-        </Tooltip>
+        {anchors.map((anchor) => (
+          <a href={anchor.to} key={anchor.to}>
+            <article>
+              <Icon
+                iconName={anchor.icon}
+                color={theme.colors.headerAnchors}
+                size={25}
+                weight="fill"
+              />
+              <p>{anchor.text}</p>
+            </article>
+          </a>
+        ))}
       </Header>
 
       <Presentation id="presentation">
-        <h1 className="welcome">{t("welcome.greetings")}</h1>
+        <h1 className="welcome">Ednan Dias</h1>
 
-        <p>{t("welcome.knowAbout")}</p>
+        <Description>
+          <p>Desenvolvedor Full-Stack Javascript/Typescript</p>
+
+          <Divider />
+
+          <div>
+            <NodeSvg width={25} height={25} />
+            <ReactSvg width={25} height={25} />
+            <ReactNativeSvg width={25} height={25} />
+          </div>
+        </Description>
 
         <ButtonsView>
           <Button

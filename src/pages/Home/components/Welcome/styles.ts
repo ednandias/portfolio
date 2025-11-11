@@ -14,13 +14,42 @@ export const Presentation = styled.div`
 
   h1 {
     margin: 0;
-    color: ${({ theme }) => theme.colors.gold};
+    color: ${({ theme }) => theme.colors.mainTitle};
   }
 
   p {
-    font-weight: 400;
+    font-weight: 300;
+    font-size: ${toRem(20)};
+
+    span {
+      /* background: red; */
+      display: flex;
+    }
+  }
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: ${toRem(10)};
+
+  p {
+    font-weight: 300;
     font-size: ${toRem(20)};
   }
+
+  div {
+    display: flex;
+    gap: 5px;
+  }
+`;
+
+export const Divider = styled.article`
+  width: ${toRem(3)};
+  height: ${toRem(24)};
+  background: white;
 `;
 
 export const Header = styled.header`
@@ -52,6 +81,7 @@ export const Header = styled.header`
 
     p {
       font-weight: bold;
+      color: ${({ theme }) => theme.colors.headerAnchors};
     }
   }
 `;

@@ -13,6 +13,7 @@ interface GenericModalProps {
   size?: "md" | "lg";
   dontCloseOnEscape?: boolean;
   animation?: "scale" | "slide-up";
+  autoSize?: boolean;
 }
 
 export function Modal({
@@ -20,6 +21,7 @@ export function Modal({
   isOpen,
   onClose,
   size,
+  autoSize,
   dontCloseOnEscape,
   animation = "slide-up",
 }: GenericModalProps) {
@@ -63,6 +65,7 @@ export function Modal({
         handleClose();
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useGSAP(() => {
@@ -97,14 +100,14 @@ export function Modal({
   return (
     <Portal elementId="modal-root" isOpen={isOpen}>
       <Overlay>
-        <Container ref={containerRef} size={size}>
+        <Container ref={containerRef} size={size} autoSize={autoSize}>
           <Header>
             <button onClick={handleClose}>
               <Icon
                 iconName="XCircle"
                 size={30}
                 weight="fill"
-                color={theme.colors.fonts}
+                color={theme.colors.gold}
               />
             </button>
           </Header>

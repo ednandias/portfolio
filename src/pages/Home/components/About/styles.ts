@@ -13,14 +13,14 @@ export const Content = styled.div`
 
   h1 {
     font-size: ${toRem(40)};
-    color: ${({ theme }) => theme.colors.gold};
+    color: ${({ theme }) => theme.colors.mainTitle};
   }
+`;
 
-  p {
-    font-size: ${toRem(20)};
-    text-align: justify;
-    text-indent: 20px;
-    text-transform: none;
-    white-space: break-spaces;
-  }
+export const Question = styled.h3`
+  font-size: ${toRem(30)};
+`;
+
+export const Answer = styled.p`
+  font-size: ${toRem(20)};
 `;

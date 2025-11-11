@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { Section } from "../../styles";
-import { Content } from "./styles";
+import { Answer, Content, Question } from "./styles";
 
 interface AboutProps {
   id: string;
@@ -35,8 +35,18 @@ export function About({ id }: AboutProps) {
       <Content>
         <h1 className="up">{t("about.title")}</h1>
 
-        {i18n.language === "pt-BR" ? (
-          <p>
+        <Question>Como tudo começou?</Question>
+
+        <Answer>
+          Meu interesse por programação começou <i>em 2018</i>, quando fiz um
+          curso técnico presencial de{" "}
+          <strong> Análise e Desenvolvimento de Sistemas </strong>e tive meu
+          primeiro contato com tecnologias web, como{" "}
+          <i>HTML, CSS e JavaScript</i>.
+        </Answer>
+
+        {/* {i18n.language === "pt-BR" ? (
+          <p className="up">
             Prazer, me chamo Ednan Dias, sou desenvolvedor Full-Stack Pleno
             JavaScript/TypeScript. Minha história com programação começou com um
             curso técnico presencial de Análise e Desenvolvimento de Sistemas,
@@ -59,18 +69,18 @@ export function About({ id }: AboutProps) {
             eficiente e com a maior qualidade possível. Apesar de sempre ter
             trabalhado com empresas, atuo também como freelancer, onde já fiz
             alguns projetos para clientes de pequeno/médio porte. Creio que
-            posso te ajudar a tirar sua ideia do papel e e ajudar a
-            transforma-lá em realidade. Muito obrigado pela sua atenção!
+            posso te ajudar a tirar sua ideia do papel e ajudar a transforma-lá
+            em realidade. Muito obrigado pela sua atenção!
           </p>
         ) : (
-          <p>
+          <p className="up">
             Hi there! My name is Ednan Dias and I&apos;m a JavaScript/TypeScript
             full-stack developer. I started my programming journey with an
             in-person technical course in System Analysis and Development.
             That&apos;s where I first encountered web technologias such as HTML,
             CSS and JavaScript.
           </p>
-        )}
+        )} */}
       </Content>
     </Section>
   );

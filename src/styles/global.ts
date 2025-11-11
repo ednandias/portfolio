@@ -33,8 +33,8 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  h1, p {
-    color: ${({ theme }) => theme.colors.fonts};
+  p, h1, h2, h3, h4, h5, span {
+    color: ${({ theme }) => theme.colors.text};
   }
 
   button {

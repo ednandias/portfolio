@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 interface GhostButtonProps {
   children: ReactNode;
   onClick?: () => void;
+  style?: CSSProperties;
 }
 
-export function GhostButton({ children, onClick }: GhostButtonProps) {
+export function GhostButton({ children, onClick, style }: GhostButtonProps) {
   return (
     <button
       style={{
@@ -13,6 +14,8 @@ export function GhostButton({ children, onClick }: GhostButtonProps) {
         margin: 0,
         padding: 0,
         lineHeight: 0,
+        zIndex: 1,
+        ...style,
       }}
       onClick={onClick}
     >

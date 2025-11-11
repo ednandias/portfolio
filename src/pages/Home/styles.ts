@@ -8,26 +8,12 @@ export const Container = styled.main`
   overflow-x: hidden;
   position: relative;
 
-  background: #111d4a;
-  /* background: linear-gradient(
-    180deg,
-    rgba(17, 29, 74, 1) 25%,
-    rgba(0, 0, 0, 1) 100%
-  ); */
+  background: ${({ theme }) =>
+    `linear-gradient(180deg, ${theme.colors.background} 0%, rgba(102, 28, 212, 1) 100%);`};
   background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
-
-  button#arrow-up {
-    background: none;
-    border: none;
-
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: ${toRem(20)};
-  }
 `;
 
 export const Section = styled.section`
@@ -45,4 +31,15 @@ export const Section = styled.section`
     font-size: ${toRem(50)};
     margin-bottom: ${toRem(10)};
   }
+`;
+
+export const Config = styled.div`
+  background: none;
+  border: none;
+  background: red;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: ${toRem(20)};
 `;

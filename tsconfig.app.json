@@ -29,7 +29,7 @@
         "./src/@types/*"
       ],
       "@images/*": [
-        "./src/assets/images*"
+        "./src/assets/images/*"
       ],
       "@components/*": [
         "./src/components/*"
