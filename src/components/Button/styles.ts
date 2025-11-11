@@ -28,11 +28,12 @@ export const Container = styled.button<ContainerProps>`
   gap: ${toRem(5)};
 
   &:not(:disabled):hover {
-    background: #2563eb;
-    color: white !important;
+    background: ${({ theme }) => theme.colors.backgroundDarker};
+
+    color: ${({ theme }) => theme.colors.gold} !important;
 
     svg {
-      fill: white !important;
+      fill: ${({ theme }) => theme.colors.gold} !important;
     }
   }
 

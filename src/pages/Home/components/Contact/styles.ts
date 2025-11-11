@@ -69,12 +69,12 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
   ${({ selected }) =>
     selected &&
     css`
-      background: #2563eb;
-      color: white !important;
+      background: ${({ theme }) => theme.colors.backgroundDarker};
+      color: ${({ theme }) => theme.colors.text} !important;
       filter: brightness(1);
 
       svg {
-        fill: white !important;
+        fill: ${({ theme }) => theme.colors.text} !important;
       }
     `}
 `;

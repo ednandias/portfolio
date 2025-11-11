@@ -25,7 +25,7 @@ export default createGlobalStyle`
 
   body, button, input, textarea, select {
     font-size: 1rem;
-    font-family: "Rubik", sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 
   a {

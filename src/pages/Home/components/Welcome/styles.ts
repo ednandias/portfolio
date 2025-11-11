@@ -12,19 +12,13 @@ export const Presentation = styled.div`
 
   color: white;
 
+  p {
+    font-size: ${toRem(20)};
+  }
+
   h1 {
     margin: 0;
     color: ${({ theme }) => theme.colors.mainTitle};
-  }
-
-  p {
-    font-weight: 300;
-    font-size: ${toRem(20)};
-
-    span {
-      /* background: red; */
-      display: flex;
-    }
   }
 `;
 
@@ -34,22 +28,6 @@ export const Description = styled.div`
   justify-content: center;
   align-items: center;
   gap: ${toRem(10)};
-
-  p {
-    font-weight: 300;
-    font-size: ${toRem(20)};
-  }
-
-  div {
-    display: flex;
-    gap: 5px;
-  }
-`;
-
-export const Divider = styled.article`
-  width: ${toRem(3)};
-  height: ${toRem(24)};
-  background: white;
 `;
 
 export const Header = styled.header`

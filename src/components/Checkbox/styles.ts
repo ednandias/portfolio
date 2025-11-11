@@ -33,8 +33,8 @@ export const Container = styled.input`
 
   /* Cor da caixa para o marcador */
   &:checked {
-    background-color: #f2b51e;
-    border-color: #f2b51e;
+    background-color: ${({ theme }) => theme.colors.gold};
+    border-color: ${({ theme }) => theme.colors.gold};
   }
 
   /* Características do marcador quando selecionado */
@@ -48,10 +48,10 @@ export const Container = styled.input`
   }
 
   &:focus {
-    border-color: #f2b51e;
+    border-color: ${({ theme }) => theme.colors.gold};
   }
 
   &:focus + label {
-    color: #f2b51e;
+    color: ${({ theme }) => theme.colors.gold};
   }
 `;

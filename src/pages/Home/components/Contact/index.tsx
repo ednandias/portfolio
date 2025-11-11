@@ -154,7 +154,7 @@ export function Contact({ id }: ContactProps) {
                 color="#0d1b2a"
                 size={20}
               />
-              Quero um Site
+              Site
             </ButtonSelect>
 
             <ButtonSelect
@@ -169,7 +169,7 @@ export function Contact({ id }: ContactProps) {
                 color="#0d1b2a"
                 size={20}
               />
-              Quero um App
+              App
             </ButtonSelect>
           </div>
 

@@ -7,9 +7,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
 
 export function App() {
-  gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin);
+  gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin, TextPlugin);
 
   return (
     <ThemeProvider theme={theme}>

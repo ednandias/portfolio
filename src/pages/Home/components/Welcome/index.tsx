@@ -1,7 +1,8 @@
+import { GhostButton } from "@components/GhostButton";
 import { useGSAP } from "@gsap/react";
-import NodeSvg from "@images/techs/node.svg?react";
-import ReactNativeSvg from "@images/techs/react-native.svg?react";
-import ReactSvg from "@images/techs/react.svg?react";
+import { useTypewriter } from "@hooks/useTypewriter";
+import animatedFlagBrazilGif from "@images/animated-flag-brazil.gif";
+import animatedFlagUsaGif from "@images/animated-flag-usa.gif";
 import type { IconOptions } from "@interfaces/index";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
@@ -9,21 +10,18 @@ import { useTheme } from "styled-components";
 import { Button } from "../../../../components/Button";
 import { Icon } from "../../../../components/Icon";
 import { Section } from "../../styles";
-import {
-  ButtonsView,
-  Description,
-  Divider,
-  Header,
-  Presentation,
-} from "./styles";
+import { ButtonsView, Description, Header, Presentation } from "./styles";
 
 interface WelcomeProps {
   id: string;
 }
 
 export function Welcome({ id }: WelcomeProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const theme = useTheme();
+  const { start, TypedText } = useTypewriter(
+    "Javascript/Typescript Full-Stack Developer"
+  );
 
   const anchors: { to: string; icon: IconOptions; text: string }[] = [
     {
@@ -61,7 +59,11 @@ export function Welcome({ id }: WelcomeProps) {
     const tl = gsap.timeline();
 
     tl.fromTo(".header", { y: "-100%" }, { y: "0%", ease: "back.out" });
-    tl.fromTo("#presentation", { scale: 0 }, { scale: 1, ease: "back.out" });
+    tl.fromTo(
+      "#presentation",
+      { scale: 0 },
+      { scale: 1, ease: "back.out", onComplete: start }
+    );
 
     gsap.utils
       .toArray<HTMLAnchorElement>("header a")
@@ -113,21 +115,39 @@ export function Welcome({ id }: WelcomeProps) {
             </article>
           </a>
         ))}
+
+        <GhostButton
+          onClick={() =>
+            i18n.changeLanguage(i18n.language === "pt-BR" ? "en-US" : "pt-BR")
+          }
+        >
+          {i18n.language === "pt-BR" ? (
+            // <BrazilSvg width={25} height={25} />
+            <img
+              src={animatedFlagBrazilGif}
+              style={{
+                width: "auto",
+                height: 20,
+              }}
+            />
+          ) : (
+            // <UsaSvg width={20} height={20} />
+            <img
+              src={animatedFlagUsaGif}
+              style={{
+                width: "auto",
+                height: 20,
+              }}
+            />
+          )}
+        </GhostButton>
       </Header>
 
       <Presentation id="presentation">
         <h1 className="welcome">Ednan Dias</h1>
 
         <Description>
-          <p>Desenvolvedor Full-Stack Javascript/Typescript</p>
-
-          <Divider />
-
-          <div>
-            <NodeSvg width={25} height={25} />
-            <ReactSvg width={25} height={25} />
-            <ReactNativeSvg width={25} height={25} />
-          </div>
+          <TypedText />
         </Description>
 
         <ButtonsView>

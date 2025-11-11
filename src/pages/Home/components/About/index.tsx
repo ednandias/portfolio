@@ -35,7 +35,7 @@ export function About({ id }: AboutProps) {
       <Content>
         <h1 className="up">{t("about.title")}</h1>
 
-        <Question>Como tudo começou?</Question>
+        <Question>Como tudo começou</Question>
 
         <Answer>
           Meu interesse por programação começou <i>em 2018</i>, quando fiz um
@@ -45,42 +45,24 @@ export function About({ id }: AboutProps) {
           <i>HTML, CSS e JavaScript</i>.
         </Answer>
 
-        {/* {i18n.language === "pt-BR" ? (
-          <p className="up">
-            Prazer, me chamo Ednan Dias, sou desenvolvedor Full-Stack Pleno
-            JavaScript/TypeScript. Minha história com programação começou com um
-            curso técnico presencial de Análise e Desenvolvimento de Sistemas,
-            foi lá onde tive meu primeiro contato com tecnologias web como HTML,
-            CSS e JavaScript. Este curso foi o responsável por despertar meu
-            interesse pela área, depois que me formei, fui atrás de cursos para
-            me profissionalizar e me especializar, pois já tinha me decidido de
-            que seria desenvolvedor web. Comecei com cursos grátis e depois
-            investi em alguns cursos renomados entre a comunidade dev, estou
-            atuando na área há 5 anos, nesse meio tempo já atuei como suporte de
-            projetos, corrigindo bugs e implementando novas features, também já
-            tomei frente de projetos maiores, sendo responsável por todo o
-            ecossistema da aplicação (frontend, backend e mobile). Apesar de já
-            estar na área há algum tempo, nunca parei de estudar, e tenho esse
-            hábito até hoje, pois creio que qualquer ponto que possa ser
-            melhorado, deve ser melhorado, então sigo buscando o melhor de mim
-            profissionalmente. Hoje me considerado Pleno, pois já passei todo
-            esse tempo atuando como Júnior e adquiri experiência suficiente para
-            analisar, decidir e implementar demandas/solicitações de forma
-            eficiente e com a maior qualidade possível. Apesar de sempre ter
-            trabalhado com empresas, atuo também como freelancer, onde já fiz
-            alguns projetos para clientes de pequeno/médio porte. Creio que
-            posso te ajudar a tirar sua ideia do papel e ajudar a transforma-lá
-            em realidade. Muito obrigado pela sua atenção!
-          </p>
-        ) : (
-          <p className="up">
-            Hi there! My name is Ednan Dias and I&apos;m a JavaScript/TypeScript
-            full-stack developer. I started my programming journey with an
-            in-person technical course in System Analysis and Development.
-            That&apos;s where I first encountered web technologias such as HTML,
-            CSS and JavaScript.
-          </p>
-        )} */}
+        <Question>Minhas Experiências</Question>
+
+        <Answer>
+          Trabalho profissionalmente desde <i>2020</i>, acumulando{" "}
+          <i>cinco anos de experiência</i>. Já atuei como desenvolvedor{" "}
+          <strong>back-end</strong>, <strong>front-end</strong>,{" "}
+          <strong>full-stack</strong> e <strong>analista de sistemas</strong>,
+          além de atuar como <strong>freelancer</strong>. Durante esse período,
+          levantei requisitos, analisei as melhores abordagens, implementei
+          novas funções, refatorei códigos, corrigi bugs e criei ecossistemas
+          inteiros (web, APIs e mobile). Por isso, posso atuar como profissional{" "}
+          <strong>júnior</strong> e me sinto confiante o bastante para trabalhar
+          como profissional <strong>pleno</strong>.
+        </Answer>
+
+        <Question>Porque programação?</Question>
+
+        <Answer>Escolhi programação</Answer>
       </Content>
     </Section>
   );
