@@ -29,7 +29,6 @@ export const Section = styled.section`
   h1 {
     font-weight: 700;
     font-size: ${toRem(50)};
-    margin-bottom: ${toRem(10)};
   }
 `;
 

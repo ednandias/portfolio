@@ -13,6 +13,7 @@ import {
   Content,
   FormQuestions,
   Highlight,
+  Info,
   Question,
   Questions,
 } from "./styles";
@@ -29,8 +30,6 @@ interface Question {
 }
 
 export function About({ id }: AboutProps) {
-  const { colors } = useTheme();
-
   const questions: Question[] = [
     {
       id: 1,
@@ -38,13 +37,9 @@ export function About({ id }: AboutProps) {
       icon: "PottedPlant",
       content: () => (
         <Answer>
-          Meu interesse por programação começou em <strong>2018</strong>, quando
-          fiz um curso técnico presencial de{" "}
-          <strong>Análise e Desenvolvimento de Sistemas</strong> e tive meu
-          primeiro contato com tecnologias web, como{" "}
-          <Highlight color={colors.html}>HTML</Highlight>,{" "}
-          <Highlight color={colors.css}>CSS</Highlight> e{" "}
-          <Highlight color={colors.javascript}>JavaScript</Highlight>.
+          Meu interesse por programação começou em 2018, quando fiz um curso
+          técnico presencial de Análise e Desenvolvimento de Sistemas e tive meu
+          primeiro contato com tecnologias web, como HTML, CSS e JavaScript.
         </Answer>
       ),
     },
@@ -54,16 +49,13 @@ export function About({ id }: AboutProps) {
       icon: "ChartLineUp",
       content: () => (
         <Answer>
-          Trabalho profissionalmente <strong>desde 2020</strong>, acumulando{" "}
-          <strong>cinco anos de experiência</strong>. Já atuei como
-          desenvolvedor <strong>back-end</strong>, <strong>front-end</strong>,{" "}
-          <strong>full-stack</strong> e <strong>analista de sistemas</strong>,
-          além de atuar também como <strong>freelancer</strong>. Durante esse
-          período, levantei requisitos, implementei novas funções, refatorei
-          códigos, corrigi bugs e criei ecossistemas inteiros{" "}
-          <strong>(web, APIs e mobile)</strong>. Por isso, posso atuar como{" "}
-          <strong>júnior</strong> e me sinto confiante o bastante para trabalhar
-          como <strong>pleno</strong>.
+          Trabalho profissionalmente desde 2020, acumulando cinco anos de
+          experiência. Já atuei como desenvolvedor back-end,
+          front-end,full-stack e analista de sistemas, além de atuar também como
+          freelancer. Durante esse período, levantei requisitos, implementei
+          novas funções, refatorei códigos, corrigi bugs e criei ecossistemas
+          inteiros(web, APIs e mobile). Por isso, posso atuar como júnior e me
+          sinto confiante o bastante para trabalhar como pleno.
         </Answer>
       ),
     },
@@ -73,11 +65,10 @@ export function About({ id }: AboutProps) {
       icon: "Heart",
       content: () => (
         <Answer>
-          Optei por seguir no mundo do desenvolvimento porque gosto de{" "}
-          <strong>transformar</strong> ideias em projetos reais,{" "}
-          <strong>automatizar </strong> processos, <strong>criar</strong> marcas
-          de valor, <strong>solucionar</strong> problemas por meio da tecnologia
-          e <strong>contribuir</strong> com a comunidade em geral.
+          Optei por seguir no mundo do desenvolvimento porque gosto de
+          transformar ideias em projetos reais, automatizar processos, criar
+          marcas de valor, solucionar problemas por meio da tecnologia e
+          contribuir com a comunidade em geral.
         </Answer>
       ),
     },
@@ -87,16 +78,12 @@ export function About({ id }: AboutProps) {
       icon: "Code",
       content: () => (
         <Answer>
-          Escolhi o <Highlight color={colors.javascript}>JavaScript</Highlight>{" "}
-          como minha <strong>principal</strong> tecnologia, pois com ele consigo
-          atender a qualquer solicitação ou demanda, como criar uma API{" "}
-          <strong>robusta, segura e escalável</strong> com{" "}
-          <Highlight color={colors.node}>Node.js</Highlight>, criar um site{" "}
-          <strong>moderno, funcional e completo</strong> com{" "}
-          <Highlight color={colors.react}>React</Highlight> e entregar um
-          aplicativo <strong>atual, performático e multiplataforma</strong> com{" "}
-          <Highlight color={colors.reactNative}>React Native</Highlight>. A{" "}
-          <strong>imaginação é o limite</strong>.
+          Escolhi o JavaScript como minha principal tecnologia, pois com ele
+          consigo atender a qualquer solicitação ou demanda, como criar uma API
+          robusta, segura e escalável com Node.js, criar um site moderno,
+          funcional e completo com React e entregar um aplicativo atual,
+          performático e multiplataforma com React Native. A imaginação é o
+          limite.
         </Answer>
       ),
     },
@@ -106,18 +93,13 @@ export function About({ id }: AboutProps) {
       icon: "Star",
       content: () => (
         <Answer>
-          Eu diria que meu <strong>diferencial</strong> é ser{" "}
-          <strong>estudioso</strong> e <strong>persistente</strong>. Desde que
+          Eu diria que meu diferencial é ser estudioso e persistente. Desde que
           conheci a área, nunca parei de estudar, mesmo quando estava
           trabalhando. Comecei com cursos gratuitos no YouTube e em outras
-          plataformas, mas também já <strong>investi</strong> em cursos pagos
-          para me <strong>profissionalizar</strong> e, principalmente, me{" "}
-          <strong>especializar</strong>
-          nas tecnologias que já conheço. Acredito que a{" "}
-          <strong>acomodação</strong> é o que <strong>desqualifica</strong> um{" "}
-          <strong>profissional</strong> para o{" "}
-          <strong>mercado de trabalho</strong> com o passar do{" "}
-          <strong>tempo</strong>.
+          plataformas, mas também já investi em cursos pagos para me
+          profissionalizar e, principalmente, me especializar nas tecnologias
+          que já conheço. Acredito que a acomodação é o que desqualifica um
+          profissional para o mercado de trabalho com o passar do tempo.
         </Answer>
       ),
     },
@@ -127,26 +109,37 @@ export function About({ id }: AboutProps) {
       icon: "Target",
       content: () => (
         <Answer>
-          Meu <strong>objetivo</strong> é me tornar <strong>referência</strong>{" "}
-          dentro de uma <strong>comunidade ou empresa</strong>, e{" "}
-          <strong>ajudar</strong> o maior número de pessoas que eu conseguir,
-          ajudando-as a tirar sua <strong>ideias</strong> do papel e{" "}
-          <strong>transformar</strong>
-          seus <strong>sonhos/negócios</strong> em <strong>realidade</strong>{" "}
-          por meio do meu <strong>conhecimento técnico</strong>, gostaria
-          também, de no <strong>futuro</strong>, <strong>aconselhar</strong> e
-          <strong>auxiliar</strong> pessoas que vão passar pelas{" "}
-          <strong>dificuldade</strong> que eu passei quando estava{" "}
-          <strong>iniciando</strong> na minha <strong>carreira</strong>.
+          Meu objetivo é me tornar referência dentro de uma comunidade ou
+          empresa, e ajudar o maior número de pessoas que eu conseguir,
+          ajudando-as a tirar sua ideias do papel e transformar seus
+          sonhos/negócios em realidade por meio do meu conhecimento técnico,
+          gostaria também, de no futuro, aconselhar e auxiliar pessoas que vão
+          passar pelas dificuldade que eu passei quando estava iniciando na
+          minha carreira.
         </Answer>
       ),
     },
   ];
 
+  const [isQuestionSectionOpen, setIsQuestionSectionOpen] = useState(true);
   const [selectedQuestion, setSelectedQuestion] = useState(questions[0]);
 
   const { t } = useTranslation();
   const theme = useTheme();
+
+  const pathA =
+    "M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM69.66,90.34a8,8,0,0,0-11.32,11.32L76.69,120H16a8,8,0,0,0,0,16H76.69L58.34,154.34a8,8,0,0,0,11.32,11.32l32-32a8,8,0,0,0,0-11.32ZM240,120H179.31l18.35-18.34a8,8,0,0,0-11.32-11.32l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L179.31,136H240a8,8,0,0,0,0-16Z";
+
+  const pathB =
+    "M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z";
+
+  function handleChangeQuestionSection() {
+    gsap.to("#icon1", {
+      duration: 1,
+      morphSVG: isQuestionSectionOpen ? pathA : pathB,
+      ease: "power2.inOut",
+    });
+  }
 
   useGSAP(() => {
     gsap.fromTo(
@@ -182,15 +175,15 @@ export function About({ id }: AboutProps) {
   return (
     <Section id={id}>
       <Content>
-        <h1 className="up">
-          {t("about.title")}{" "}
-          <GhostButton>
-            <Icon
-              iconName="
-        "
-            />
+        <Info>
+          <h1 className="up">{t("about.title")}</h1>
+
+          <GhostButton onClick={handleChangeQuestionSection}>
+            <svg width="40" height="40" fill="#f3b61f" viewBox="0 0 256 256">
+              <path id="icon1" d={pathA} />
+            </svg>
           </GhostButton>
-        </h1>
+        </Info>
 
         <FormQuestions>
           <Questions>

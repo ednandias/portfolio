@@ -98,3 +98,11 @@ export const Highlight = styled.span<{ color: string }>`
   font-weight: bold;
   font-style: italic;
 `;
+
+export const Info = styled.div`
+  margin-bottom: ${toRem(10)};
+
+  display: flex;
+  align-items: center;
+  gap: ${toRem(20)};
+`;

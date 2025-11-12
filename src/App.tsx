@@ -5,12 +5,12 @@ import theme from "./styles/theme";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextPlugin } from "gsap/TextPlugin";
 
 export function App() {
-  gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin, TextPlugin);
+  gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin, MorphSVGPlugin);
 
   return (
     <ThemeProvider theme={theme}>
