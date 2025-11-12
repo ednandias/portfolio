@@ -7,7 +7,7 @@ export function useTypewriter(baseWord: string) {
 
   async function writeWord(word: string) {
     for (const letter of word) {
-      await delay(100);
+      await delay(50);
 
       setText((prevState) => (prevState += letter));
     }

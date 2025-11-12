@@ -11,7 +11,7 @@ export const Content = styled.div`
 
   h1 {
     font-size: ${toRem(40)};
-    color: ${({ theme }) => theme.colors.mainTitle};
+    color: ${({ theme }) => theme.colors.gold};
   }
 `;
 
@@ -69,7 +69,7 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
   ${({ selected }) =>
     selected &&
     css`
-      background: ${({ theme }) => theme.colors.backgroundDarker};
+      background: ${({ theme }) => theme.colors.primaryDarker};
       color: ${({ theme }) => theme.colors.text} !important;
       filter: brightness(1);
 

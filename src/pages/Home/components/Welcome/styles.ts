@@ -18,7 +18,7 @@ export const Presentation = styled.div`
 
   h1 {
     margin: 0;
-    color: ${({ theme }) => theme.colors.mainTitle};
+    color: ${({ theme }) => theme.colors.gold};
   }
 `;
 
@@ -59,7 +59,7 @@ export const Header = styled.header`
 
     p {
       font-weight: bold;
-      color: ${({ theme }) => theme.colors.headerAnchors};
+      color: ${({ theme }) => theme.colors.text};
     }
   }
 `;

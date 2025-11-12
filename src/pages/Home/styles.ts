@@ -9,7 +9,7 @@ export const Container = styled.main`
   position: relative;
 
   background: ${({ theme }) =>
-    `linear-gradient(180deg, ${theme.colors.background} 0%, rgba(102, 28, 212, 1) 100%);`};
+    `linear-gradient(180deg, ${theme.colors.primary} 0%, rgba(102, 28, 212, 1) 100%);`};
   background-attachment: fixed;
 
   display: flex;

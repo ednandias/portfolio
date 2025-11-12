@@ -107,7 +107,7 @@ export function Welcome({ id }: WelcomeProps) {
             <article>
               <Icon
                 iconName={anchor.icon}
-                color={theme.colors.headerAnchors}
+                color={theme.colors.text}
                 size={25}
                 weight="fill"
               />
