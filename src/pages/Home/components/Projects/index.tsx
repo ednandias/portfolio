@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Section } from "../../styles";
 
 import { Card } from "../../../../components/Card";
-import { Tooltip } from "../../../../components/Tooltip";
 import { ModalProject } from "./ModalProject";
 import { projects, type Project } from "./data/projects";
 import { Content, MyProjects } from "./styles";
@@ -67,15 +66,14 @@ export function Projects({ id }: ProjectsProps) {
 
           <MyProjects className="up">
             {projects.map((project) => (
-              <Tooltip key={project.id} text={project.title} direction="bottom">
-                <Card
-                  noAnimate
-                  imgUrl={project.image}
-                  onClick={() => handleSelectProject(project)}
-                  noGlass={!!project.projectCardBackground}
-                  backColor={project.projectCardBackground}
-                />
-              </Tooltip>
+              <Card
+                key={project.id}
+                noAnimate
+                imgUrl={project.image}
+                onClick={() => handleSelectProject(project)}
+                noGlass={!!project.projectCardBackground}
+                backColor={project.projectCardBackground}
+              />
             ))}
           </MyProjects>
         </Content>

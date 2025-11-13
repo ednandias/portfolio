@@ -1,18 +1,11 @@
 {
   "header": {
-    "changeLanguage": "Mudar idioma",
     "home": "Início",
     "about": "Sobre",
     "projects": "Projetos",
     "contact": "Contato"
   },
   "welcome": {
-    "header": {
-      "home": "Início",
-      "about": "Sobre",
-      "projects": "Projetos",
-      "contact": "Contato"
-    },
     "greetings": "Olá, Seja Bem Vindo!",
     "knowAbout": "Conheça um pouco mais sobre o meu trabalho 👇🏻",
     "knowButton": "Conhecer",

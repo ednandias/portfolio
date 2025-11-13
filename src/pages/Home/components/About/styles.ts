@@ -20,19 +20,20 @@ export const FormQuestions = styled.section`
   min-width: 100%;
 
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: auto auto;
 `;
 
 export const Questions = styled.article`
   display: flex;
   flex-direction: column;
   gap: ${toRem(10)};
+  justify-content: center;
 `;
 
 export const Question = styled.button<{ isSelected: boolean }>`
   height: ${toRem(50)};
   padding: ${toRem(10)};
-  border-radius: ${toRem(10)};
+  border-radius: ${toRem(16)};
 
   background: ${({ theme }) => theme.colors.text};
 
@@ -77,14 +78,14 @@ export const Answers = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 export const Answer = styled.p`
-  text-align: start;
+  text-align: center;
   text-indent: ${toRem(15)};
   font-weight: 300;
-  font-size: ${toRem(25)};
+  font-size: ${toRem(30)};
 
   strong {
     font-weight: bold;

@@ -12,6 +12,7 @@ export const Content = styled.div`
   h1 {
     font-size: ${toRem(40)};
     color: ${({ theme }) => theme.colors.gold};
+    margin-bottom: ${toRem(50)};
   }
 `;
 
