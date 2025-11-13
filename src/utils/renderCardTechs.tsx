@@ -30,7 +30,6 @@ export function renderCardTechs(techs: Tech[], options?: Options) {
           imgUrl={image?.baseUrl ?? ""}
           size={options?.size}
           imagesize={options?.imagesize}
-          noAnimate
         />
       </Tooltip>
     );

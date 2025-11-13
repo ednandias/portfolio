@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useState } from "react";
 import { Section } from "../../styles";
 
+import { useTranslation } from "react-i18next";
 import { Card } from "../../../../components/Card";
 import { ModalProject } from "./ModalProject";
 import { projects, type Project } from "./data/projects";
@@ -16,13 +17,17 @@ export function Projects({ id }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState({} as Project);
   const [isModalProjectOpen, setIsModalProjectOpen] = useState(false);
 
+  const { t } = useTranslation();
+
   function handleSelectProject(project: Project) {
     setSelectedProject(project);
     setIsModalProjectOpen(true);
   }
 
   useGSAP(() => {
-    gsap.fromTo(
+    const tl = gsap.timeline();
+
+    tl.fromTo(
       `#${id} .up`,
       {
         opacity: 0,
@@ -39,7 +44,7 @@ export function Projects({ id }: ProjectsProps) {
       }
     );
 
-    gsap.fromTo(
+    tl.fromTo(
       `#${id} .card`,
       {
         y: 100,
@@ -56,19 +61,38 @@ export function Projects({ id }: ProjectsProps) {
         stagger: 0.1,
       }
     );
-  }, []);
+
+    const cards = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
+
+    for (const card of cards) {
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        card.addEventListener(event, () => {
+          gsap.to(card, {
+            scale: event === "mouseenter" ? 1.1 : 1,
+          });
+
+          cards
+            .filter((cd) => cd !== card)
+            .forEach((element) => {
+              gsap.to(element, {
+                opacity: event === "mouseenter" ? 0.5 : 1,
+              });
+            });
+        });
+      });
+    }
+  });
 
   return (
     <>
       <Section id={id}>
         <Content>
-          <h1 className="up">Projetos</h1>
+          <h1 className="up">{t("projects.title")}</h1>
 
           <MyProjects className="up">
             {projects.map((project) => (
               <Card
                 key={project.id}
-                noAnimate
                 imgUrl={project.image}
                 onClick={() => handleSelectProject(project)}
                 noGlass={!!project.projectCardBackground}

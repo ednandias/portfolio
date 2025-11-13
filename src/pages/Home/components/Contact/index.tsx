@@ -147,7 +147,10 @@ export function Contact({ id }: ContactProps) {
               onClick={() => selectPlatform("web")}
               className="up"
             >
-              <Checkbox checked={data.platforms.includes("web")} />
+              <Checkbox
+                checked={data.platforms.includes("web")}
+                onChange={() => {}}
+              />
               <Icon
                 iconName="Globe"
                 weight="duotone"
@@ -162,7 +165,10 @@ export function Contact({ id }: ContactProps) {
               onClick={() => selectPlatform("app")}
               className="up"
             >
-              <Checkbox checked={data.platforms.includes("app")} />
+              <Checkbox
+                checked={data.platforms.includes("app")}
+                onChange={() => {}}
+              />
               <Icon
                 iconName="DeviceMobile"
                 weight="duotone"

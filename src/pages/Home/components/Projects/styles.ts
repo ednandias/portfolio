@@ -18,5 +18,5 @@ export const Content = styled.div`
 
 export const MyProjects = styled.div`
   display: flex;
-  gap: ${toRem(10)};
+  gap: ${toRem(20)};
 `;

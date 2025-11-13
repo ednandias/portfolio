@@ -35,6 +35,11 @@ export function Welcome({ id }: WelcomeProps) {
       text: t("header.about"),
     },
     {
+      to: "#techs",
+      icon: "Code",
+      text: t("header.tecnologies"),
+    },
+    {
       to: "#projects",
       icon: "Briefcase",
       text: t("header.projects"),
@@ -122,7 +127,6 @@ export function Welcome({ id }: WelcomeProps) {
           }
         >
           {i18n.language === "pt-BR" ? (
-            // <BrazilSvg width={25} height={25} />
             <img
               src={animatedFlagBrazilGif}
               style={{
@@ -131,7 +135,6 @@ export function Welcome({ id }: WelcomeProps) {
               }}
             />
           ) : (
-            // <UsaSvg width={20} height={20} />
             <img
               src={animatedFlagUsaGif}
               style={{

@@ -2,6 +2,7 @@
   "header": {
     "home": "Início",
     "about": "Sobre",
+    "tecnologies": "Tecnologias",
     "projects": "Projetos",
     "contact": "Contato"
   },
@@ -12,6 +13,33 @@
     "downloadButton": "Baixar Currículo"
   },
   "about": {
-    "title": "Sobre"
+    "title": "Sobre",
+    "howStarted": {
+      "title": "Como tudo começou?",
+      "text": "Meu interesse por programação começou em 2018, quando fiz um curso técnico presencial de Análise e Desenvolvimento de Sistemas e tive meu primeiro contato com tecnologias web, como HTML, CSS e Javascript."
+    },
+    "myExperiences": {
+      "title": "Minhas experiências",
+      "text": "Trabalho profissionalmente desde 2020, acumulando cinco anos de experiência. Já atuei como desenvolvedor back-end, front-end,full-stack e analista de sistemas, além de atuar também como freelancer. Durante esse período, levantei requisitos, implementei novas funções, refatorei códigos, corrigi bugs e criei ecossistemas inteiros(web, APIs e mobile). Por isso, posso atuar como júnior e me sinto confiante o bastante para trabalhar como pleno."
+    },
+    "whyProgramming": {
+      "title": "Porque programação?",
+      "text": "Optei por seguir no mundo do desenvolvimento porque gosto de transformar ideias em projetos reais, automatizar processos, criar marcas de valor, solucionar problemas por meio da tecnologia e contribuir com a comunidade em geral."
+    },
+    "mainStack": {
+      "title": "Stack principal",
+      "text": "Escolhi o Javascript como minha principal tecnologia, pois com ele consigo atender a qualquer solicitação ou demanda, como criar uma API robusta, segura e escalável com Node.js, criar um site moderno, funcional e completo com React e entregar um aplicativo atual, performático e multiplataforma com React Native. A imaginação é o limite."
+    },
+    "myUniqueAdvantage": {
+      "title": "Qual o meu diferencial?",
+      "text": "Eu diria que meu diferencial é ser estudioso e persistente. Desde que conheci a área, nunca parei de estudar, mesmo quando estava trabalhando. Comecei com cursos gratuitos no YouTube e em outras plataformas, mas também já investi em cursos pagos para me profissionalizar e, principalmente, me especializar nas tecnologias que já conheço. Acredito que a acomodação é o que desqualifica um profissional para o mercado de trabalho com o passar do tempo."
+    },
+    "myGoal": {
+      "title": "Meu objetivo",
+      "text": "Meu objetivo é me tornar referência dentro de uma comunidade ou empresa, e ajudar o maior número de pessoas que eu conseguir, ajudando-as a tirar sua ideias do papel e transformar seus sonhos/negócios em realidade por meio do meu conhecimento técnico, gostaria também, de no futuro, aconselhar e auxiliar pessoas que vão passar pelas dificuldade que eu passei quando estava iniciando na minha carreira."
+    }
+  },
+  "projects": {
+    "title": "Projetos"
   }
 }

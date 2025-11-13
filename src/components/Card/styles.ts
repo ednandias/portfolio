@@ -4,18 +4,18 @@ import { toRem } from "../../utils/toRem";
 interface ContainerProps {
   size?: number;
   imagesize?: number;
-  noGlass?: boolean;
-  backColor?: string;
+  $noGlass?: boolean;
+  $backColor?: string;
 }
 
 export const Container = styled.button<ContainerProps>`
   width: ${({ size }) => toRem(size ? size : 150)};
   height: ${({ size }) => toRem(size ? size : 150)};
   border-radius: 16px;
-  background: ${({ backColor }) => backColor};
+  background: ${({ $backColor }) => $backColor};
 
-  ${({ noGlass }) =>
-    !noGlass &&
+  ${({ $noGlass }) =>
+    !$noGlass &&
     css`
       background: rgba(255, 255, 255, 0.2);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

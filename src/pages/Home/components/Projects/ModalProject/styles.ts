@@ -26,14 +26,6 @@ export const Info = styled.div`
   }
 `;
 
-export const Techs = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  gap: ${toRem(10)};
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-direction: column;

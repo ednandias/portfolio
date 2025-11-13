@@ -29,56 +29,10 @@ interface Question {
 }
 
 export function About({ id }: AboutProps) {
-  const { t } = useTranslation();
-
-  const questions: Question[] = [
-    {
-      id: 1,
-      text: "Como tudo começou?",
-      icon: "PottedPlant",
-      content:
-        "Meu interesse por programação começou em 2018, quando fiz um curso técnico presencial de Análise e Desenvolvimento de Sistemas e tive meu primeiro contato com tecnologias web, como HTML, CSS e  JavaScript.",
-    },
-    {
-      id: 2,
-      text: "Minhas experiências",
-      icon: "ChartLineUp",
-      content:
-        "Trabalho profissionalmente desde 2020, acumulando cinco anos de experiência. Já atuei como desenvolvedor back-end, front-end,full-stack e analista de sistemas, além de atuar também como freelancer. Durante esse período, levantei requisitos, implementei novas funções, refatorei códigos, corrigi bugs e criei ecossistemas inteiros(web, APIs e mobile). Por isso, posso atuar como júnior e me sinto confiante o bastante para trabalhar como pleno.",
-    },
-    {
-      id: 3,
-      text: "Por que programação?",
-      icon: "Heart",
-      content:
-        "Optei por seguir no mundo do desenvolvimento porque gosto de transformar ideias em projetos reais, automatizar processos, criar marcas de valor, solucionar problemas por meio da tecnologia e contribuir com a comunidade em geral.",
-    },
-    {
-      id: 4,
-      text: "Stack principal",
-      icon: "Code",
-      content:
-        "Escolhi o JavaScript como minha principal tecnologia, pois com ele consigo atender a qualquer solicitação ou demanda, como criar uma API robusta, segura e escalável com Node.js, criar um site moderno, funcional e completo com React e entregar um aplicativo atual, performático e multiplataforma com React Native. A imaginação é o limite.",
-    },
-    {
-      id: 5,
-      text: "Qual o meu diferencial?",
-      icon: "Star",
-      content:
-        "Eu diria que meu diferencial é ser estudioso e persistente. Desde que conheci a área, nunca parei de estudar, mesmo quando estava trabalhando. Comecei com cursos gratuitos no YouTube e em outras plataformas, mas também já investi em cursos pagos para me profissionalizar e, principalmente, me especializar nas tecnologias que já conheço. Acredito que a acomodação é o que desqualifica um profissional para o mercado de trabalho com o passar do tempo.",
-    },
-    {
-      id: 6,
-      text: "Meu objetivo",
-      icon: "Target",
-      content:
-        "Meu objetivo é me tornar referência dentro de uma comunidade ou empresa, e ajudar o maior número de pessoas que eu conseguir, ajudando-as a tirar sua ideias do papel e transformar seus sonhos/negócios em realidade por meio do meu conhecimento técnico, gostaria também, de no futuro, aconselhar e auxiliar pessoas que vão passar pelas dificuldade que eu passei quando estava iniciando na minha carreira.",
-    },
-  ];
-
+  const [selectedQuestion, setSelectedQuestion] = useState("howStarted");
   const [isQuestionSectionOpen, setIsQuestionSectionOpen] = useState(true);
-  const [selectedQuestion, setSelectedQuestion] = useState(questions[0]);
 
+  const { t } = useTranslation();
   const theme = useTheme();
 
   const arrowsInLineHorizontal =
@@ -87,17 +41,25 @@ export function About({ id }: AboutProps) {
   const arrowsOutLineHorizontal =
     "M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z";
 
-  function handleChangeQuestionSection() {
-    gsap.to("#iconAbout", {
-      duration: 0.3,
-      morphSVG: isQuestionSectionOpen
-        ? arrowsInLineHorizontal
-        : arrowsOutLineHorizontal,
-      ease: "power2.inOut",
-    });
+  useGSAP(
+    () => {
+      gsap.to("#iconAbout", {
+        duration: 0.3,
+        morphSVG: isQuestionSectionOpen
+          ? arrowsInLineHorizontal
+          : arrowsOutLineHorizontal,
+        ease: "power2.inOut",
+      });
 
-    setIsQuestionSectionOpen((prevState) => !prevState);
-  }
+      gsap.to(".question p", {
+        fontSize: !isQuestionSectionOpen ? 0 : "1.25rem",
+        display: !isQuestionSectionOpen ? "none" : "block",
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+    },
+    { dependencies: [isQuestionSectionOpen] }
+  );
 
   useGSAP(() => {
     gsap.fromTo(
@@ -128,49 +90,152 @@ export function About({ id }: AboutProps) {
         });
       });
     }
-  }, []);
+  });
 
   return (
     <Section id={id}>
       <Content>
+        <Info>
+          <h1 className="up">{t("about.title")}</h1>
+
+          <GhostButton
+            className="up"
+            onClick={() => setIsQuestionSectionOpen((prevState) => !prevState)}
+          >
+            <svg
+              width="40"
+              height="40"
+              fill={theme.colors.gold}
+              viewBox="0 0 256 256"
+            >
+              <path id="iconAbout" d={arrowsInLineHorizontal} />
+            </svg>
+          </GhostButton>
+        </Info>
+
         <FormQuestions>
           <Questions>
-            <Info>
-              <h1 className="up">{t("about.title")}</h1>
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("howStarted")}
+              $isSelected={selectedQuestion === "howStarted"}
+            >
+              <Icon
+                iconName="PottedPlant"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
 
-              <GhostButton onClick={handleChangeQuestionSection}>
-                <svg
-                  width="40"
-                  height="40"
-                  fill="#f3b61f"
-                  viewBox="0 0 256 256"
-                >
-                  <path id="iconAbout" d={arrowsInLineHorizontal} />
-                </svg>
-              </GhostButton>
-            </Info>
+              <p>{t("about.howStarted.title")}</p>
+            </Question>
 
-            {questions.map((question) => (
-              <Question
-                className="question"
-                key={question.text}
-                onClick={() => setSelectedQuestion(question)}
-                isSelected={selectedQuestion.id === question.id}
-              >
-                <Icon
-                  iconName={question.icon}
-                  size={25}
-                  weight="duotone"
-                  color={theme.colors.primary}
-                />
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("myExperiences")}
+              $isSelected={selectedQuestion === "myExperiences"}
+            >
+              <Icon
+                iconName="ChartLineUp"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
 
-                <p>{question.text}</p>
-              </Question>
-            ))}
+              <p>{t("about.myExperiences.title")}</p>
+            </Question>
+
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("whyProgramming")}
+              $isSelected={selectedQuestion === "whyProgramming"}
+            >
+              <Icon
+                iconName="Heart"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
+
+              <p>{t("about.whyProgramming.title")}</p>
+            </Question>
+
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("mainStack")}
+              $isSelected={selectedQuestion === "mainStack"}
+            >
+              <Icon
+                iconName="Code"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
+
+              <p>{t("about.mainStack.title")}</p>
+            </Question>
+
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("myUniqueAdvantage")}
+              $isSelected={selectedQuestion === "myUniqueAdvantage"}
+            >
+              <Icon
+                iconName="Star"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
+
+              <p>{t("about.myUniqueAdvantage.title")}</p>
+            </Question>
+
+            <Question
+              className="question"
+              onClick={() => setSelectedQuestion("myGoal")}
+              $isSelected={selectedQuestion === "myGoal"}
+            >
+              <Icon
+                iconName="Target"
+                size={25}
+                weight="duotone"
+                color={theme.colors.primary}
+              />
+
+              <p>{t("about.myGoal.title")}</p>
+            </Question>
           </Questions>
 
           <Answers>
-            <Answer>{selectedQuestion.content}</Answer>
+            {selectedQuestion === "howStarted" && (
+              <Answer className="answer">{t("about.howStarted.text")}</Answer>
+            )}
+
+            {selectedQuestion === "myExperiences" && (
+              <Answer className="answer">
+                {t("about.myExperiences.text")}
+              </Answer>
+            )}
+
+            {selectedQuestion === "whyProgramming" && (
+              <Answer className="answer">
+                {t("about.whyProgramming.text")}
+              </Answer>
+            )}
+
+            {selectedQuestion === "mainStack" && (
+              <Answer className="answer">{t("about.mainStack.text")}</Answer>
+            )}
+
+            {selectedQuestion === "myUniqueAdvantage" && (
+              <Answer className="answer">
+                {t("about.myUniqueAdvantage.text")}
+              </Answer>
+            )}
+
+            {selectedQuestion === "myGoal" && (
+              <Answer className="answer">{t("about.myGoal.text")}</Answer>
+            )}
           </Answers>
         </FormQuestions>
       </Content>

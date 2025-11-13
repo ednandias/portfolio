@@ -2,6 +2,7 @@
   "header": {
     "home": "Home",
     "about": "About",
+    "tecnologies": "Tecnologies",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -12,6 +13,33 @@
     "downloadButton": "Download Resume"
   },
   "about": {
-    "title": "About"
+    "title": "About",
+    "howStarted": {
+      "title": "How did it all begin?",
+      "text": "My interest in programming began in 2018, when I took a technical course in Systems Analysis and Development and had my first contact with web technologies such as HTML, CSS, and Javascript."
+    },
+    "myExperiences": {
+      "title": "My experiences",
+      "text": "I have been working professionally since 2020, accumulating five years of experience. I have worked as a back-end, front-end, and full-stack developer, as well as a systems analyst, and have also worked as a freelancer. During this period, I have gathered requirements, implemented new features, refactored code, fixed bugs, and created entire ecosystems (web, APIs, and mobile). Therefore, I can work as a junior and feel confident enough to work as a full-stack developer."
+    },
+    "whyProgramming": {
+      "title": "Why programming?",
+      "text": "I chose to pursue a career in development because I enjoy transforming ideas into real projects, automating processes, creating valuable brands, solving problems through technology, and contributing to the community at large."
+    },
+    "mainStack": {
+      "title": "Main stack",
+      "text": "I chose Javascript as my main technology because it allows me to meet any request or demand, such as creating a robust, secure, and scalable API with Node.js, creating a modern, functional, and complete website with React, and delivering a current, high-performance, multi-platform application with React Native. The only limit is your imagination."
+    },
+    "myUniqueAdvantage": {
+      "title": "What makes me unique?",
+      "text": "I would say that what sets me apart is that I am studious and persistent. Since I first learned about this field, I have never stopped studying, even when I was working. I started with free courses on YouTube and other platforms, but I have also invested in paid courses to become more professional and, above all, to specialize in the technologies I already know. I believe that complacency is what disqualifies a professional from the job market over time."
+    },
+    "myGoal": {
+      "title": "My goal",
+      "text": "My goal is to become a reference within a community or company, and help as many people as I can, helping them get their ideas off the ground and turn their dreams/businesses into reality through my technical knowledge. I would also like, in the future, to advise and assist people who will go through the difficulties I went through when I was starting my career."
+    }
+  },
+  "projects": {
+    "title": "Projects"
   }
 }

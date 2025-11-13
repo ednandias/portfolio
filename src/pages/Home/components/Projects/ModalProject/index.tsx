@@ -1,9 +1,8 @@
 import { Button } from "../../../../../components/Button";
 import { Card } from "../../../../../components/Card";
 import { Modal } from "../../../../../components/Modal";
-import { renderCardTechs } from "../../../../../utils/renderCardTechs";
 import type { Project } from "../data/projects";
-import { Container, Content, Info, Techs } from "./styles";
+import { Container, Content, Info } from "./styles";
 
 interface ModalProjectProps {
   isOpen: boolean;
@@ -18,19 +17,11 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
         <Info>
           <Card
             imgUrl={project.image}
-            noAnimate
             noGlass={!!project.projectCardBackground}
             backColor={project.projectCardBackground}
           />
 
           <h1>{project.title}</h1>
-
-          <Techs>
-            {renderCardTechs(project.techs, {
-              size: 50,
-              imagesize: 30,
-            })}
-          </Techs>
 
           <a href={project.url} target="_blank" rel="noreferrer">
             <Button icon="ArrowSquareOut" title="Visitar" size="full" />

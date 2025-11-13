@@ -7,7 +7,8 @@ export const Content = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
+  align-items: flex-start;
 
   h1 {
     font-size: ${toRem(40)};
@@ -26,11 +27,12 @@ export const FormQuestions = styled.section`
 export const Questions = styled.article`
   display: flex;
   flex-direction: column;
-  gap: ${toRem(10)};
   justify-content: center;
+  gap: ${toRem(10)};
 `;
 
-export const Question = styled.button<{ isSelected: boolean }>`
+export const Question = styled.button<{ $isSelected: boolean }>`
+  width: auto;
   height: ${toRem(50)};
   padding: ${toRem(10)};
   border-radius: ${toRem(16)};
@@ -38,7 +40,6 @@ export const Question = styled.button<{ isSelected: boolean }>`
   background: ${({ theme }) => theme.colors.text};
 
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: ${toRem(5)};
 
@@ -55,8 +56,8 @@ export const Question = styled.button<{ isSelected: boolean }>`
     color: ${({ theme }) => theme.colors.primary};
   }
 
-  ${({ isSelected }) =>
-    isSelected &&
+  ${({ $isSelected }) =>
+    $isSelected &&
     css`
       opacity: 1;
       background: ${({ theme }) => theme.colors.primaryDarker};
