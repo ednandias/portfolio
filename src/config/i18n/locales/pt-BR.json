@@ -41,5 +41,9 @@
   },
   "projects": {
     "title": "Projetos"
+  },
+  "techs": {
+    "h1": "Tecnologias",
+    "p": "Conheça as tecnologias que possuo conhecimento"
   }
 }
