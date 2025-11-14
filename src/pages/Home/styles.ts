@@ -35,7 +35,6 @@ export const Section = styled.section`
 export const Config = styled.div`
   background: none;
   border: none;
-  background: red;
 
   position: fixed;
   bottom: 0;

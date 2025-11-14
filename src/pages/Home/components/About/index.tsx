@@ -1,5 +1,6 @@
 import { GhostButton } from "@components/GhostButton";
 import { Icon } from "@components/Icon";
+import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import type { IconOptions } from "@interfaces/index";
 import gsap from "gsap";
@@ -12,7 +13,6 @@ import {
   Answers,
   Content,
   FormQuestions,
-  Info,
   Question,
   Questions,
 } from "./styles";
@@ -62,22 +62,22 @@ export function About({ id }: AboutProps) {
   );
 
   useGSAP(() => {
-    gsap.fromTo(
-      `#${id} .up`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        scrollTrigger: {
-          trigger: `#${id} .up`,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        opacity: 1,
-        y: 0,
-      }
-    );
+    // gsap.fromTo(
+    //   `#${id} .up`,
+    //   {
+    //     opacity: 0,
+    //     y: 100,
+    //   },
+    //   {
+    //     scrollTrigger: {
+    //       trigger: `#${id} .up`,
+    //       start: "top 80%",
+    //       toggleActions: "play none none none",
+    //     },
+    //     opacity: 1,
+    //     y: 0,
+    //   }
+    // );
 
     const questions = gsap.utils.toArray<HTMLButtonElement>(".question");
 
@@ -95,26 +95,29 @@ export function About({ id }: AboutProps) {
   return (
     <Section id={id}>
       <Content>
-        <Info>
-          <h1 className="up">{t("about.title")}</h1>
-
-          <GhostButton
-            className="up"
-            onClick={() => setIsQuestionSectionOpen((prevState) => !prevState)}
-          >
-            <svg
-              width="40"
-              height="40"
-              fill={theme.colors.gold}
-              viewBox="0 0 256 256"
-            >
-              <path id="iconAbout" d={arrowsInLineHorizontal} />
-            </svg>
-          </GhostButton>
-        </Info>
+        <InfoSection
+          title={t("about.title")}
+          paragraph="Saiba um pouco mais sobre mim, minha carreira e meus objetivos."
+        />
 
         <FormQuestions>
           <Questions>
+            <GhostButton
+              className="up"
+              onClick={() =>
+                setIsQuestionSectionOpen((prevState) => !prevState)
+              }
+            >
+              <svg
+                width="35"
+                height="35"
+                fill={theme.colors.gold}
+                viewBox="0 0 256 256"
+              >
+                <path id="iconAbout" d={arrowsInLineHorizontal} />
+              </svg>
+            </GhostButton>
+
             <Question
               className="question"
               onClick={() => setSelectedQuestion("howStarted")}

@@ -1,5 +1,3 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { useState, type ChangeEvent } from "react";
 import { Button } from "../../../../components/Button";
 import { Checkbox } from "../../../../components/Checkbox";
@@ -59,25 +57,6 @@ export function Contact({ id }: ContactProps) {
       [name]: value,
     }));
   }
-
-  useGSAP(() => {
-    gsap.fromTo(
-      `#${id} .up`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        scrollTrigger: {
-          trigger: `#${id} .up`,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        opacity: 1,
-        y: 0,
-      }
-    );
-  });
 
   function selectPlatform(platform: string) {
     setData((prevState) => ({

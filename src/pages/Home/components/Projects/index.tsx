@@ -1,8 +1,9 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { useState } from "react";
 import { Section } from "../../styles";
 
+import { InfoSection } from "@components/InfoSection";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { Card } from "../../../../components/Card";
 import { ModalProject } from "./ModalProject";
@@ -25,54 +26,17 @@ export function Projects({ id }: ProjectsProps) {
   }
 
   useGSAP(() => {
-    const tl = gsap.timeline();
+    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
-    tl.fromTo(
-      `#${id} .up`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        scrollTrigger: {
-          trigger: `#${id} .up`,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        opacity: 1,
-        y: 0,
-      }
-    );
-
-    tl.fromTo(
-      `#${id} .card`,
-      {
-        y: 100,
-        opacity: 0,
-      },
-      {
-        scrollTrigger: {
-          trigger: `#${id} .up`,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-      }
-    );
-
-    const cards = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
-
-    for (const card of cards) {
+    for (const tech of techs) {
       ["mouseenter", "mouseleave"].forEach((event) => {
-        card.addEventListener(event, () => {
-          gsap.to(card, {
+        tech.addEventListener(event, () => {
+          gsap.to(tech, {
             scale: event === "mouseenter" ? 1.1 : 1,
           });
 
-          cards
-            .filter((cd) => cd !== card)
+          techs
+            .filter((element) => element !== tech)
             .forEach((element) => {
               gsap.to(element, {
                 opacity: event === "mouseenter" ? 0.5 : 1,
@@ -87,7 +51,10 @@ export function Projects({ id }: ProjectsProps) {
     <>
       <Section id={id}>
         <Content>
-          <h1 className="up">{t("projects.title")}</h1>
+          <InfoSection
+            title={t("projects.title")}
+            paragraph="Conheça as ideias que ajudei a transformar em projetos reais."
+          />
 
           <MyProjects className="up">
             {projects.map((project) => (

@@ -8,15 +8,10 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  h1 {
-    font-size: ${toRem(40)};
-    color: ${({ theme }) => theme.colors.gold};
-    margin-bottom: ${toRem(50)};
-  }
 `;
 
 export const MyProjects = styled.div`
   display: flex;
   gap: ${toRem(20)};
+  margin: ${toRem(20)} 0;
 `;

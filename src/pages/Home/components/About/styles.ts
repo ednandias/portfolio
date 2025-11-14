@@ -8,12 +8,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-
-  h1 {
-    font-size: ${toRem(40)};
-    color: ${({ theme }) => theme.colors.gold};
-  }
+  align-items: center;
 `;
 
 export const FormQuestions = styled.section`
@@ -93,18 +88,4 @@ export const Answer = styled.p`
     color: ${({ theme }) => theme.colors.gold};
     font-style: italic;
   }
-`;
-
-export const Highlight = styled.span<{ color: string }>`
-  color: ${({ color }) => color};
-  font-weight: bold;
-  font-style: italic;
-`;
-
-export const Info = styled.div`
-  margin-bottom: ${toRem(10)};
-
-  display: flex;
-  align-items: center;
-  gap: ${toRem(20)};
 `;

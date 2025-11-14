@@ -2,7 +2,7 @@
   "header": {
     "home": "Início",
     "about": "Sobre",
-    "tecnologies": "Tecnologias",
+    "tecnologies": "Techs",
     "projects": "Projetos",
     "contact": "Contato"
   },
@@ -43,7 +43,7 @@
     "title": "Projetos"
   },
   "techs": {
-    "h1": "Tecnologias",
-    "p": "Conheça as tecnologias que possuo conhecimento"
+    "h1": "Techs",
+    "p": "Conheça as tecnologias com que trabalho."
   }
 }

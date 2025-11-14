@@ -63,45 +63,43 @@ export function Welcome({ id }: WelcomeProps) {
   useGSAP(() => {
     const tl = gsap.timeline();
 
-    tl.fromTo(".header", { y: "-100%" }, { y: "0%", ease: "back.out" });
+    tl.fromTo(".header", { y: "-100vh" }, { y: "0", ease: "back.out" });
     tl.fromTo(
       "#presentation",
       { scale: 0 },
       { scale: 1, ease: "back.out", onComplete: start }
     );
 
-    gsap.utils
-      .toArray<HTMLAnchorElement>("header a")
-      .forEach((element, _, array) => {
-        element.addEventListener("click", (e) => {
-          e.preventDefault();
+    const links = gsap.utils.toArray<HTMLAnchorElement>("header a");
 
-          const target = element.getAttribute("href");
+    for (const link of links) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
 
-          if (target) {
-            const container = document.querySelector<HTMLElement>(target);
+        const target = link.getAttribute("href");
 
-            gsap.to(window, {
-              scrollTo: container?.offsetTop,
-              duration: 0.3,
-            });
-          }
-        });
+        if (target) {
+          const container = document.querySelector<HTMLElement>(target);
 
-        element.addEventListener("mouseenter", () => {
-          array
-            .filter((el) => el !== element)
-            .forEach((el) => {
-              gsap.to(el, { opacity: 0.3 });
-            });
-        });
-
-        element.addEventListener("mouseleave", () => {
-          array.forEach((el) => {
-            gsap.to(el, { opacity: 1 });
+          gsap.to(window, {
+            scrollTo: container?.offsetTop,
+            duration: 0.3,
           });
+        }
+      });
+
+      ["mouseenter", "mouseleave"].forEach((event) => {
+        link.addEventListener(event, () => {
+          links
+            .filter((element) => element !== link)
+            .forEach((element) =>
+              gsap.to(element, {
+                opacity: event === "mouseenter" ? 0.3 : "1",
+              })
+            );
         });
       });
+    }
   });
 
   return (

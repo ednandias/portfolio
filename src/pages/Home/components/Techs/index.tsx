@@ -19,7 +19,7 @@ export function Techs({ id }: TechsProps) {
   const { t } = useTranslation();
 
   useGSAP(() => {
-    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .tech`);
+    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const tech of techs) {
       ["mouseenter", "mouseleave"].forEach((event) => {
@@ -48,7 +48,7 @@ export function Techs({ id }: TechsProps) {
         <TechsView>
           {techs.map((tech) => (
             <Tooltip key={tech.name} text={tech.name}>
-              <Card className="tech" imgUrl={tech.image} imagesize={80} />
+              <Card imgUrl={tech.image} imagesize={80} />
             </Tooltip>
           ))}
         </TechsView>
