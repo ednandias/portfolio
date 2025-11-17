@@ -61,23 +61,77 @@ export function About({ id }: AboutProps) {
     { dependencies: [isQuestionSectionOpen] }
   );
 
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        `#${id} .answer`,
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+        }
+      );
+    },
+    { dependencies: [selectedQuestion] }
+  );
+
   useGSAP(() => {
-    // gsap.fromTo(
-    //   `#${id} .up`,
-    //   {
-    //     opacity: 0,
-    //     y: 100,
-    //   },
-    //   {
-    //     scrollTrigger: {
-    //       trigger: `#${id} .up`,
-    //       start: "top 80%",
-    //       toggleActions: "play none none none",
-    //     },
-    //     opacity: 1,
-    //     y: 0,
-    //   }
-    // );
+    gsap.fromTo(
+      `#${id} .up`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: `#${id} .up`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      `#${id} .question`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".question",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      `#${id} .answer`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".question",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
 
     const questions = gsap.utils.toArray<HTMLButtonElement>(".question");
 
@@ -96,6 +150,7 @@ export function About({ id }: AboutProps) {
     <Section id={id}>
       <Content>
         <InfoSection
+          className="up"
           title={t("about.title")}
           paragraph="Saiba um pouco mais sobre mim, minha carreira e meus objetivos."
         />
@@ -103,10 +158,10 @@ export function About({ id }: AboutProps) {
         <FormQuestions>
           <Questions>
             <GhostButton
-              className="up"
               onClick={() =>
                 setIsQuestionSectionOpen((prevState) => !prevState)
               }
+              className="question"
             >
               <svg
                 width="35"

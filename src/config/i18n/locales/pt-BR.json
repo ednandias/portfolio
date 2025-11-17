@@ -40,10 +40,15 @@
     }
   },
   "projects": {
-    "title": "Projetos"
+    "h1": "Projetos",
+    "p": "Conheça os projetos que ajudei a tirar do papel."
   },
   "techs": {
     "h1": "Techs",
     "p": "Conheça as tecnologias com que trabalho."
+  },
+  "contact": {
+    "h1": "Contato",
+    "p": "Me mande uma mensagem para que possamos conversar sobre a sua ideia!"
   }
 }

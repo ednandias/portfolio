@@ -1,4 +1,8 @@
+import { InfoSection } from "@components/InfoSection";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useState, type ChangeEvent } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "../../../../components/Button";
 import { Checkbox } from "../../../../components/Checkbox";
 import { Icon } from "../../../../components/Icon";
@@ -16,8 +20,7 @@ interface ContactProps {
 interface ContactState {
   name: string;
   email: string;
-  phone: string;
-  observations: string;
+  message: string;
   platforms: string[];
 }
 
@@ -25,10 +28,11 @@ export function Contact({ id }: ContactProps) {
   const [data, setData] = useState<ContactState>({
     name: "",
     email: "",
-    phone: "",
-    observations: "",
+    message: "",
     platforms: [],
   });
+
+  const { t } = useTranslation();
 
   const { errors, hasErrors } = useForm({
     validations: [
@@ -37,12 +41,6 @@ export function Contact({ id }: ContactProps) {
         value: data.email,
         regex: validation.email,
         message: "E-mail inválido",
-      },
-      {
-        field: "phone",
-        value: data.phone,
-        regex: validation.phone,
-        message: "Telefone inválido",
       },
     ],
   });
@@ -67,10 +65,48 @@ export function Contact({ id }: ContactProps) {
     }));
   }
 
+  function handleSendMessage() {
+    const numeroWhatsApp = "5517991262596";
+
+    const textoWhatsApp = `*Novo contato do site*%0A%0A*Nome:* ${
+      data.name
+    }%0A*E-mail:* ${data.email}%0A*Plataformas:* ${data.platforms.join(
+      ", "
+    )}%0A*Mensagem:* ${data.message}`;
+
+    window.open(
+      `https://wa.me/${numeroWhatsApp}?text=${textoWhatsApp}`,
+      "_blank"
+    );
+  }
+
+  useGSAP(() => {
+    gsap.fromTo(
+      `#${id} .up`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: `#${id} .up`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  });
+
   return (
     <Section id={id}>
       <Content>
-        <h1 className="up">Contato</h1>
+        <InfoSection
+          className="up"
+          title={t("contact.h1")}
+          paragraph={t("contact.p")}
+        />
 
         <Form className="up">
           <Input
@@ -93,24 +129,14 @@ export function Contact({ id }: ContactProps) {
             error={errors.email}
           />
 
-          <Input
-            name="phone"
-            value={data.phone}
-            onChange={handleChange}
-            icon="Phone"
-            placeholder="Telefone"
-            mask="(**) *****-****"
-            className="up"
-            error={errors.phone}
-          />
-
           <TextArea
-            name="observations"
-            value={data.observations}
+            name="message"
+            value={data.message}
             onChange={handleChange}
             icon="ArticleNyTimes"
-            placeholder="Conte um pouco sobre a sua ideia..."
+            placeholder="Me mande uma mensagem..."
             className="up"
+            maxLength={800}
           />
 
           <div
@@ -159,14 +185,14 @@ export function Contact({ id }: ContactProps) {
           </div>
 
           <Button
-            icon="PaperPlaneTilt"
-            title="Enviar"
+            icon="WhatsappLogo"
+            title="Enviar Mensagem"
             className="up"
+            onClick={handleSendMessage}
             disabled={
               !data.name ||
               !data.email ||
-              !data.phone ||
-              !data.observations ||
+              !data.message ||
               hasErrors ||
               data.platforms.length === 0
             }

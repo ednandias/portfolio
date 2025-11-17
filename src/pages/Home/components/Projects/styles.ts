@@ -13,5 +13,5 @@ export const Content = styled.div`
 export const MyProjects = styled.div`
   display: flex;
   gap: ${toRem(20)};
-  margin: ${toRem(20)} 0;
+  margin-top: ${toRem(20)};
 `;

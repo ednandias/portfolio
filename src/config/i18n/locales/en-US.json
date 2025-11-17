@@ -40,10 +40,15 @@
     }
   },
   "projects": {
-    "title": "Projects"
+    "h1": "Projects",
+    "p": "Learn about the projects I helped bring to life."
   },
   "techs": {
     "h1": "Techs",
     "p": "Learn about the technologies I work with."
+  },
+  "contact": {
+    "h1": "Contact",
+    "p": "Send me a message so we can discuss your idea!"
   }
 }

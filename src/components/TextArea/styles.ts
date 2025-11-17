@@ -9,6 +9,8 @@ export const Container = styled.div`
   border-radius: 15px;
 
   display: flex;
+
+  padding-right: ${toRem(20)};
 `;
 
 export const IconView = styled.div`

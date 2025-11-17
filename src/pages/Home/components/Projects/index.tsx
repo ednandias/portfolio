@@ -26,6 +26,43 @@ export function Projects({ id }: ProjectsProps) {
   }
 
   useGSAP(() => {
+    gsap.fromTo(
+      `#${id} .up`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: `#${id} .up`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      `#${id} .card`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: `#${id} .card`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  });
+
+  useGSAP(() => {
     const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const tech of techs) {
@@ -52,11 +89,12 @@ export function Projects({ id }: ProjectsProps) {
       <Section id={id}>
         <Content>
           <InfoSection
-            title={t("projects.title")}
-            paragraph="Conheça as ideias que ajudei a transformar em projetos reais."
+            className="up"
+            title={t("projects.h1")}
+            paragraph={t("projects.p")}
           />
 
-          <MyProjects className="up">
+          <MyProjects>
             {projects.map((project) => (
               <Card
                 key={project.id}

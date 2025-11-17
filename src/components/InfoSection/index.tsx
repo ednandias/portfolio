@@ -3,13 +3,14 @@ import { StyledParagraph, StyledTitle } from "./styles";
 interface TitleInfoProps {
   title: string;
   paragraph: string;
+  className?: string;
 }
 
-export function InfoSection({ title, paragraph }: TitleInfoProps) {
+export function InfoSection({ title, paragraph, className }: TitleInfoProps) {
   return (
     <>
-      <StyledTitle className="info-section-title">{title}</StyledTitle>
-      <StyledParagraph>{paragraph}</StyledParagraph>
+      <StyledTitle className={className}>{title}</StyledTitle>
+      <StyledParagraph className={className}>{paragraph}</StyledParagraph>
     </>
   );
 }

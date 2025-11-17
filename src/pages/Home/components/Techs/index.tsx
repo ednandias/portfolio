@@ -19,6 +19,43 @@ export function Techs({ id }: TechsProps) {
   const { t } = useTranslation();
 
   useGSAP(() => {
+    gsap.fromTo(
+      `#${id} .up`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: `#${id} .up`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      `#${id} .card`,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: `#${id} .card`,
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+  });
+
+  useGSAP(() => {
     const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const tech of techs) {
@@ -43,7 +80,11 @@ export function Techs({ id }: TechsProps) {
   return (
     <Section id={id}>
       <Content>
-        <InfoSection title={t("techs.h1")} paragraph={t("techs.p")} />
+        <InfoSection
+          className="up"
+          title={t("techs.h1")}
+          paragraph={t("techs.p")}
+        />
 
         <TechsView>
           {techs.map((tech) => (

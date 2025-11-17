@@ -19,6 +19,7 @@ export const Form = styled.section`
   min-width: ${toRem(450)};
   height: 100%;
   padding: ${toRem(20)};
+  margin-top: ${toRem(20)};
 
   display: flex;
   flex-direction: column;
@@ -64,14 +65,11 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
     cursor: pointer;
   }
 
-  filter: brightness(0.5);
-
   ${({ selected }) =>
     selected &&
     css`
       background: ${({ theme }) => theme.colors.primaryDarker};
       color: ${({ theme }) => theme.colors.text} !important;
-      filter: brightness(1);
 
       svg {
         fill: ${({ theme }) => theme.colors.text} !important;
