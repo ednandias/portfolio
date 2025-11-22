@@ -27,7 +27,7 @@ export function Projects({ id }: ProjectsProps) {
 
   useGSAP(() => {
     gsap.fromTo(
-      `#${id} .up`,
+      `#${id} .info-section`,
       {
         opacity: 0,
         y: 100,
@@ -37,8 +37,9 @@ export function Projects({ id }: ProjectsProps) {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: `#${id} .up`,
-          toggleActions: "restart none none none",
+          trigger: `#${id} .info-section`,
+          toggleActions: "restart none reverse none",
+          end: "top 50%",
         },
       }
     );
@@ -55,8 +56,9 @@ export function Projects({ id }: ProjectsProps) {
         duration: 1,
         stagger: 0.1,
         scrollTrigger: {
-          trigger: `#${id} .card`,
-          toggleActions: "restart none none none",
+          trigger: `#${id} .info-section`,
+          toggleActions: "restart none reverse none",
+          end: "top 50%",
         },
       }
     );
@@ -88,11 +90,7 @@ export function Projects({ id }: ProjectsProps) {
     <>
       <Section id={id}>
         <Content>
-          <InfoSection
-            className="up"
-            title={t("projects.h1")}
-            paragraph={t("projects.p")}
-          />
+          <InfoSection title={t("projects.h1")} paragraph={t("projects.p")} />
 
           <MyProjects>
             {projects.map((project) => (

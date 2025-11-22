@@ -9,8 +9,10 @@ interface TitleInfoProps {
 export function InfoSection({ title, paragraph, className }: TitleInfoProps) {
   return (
     <>
-      <StyledTitle className={className}>{title}</StyledTitle>
-      <StyledParagraph className={className}>{paragraph}</StyledParagraph>
+      <StyledTitle className={`info-section ${className}`}>{title}</StyledTitle>
+      <StyledParagraph className={`info-section ${className}`}>
+        {paragraph}
+      </StyledParagraph>
     </>
   );
 }

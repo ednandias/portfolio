@@ -81,7 +81,7 @@ export function About({ id }: AboutProps) {
 
   useGSAP(() => {
     gsap.fromTo(
-      `#${id} .up`,
+      `#${id} .info-section`,
       {
         opacity: 0,
         y: 100,
@@ -91,12 +91,13 @@ export function About({ id }: AboutProps) {
         y: 0,
         duration: 1,
         scrollTrigger: {
-          trigger: `#${id} .up`,
-          toggleActions: "restart none none none",
+          trigger: `#${id} .info-section`,
+          toggleActions: "play none none none",
         },
       }
     );
 
+    //? Questions
     gsap.fromTo(
       `#${id} .question`,
       {
@@ -109,12 +110,13 @@ export function About({ id }: AboutProps) {
         duration: 1,
         stagger: 0.1,
         scrollTrigger: {
-          trigger: ".question",
-          toggleActions: "restart none none none",
+          trigger: `#${id} .info-section`,
+          toggleActions: "play none none none",
         },
       }
     );
 
+    //? Answers
     gsap.fromTo(
       `#${id} .answer`,
       {
@@ -127,12 +129,13 @@ export function About({ id }: AboutProps) {
         duration: 1,
         stagger: 0.1,
         scrollTrigger: {
-          trigger: ".question",
-          toggleActions: "restart none none none",
+          trigger: `#${id} .info-section`,
+          toggleActions: "play none none none",
         },
       }
     );
 
+    //? Questions Mouse Event
     const questions = gsap.utils.toArray<HTMLButtonElement>(".question");
 
     for (const question of questions) {
@@ -150,7 +153,6 @@ export function About({ id }: AboutProps) {
     <Section id={id}>
       <Content>
         <InfoSection
-          className="up"
           title={t("about.title")}
           paragraph="Saiba um pouco mais sobre mim, minha carreira e meus objetivos."
         />
