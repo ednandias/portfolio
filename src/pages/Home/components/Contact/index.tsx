@@ -1,6 +1,6 @@
 import { InfoSection } from "@components/InfoSection";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
+import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { useState, type ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../../../../components/Button";
@@ -80,24 +80,7 @@ export function Contact({ id }: ContactProps) {
     );
   }
 
-  useGSAP(() => {
-    gsap.fromTo(
-      `#${id} .up`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: `#${id} .up`,
-          toggleActions: "restart none none none",
-        },
-      }
-    );
-  });
+  useSmoothScroll([{ id: `#${id} .up` }]);
 
   return (
     <Section id={id}>

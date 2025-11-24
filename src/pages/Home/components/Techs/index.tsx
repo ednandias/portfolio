@@ -1,12 +1,12 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { Section } from "../../styles";
-
 import { Card } from "@components/Card";
 import { InfoSection } from "@components/InfoSection";
-import { Tooltip } from "@components/Tooltip";
+import { useGSAP } from "@gsap/react";
+import { useSmoothScroll } from "@hooks/useSmoothScroll";
+import Tippy from "@tippyjs/react";
 import { getTechs } from "@utils/getTechs";
+import gsap from "gsap";
 import { useTranslation } from "react-i18next";
+import { Section } from "../../styles";
 import { Content, TechsView } from "./styles";
 
 interface TechsProps {
@@ -18,57 +18,28 @@ export function Techs({ id }: TechsProps) {
 
   const { t } = useTranslation();
 
+  useSmoothScroll([
+    {
+      id: `#${id} .info-section`,
+    },
+    {
+      id: `#${id} .card`,
+      stagger: true,
+    },
+  ]);
+
   useGSAP(() => {
-    //? Animação inicial
-    gsap.fromTo(
-      `#${id} .info-section`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-        },
-      }
-    );
-
-    //? Cards
-    gsap.fromTo(
-      `#${id} .card`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-        },
-      }
-    );
-
     //? Cards
     const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const tech of techs) {
       ["mouseenter", "mouseleave"].forEach((event) => {
         tech.addEventListener(event, () => {
-          gsap.to(tech, {
-            scale: event === "mouseenter" ? 1.1 : 1,
-          });
-
           techs
             .filter((element) => element !== tech)
             .forEach((element) => {
               gsap.to(element, {
-                opacity: event === "mouseenter" ? 0.5 : 1,
+                opacity: event === "mouseenter" ? 0.3 : 1,
               });
             });
         });
@@ -83,9 +54,9 @@ export function Techs({ id }: TechsProps) {
 
         <TechsView>
           {techs.map((tech) => (
-            <Tooltip key={tech.name} text={tech.name}>
+            <Tippy key={tech.name} content={tech.name}>
               <Card imgUrl={tech.image} imagesize={80} />
-            </Tooltip>
+            </Tippy>
           ))}
         </TechsView>
       </Content>

@@ -3,6 +3,8 @@ import { Section } from "../../styles";
 
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
+import { useSmoothScroll } from "@hooks/useSmoothScroll";
+import Tippy from "@tippyjs/react";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { Card } from "../../../../components/Card";
@@ -25,60 +27,28 @@ export function Projects({ id }: ProjectsProps) {
     setIsModalProjectOpen(true);
   }
 
-  useGSAP(() => {
-    gsap.fromTo(
-      `#${id} .info-section`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-          toggleActions: "restart none reverse none",
-          end: "top 50%",
-        },
-      }
-    );
-
-    gsap.fromTo(
-      `#${id} .card`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-          toggleActions: "restart none reverse none",
-          end: "top 50%",
-        },
-      }
-    );
-  });
+  useSmoothScroll([
+    {
+      id: `#${id} .info-section`,
+      stagger: true,
+    },
+    {
+      id: `#${id} .card`,
+      stagger: true,
+    },
+  ]);
 
   useGSAP(() => {
-    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
+    const projects = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
-    for (const tech of techs) {
+    for (const project of projects) {
       ["mouseenter", "mouseleave"].forEach((event) => {
-        tech.addEventListener(event, () => {
-          gsap.to(tech, {
-            scale: event === "mouseenter" ? 1.1 : 1,
-          });
-
-          techs
-            .filter((element) => element !== tech)
+        project.addEventListener(event, () => {
+          projects
+            .filter((element) => element !== project)
             .forEach((element) => {
               gsap.to(element, {
-                opacity: event === "mouseenter" ? 0.5 : 1,
+                opacity: event === "mouseenter" ? 0.3 : 1,
               });
             });
         });
@@ -94,13 +64,14 @@ export function Projects({ id }: ProjectsProps) {
 
           <MyProjects>
             {projects.map((project) => (
-              <Card
-                key={project.id}
-                imgUrl={project.image}
-                onClick={() => handleSelectProject(project)}
-                noGlass={!!project.projectCardBackground}
-                backColor={project.projectCardBackground}
-              />
+              <Tippy key={project.id} content={project.title}>
+                <Card
+                  imgUrl={project.image}
+                  onClick={() => handleSelectProject(project)}
+                  noGlass={!!project.projectCardBackground}
+                  backColor={project.projectCardBackground}
+                />
+              </Tippy>
             ))}
           </MyProjects>
         </Content>

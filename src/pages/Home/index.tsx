@@ -6,11 +6,13 @@ import { Techs } from "./components/Techs";
 import { Welcome } from "./components/Welcome";
 import { Container } from "./styles";
 
+import "./background.css";
+
 export function Home() {
   const containerRef = useRef<HTMLElement>(null);
 
   return (
-    <Container ref={containerRef}>
+    <Container id="background" ref={containerRef}>
       <Welcome id="welcome" />
       <About id="about" />
       <Techs id="techs" />

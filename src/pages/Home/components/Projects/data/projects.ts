@@ -25,7 +25,8 @@ export const projects: Project[] = [
     url: "https://stillus-academia.site",
     image: stillusSvg,
     projectCardBackground: "#000",
-    about: ``,
+    about: `A Stillus foi meu primeiro grande projeto Full-Stack, no qual fui responsável por todo o ciclo de desenvolvimento: criação da API, desenvolvimento do site e do aplicativo móvel, além da configuração completa da infraestrutura e parte de DevOps. Também contribuí com ações de marketing.
+    Apesar de ser um projeto simples, ele é bastante ambicioso. O aplicativo é completo e permite o cadastro de usuários, exercícios e treinos, oferecendo controle total para administradores. Entre as funcionalidades, inclui cronômetros, temas personalizados, vídeos, controle de peso e diversas outras ferramentas. O resultado é um app moderno, intuitivo e objetivo — exatamente como acredito que soluções digitais devem ser hoje.`,
     techs: [
       {
         label: "React",

@@ -2,6 +2,7 @@ import { GhostButton } from "@components/GhostButton";
 import { Icon } from "@components/Icon";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
+import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import type { IconOptions } from "@interfaces/index";
 import gsap from "gsap";
 import { useState } from "react";
@@ -41,8 +42,16 @@ export function About({ id }: AboutProps) {
   const arrowsOutLineHorizontal =
     "M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z";
 
+  useSmoothScroll([
+    { id: `#${id} .info-section` },
+    { id: `#${id} .question`, stagger: true },
+    { id: `#${id} .answer`, stagger: true },
+  ]);
+
   useGSAP(
     () => {
+      //? SVG Icon
+
       gsap.to("#iconAbout", {
         duration: 0.3,
         morphSVG: isQuestionSectionOpen
@@ -63,6 +72,8 @@ export function About({ id }: AboutProps) {
 
   useGSAP(
     () => {
+      //? Answer
+
       gsap.fromTo(
         `#${id} .answer`,
         {
@@ -80,61 +91,6 @@ export function About({ id }: AboutProps) {
   );
 
   useGSAP(() => {
-    gsap.fromTo(
-      `#${id} .info-section`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    //? Questions
-    gsap.fromTo(
-      `#${id} .question`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
-    //? Answers
-    gsap.fromTo(
-      `#${id} .answer`,
-      {
-        opacity: 0,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: `#${id} .info-section`,
-          toggleActions: "play none none none",
-        },
-      }
-    );
-
     //? Questions Mouse Event
     const questions = gsap.utils.toArray<HTMLButtonElement>(".question");
 

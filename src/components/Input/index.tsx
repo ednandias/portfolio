@@ -1,8 +1,8 @@
+import Tippy from "@tippyjs/react";
 import { useState, type InputHTMLAttributes } from "react";
 import { useTheme } from "styled-components";
 import type { IconOptions } from "../../interfaces";
 import { Icon } from "../Icon";
-import { Tooltip } from "../Tooltip";
 import { Container, IconView, StyledInput } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -45,9 +45,9 @@ export function Input({
         />
 
         {error && (
-          <Tooltip text={error}>
+          <Tippy content={error}>
             <Icon iconName="Warning" size={24} color={theme.colors.danger} />
-          </Tooltip>
+          </Tippy>
         )}
       </Container>
     </>

@@ -18,7 +18,9 @@ export const Info = styled.div`
   gap: ${toRem(10)};
 
   h1 {
-    font-size: ${toRem(20)};
+    font-size: ${toRem(18)};
+    text-align: center;
+    color: ${({ theme }) => theme.colors.gold};
   }
 
   a {
@@ -30,14 +32,20 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${toRem(10)};
-  padding: ${toRem(20)};
+  gap: ${toRem(20)};
+  padding: ${toRem(30)} ${toRem(40)};
+  max-width: 700px;
+  margin: 0 auto;
 
   p {
-    font-size: ${toRem(20)};
+    font-size: ${toRem(17)};
+    line-height: 1.6;
     text-align: justify;
-    text-indent: 20px;
     text-transform: none;
-    white-space: break-spaces;
+    text-indent: 0;
+  }
+
+  p + p {
+    margin-top: ${toRem(12)};
   }
 `;

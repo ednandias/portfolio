@@ -24,7 +24,7 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
           <h1>{project.title}</h1>
 
           <a href={project.url} target="_blank" rel="noreferrer">
-            <Button icon="ArrowSquareOut" title="Visitar" size="full" />
+            <Button icon="ArrowSquareOut" title="Conhecer" size="full" />
           </a>
         </Info>
 
