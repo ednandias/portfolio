@@ -4,12 +4,13 @@
     "about": "About",
     "tecnologies": "Techs",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "button": "Change language"
   },
   "welcome": {
     "greetings": "Hi, Welcome!",
     "knowAbout": "Learn a little more about my work 👇🏻",
-    "knowButton": "Learn About",
+    "knowButton": "Get To Know",
     "downloadButton": "Download Resume"
   },
   "about": {
@@ -42,7 +43,10 @@
   },
   "projects": {
     "h1": "Projects",
-    "p": "Learn about the projects I helped bring to life."
+    "p": "Learn about the projects I helped bring to life.",
+    "modalProject": {
+      "button": "Get to know"
+    }
   },
   "techs": {
     "h1": "Techs",
@@ -55,7 +59,10 @@
       "name": "Name",
       "email": "E-mail",
       "message": "Send me a message...",
-      "button": "Send Message"
+      "button": "Send Message",
+      "inputs": {
+        "email": "Invalid e-mail"
+      }
     }
   },
   "socialMedia": {

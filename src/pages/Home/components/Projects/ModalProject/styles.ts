@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { toRem } from "../../../../../utils/toRem";
 
 export const Container = styled.div`
-  flex: 1;
-
   display: grid;
   grid-template-columns: 25% auto;
 `;
@@ -14,11 +12,10 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   gap: ${toRem(10)};
 
   div {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: ${toRem(20)};
@@ -47,6 +44,7 @@ export const Content = styled.div`
   gap: ${toRem(20)};
   padding: ${toRem(30)} ${toRem(40)};
   margin: 0 auto;
+  max-width: ${toRem(900)};
 
   p {
     font-size: ${toRem(20)};
@@ -65,7 +63,6 @@ export const Content = styled.div`
     margin-top: ${toRem(16)};
   }
 
-  /* Para adicionar destaque em palavras-chave se necessário */
   strong {
     color: #ffffff;
     font-weight: 600;

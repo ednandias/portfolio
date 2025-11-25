@@ -1,10 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { toRem } from "../../utils/toRem";
-
-export interface ContainerProps {
-  size?: "md" | "lg";
-  autoSize?: boolean;
-}
 
 export const Overlay = styled.div`
   position: fixed;
@@ -20,22 +15,16 @@ export const Overlay = styled.div`
   z-index: 9999;
 `;
 
-export const Container = styled.div<ContainerProps>`
-  ${({ autoSize, size }) =>
-    autoSize
-      ? css`
-          width: auto;
-          height: auto;
-        `
-      : css`
-          min-width: ${size === "md" ? "75%" : size === "lg" ? "95%" : "55%"};
-          min-height: ${size === "md" ? "75%" : size === "lg" ? "95%" : "55%"};
-          max-height: ${size === "md" ? "75%" : size === "lg" ? "95%" : "55%"};
-        `}
+export const Container = styled.div`
+  width: auto;
+  min-width: 95%;
 
   height: auto;
+  max-height: 90%;
+
   border-radius: ${toRem(20)};
   background: #111d4a;
+
   display: flex;
   flex-direction: column;
 
@@ -60,5 +49,6 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   flex: 1;
-  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;

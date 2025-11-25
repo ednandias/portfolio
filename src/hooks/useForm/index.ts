@@ -1,4 +1,4 @@
-import { createArray } from "../utils/createArray";
+import { createArray } from "@utils/createArray";
 
 interface Validation {
   field: string;

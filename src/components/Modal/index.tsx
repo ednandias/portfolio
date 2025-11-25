@@ -10,18 +10,14 @@ interface GenericModalProps {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
-  size?: "md" | "lg";
   dontCloseOnEscape?: boolean;
   animation?: "scale" | "slide-up";
-  autoSize?: boolean;
 }
 
 export function Modal({
   children,
   isOpen,
   onClose,
-  size,
-  autoSize,
   dontCloseOnEscape,
   animation = "slide-up",
 }: GenericModalProps) {
@@ -100,7 +96,7 @@ export function Modal({
   return (
     <Portal elementId="modal-root" isOpen={isOpen}>
       <Overlay>
-        <Container ref={containerRef} size={size} autoSize={autoSize}>
+        <Container ref={containerRef}>
           <Header>
             <button onClick={handleClose}>
               <Icon

@@ -1,6 +1,6 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 
-interface GhostButtonProps {
+interface GhostButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
@@ -12,6 +12,7 @@ export function GhostButton({
   onClick,
   style,
   className,
+  ...rest
 }: GhostButtonProps) {
   return (
     <button
@@ -27,6 +28,7 @@ export function GhostButton({
         ...style,
       }}
       onClick={onClick}
+      {...rest}
     >
       {children}
     </button>

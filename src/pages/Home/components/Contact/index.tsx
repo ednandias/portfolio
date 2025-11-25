@@ -40,7 +40,7 @@ export function Contact({ id }: ContactProps) {
         field: "email",
         value: data.email,
         regex: validation.email,
-        message: "E-mail inválido",
+        message: t("contact.form.inputs.email"),
       },
     ],
   });

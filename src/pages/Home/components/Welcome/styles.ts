@@ -51,7 +51,7 @@ export const Header = styled.header`
   justify-content: space-around;
   gap: ${toRem(5)};
 
-  article {
+  a {
     display: flex;
     align-items: center;
     justify-content: center;

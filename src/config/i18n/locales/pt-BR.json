@@ -4,7 +4,8 @@
     "about": "Sobre",
     "tecnologies": "Techs",
     "projects": "Projetos",
-    "contact": "Contato"
+    "contact": "Contato",
+    "button": "Mudar idioma"
   },
   "welcome": {
     "greetings": "Olá, Seja Bem Vindo!",
@@ -42,7 +43,10 @@
   },
   "projects": {
     "h1": "Projetos",
-    "p": "Conheça os projetos que ajudei a tirar do papel."
+    "p": "Conheça os projetos que ajudei a tirar do papel.",
+    "modalProject": {
+      "button": "Conhecer"
+    }
   },
   "techs": {
     "h1": "Techs",
@@ -55,7 +59,10 @@
       "name": "Nome",
       "email": "E-mail",
       "message": "Me mande uma mensagem...",
-      "button": "Enviar Mensagem"
+      "button": "Enviar Mensagem",
+      "inputs": {
+        "email": "E-mail inválido"
+      }
     }
   },
   "socialMedia": {
