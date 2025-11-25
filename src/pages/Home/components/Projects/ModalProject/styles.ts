@@ -17,6 +17,18 @@ export const Info = styled.div`
   justify-content: space-between;
   gap: ${toRem(10)};
 
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: ${toRem(20)};
+
+    #platforms {
+      display: flex;
+      gap: ${toRem(5)};
+    }
+  }
+
   h1 {
     font-size: ${toRem(18)};
     text-align: center;
@@ -34,18 +46,28 @@ export const Content = styled.div`
   align-items: center;
   gap: ${toRem(20)};
   padding: ${toRem(30)} ${toRem(40)};
-  max-width: 700px;
   margin: 0 auto;
 
   p {
-    font-size: ${toRem(17)};
-    line-height: 1.6;
-    text-align: justify;
-    text-transform: none;
-    text-indent: 0;
+    font-size: ${toRem(20)};
+    line-height: 1.8;
+    text-align: left;
+    color: #e0e0e0;
+    margin: 0;
+  }
+
+  p:first-child {
+    font-weight: 500;
+    margin-bottom: ${toRem(16)};
   }
 
   p + p {
-    margin-top: ${toRem(12)};
+    margin-top: ${toRem(16)};
+  }
+
+  /* Para adicionar destaque em palavras-chave se necessário */
+  strong {
+    color: #ffffff;
+    font-weight: 600;
   }
 `;

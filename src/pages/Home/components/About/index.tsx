@@ -108,10 +108,7 @@ export function About({ id }: AboutProps) {
   return (
     <Section id={id}>
       <Content>
-        <InfoSection
-          title={t("about.title")}
-          paragraph="Saiba um pouco mais sobre mim, minha carreira e meus objetivos."
-        />
+        <InfoSection title={t("about.h1")} paragraph={t("about.p")} />
 
         <FormQuestions>
           <Questions>

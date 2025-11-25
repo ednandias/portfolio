@@ -34,11 +34,8 @@ export const Container = styled.div<ContainerProps>`
         `}
 
   height: auto;
-
   border-radius: ${toRem(20)};
-
   background: #111d4a;
-
   display: flex;
   flex-direction: column;
 

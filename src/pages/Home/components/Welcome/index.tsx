@@ -5,6 +5,7 @@ import animatedFlagBrazilGif from "@images/animated-flag-brazil.gif";
 import animatedFlagUsaGif from "@images/animated-flag-usa.gif";
 import type { IconOptions } from "@interfaces/index";
 import gsap from "gsap";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Button } from "../../../../components/Button";
@@ -102,6 +103,8 @@ export function Welcome({ id }: WelcomeProps) {
     }
   });
 
+  useGSAP(() => {});
+
   return (
     <Section id={id}>
       <Header className="header">
@@ -147,9 +150,7 @@ export function Welcome({ id }: WelcomeProps) {
       <Presentation id="presentation">
         <h1 className="welcome">Ednan Dias</h1>
 
-        <Description>
-          <TypedText />
-        </Description>
+        <Description>{/* <TypedText /> */}</Description>
 
         <ButtonsView>
           <Button

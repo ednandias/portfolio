@@ -5,7 +5,6 @@ export const Container = styled.main`
   width: 100%;
   height: auto;
 
-  overflow-x: hidden;
   position: relative;
 
   display: flex;

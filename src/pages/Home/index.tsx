@@ -7,6 +7,7 @@ import { Welcome } from "./components/Welcome";
 import { Container } from "./styles";
 
 import "./background.css";
+import { SocialMedia } from "./components/SocialMedia";
 
 export function Home() {
   const containerRef = useRef<HTMLElement>(null);
@@ -18,6 +19,7 @@ export function Home() {
       <Techs id="techs" />
       <Projects id="projects" />
       <Contact id="contact" />
+      <SocialMedia id="social-media" />
     </Container>
   );
 }

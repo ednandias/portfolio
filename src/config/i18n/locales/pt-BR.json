@@ -13,7 +13,8 @@
     "downloadButton": "Baixar Currículo"
   },
   "about": {
-    "title": "Sobre",
+    "h1": "Sobre",
+    "p": "Saiba um pouco mais sobre mim, minha carreira e meus objetivos.",
     "howStarted": {
       "title": "Como tudo começou?",
       "text": "Meu interesse por programação começou em 2018, quando fiz um curso técnico presencial de Análise e Desenvolvimento de Sistemas e tive meu primeiro contato com tecnologias web, como HTML, CSS e Javascript."
@@ -49,6 +50,16 @@
   },
   "contact": {
     "h1": "Contato",
-    "p": "Me mande uma mensagem para que possamos conversar sobre a sua ideia!"
+    "p": "Me mande uma mensagem para que possamos conversar sobre a sua ideia!",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Me mande uma mensagem...",
+      "button": "Enviar Mensagem"
+    }
+  },
+  "socialMedia": {
+    "h1": "Me siga nas redes sociais",
+    "p": "Acompanhe meu lado profissional/pessoal."
   }
 }

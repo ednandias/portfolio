@@ -97,7 +97,7 @@ export function Contact({ id }: ContactProps) {
             value={data.name}
             onChange={handleChange}
             icon="UserCircle"
-            placeholder="Nome"
+            placeholder={t("contact.form.name")}
             className="up"
           />
 
@@ -107,7 +107,7 @@ export function Contact({ id }: ContactProps) {
             value={data.email}
             onChange={handleChange}
             icon="Mailbox"
-            placeholder="E-mail"
+            placeholder={t("contact.form.email")}
             className="up"
             error={errors.email}
           />
@@ -117,7 +117,7 @@ export function Contact({ id }: ContactProps) {
             value={data.message}
             onChange={handleChange}
             icon="ArticleNyTimes"
-            placeholder="Me mande uma mensagem..."
+            placeholder={t("contact.form.message")}
             className="up"
             maxLength={800}
           />
@@ -169,7 +169,7 @@ export function Contact({ id }: ContactProps) {
 
           <Button
             icon="WhatsappLogo"
-            title="Enviar Mensagem"
+            title={t("contact.form.button")}
             className="up"
             onClick={handleSendMessage}
             disabled={

@@ -13,7 +13,8 @@
     "downloadButton": "Download Resume"
   },
   "about": {
-    "title": "About",
+    "h1": "About",
+    "p": "Learn a little more about me, my career, and my goals.",
     "howStarted": {
       "title": "How did it all begin?",
       "text": "My interest in programming began in 2018, when I took a technical course in Systems Analysis and Development and had my first contact with web technologies such as HTML, CSS, and Javascript."
@@ -49,6 +50,16 @@
   },
   "contact": {
     "h1": "Contact",
-    "p": "Send me a message so we can discuss your idea!"
+    "p": "Send me a message so we can discuss your idea!",
+    "form": {
+      "name": "Name",
+      "email": "E-mail",
+      "message": "Send me a message...",
+      "button": "Send Message"
+    }
+  },
+  "socialMedia": {
+    "h1": "Follow me on social media",
+    "p": "Follow my professional/personal side."
   }
 }
