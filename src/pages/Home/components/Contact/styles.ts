@@ -1,3 +1,4 @@
+import { isMobile } from "@utils/isMobile";
 import styled, { css } from "styled-components";
 import { toRem } from "../../../../utils/toRem";
 
@@ -24,7 +25,6 @@ export const Form = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${toRem(10)};
-  background: red;
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -35,6 +35,11 @@ export const Form = styled.section`
   p {
     text-align: center;
   }
+
+  ${isMobile &&
+  css`
+    min-width: auto;
+  `}
 `;
 
 export const Info = styled.article`

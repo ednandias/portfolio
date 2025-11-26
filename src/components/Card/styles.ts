@@ -11,7 +11,7 @@ interface ContainerProps {
 export const Container = styled.button<ContainerProps>`
   width: ${({ size }) => toRem(size ? size : 150)};
   height: ${({ size }) => toRem(size ? size : 150)};
-  border-radius: 16px;
+  border-radius: ${toRem(16)};
   background: ${({ $backColor }) => $backColor};
 
   ${({ $noGlass }) =>

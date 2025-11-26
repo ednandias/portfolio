@@ -1,3 +1,4 @@
+import { isMobile } from "@utils/isMobile";
 import styled, { css } from "styled-components";
 import { toRem } from "../../../../utils/toRem";
 
@@ -17,6 +18,13 @@ export const FormQuestions = styled.section`
 
   display: grid;
   grid-template-columns: auto auto;
+
+  ${isMobile &&
+  css`
+    display: flex;
+    flex-direction: column;
+    gap: ${toRem(20)};
+  `}
 `;
 
 export const Questions = styled.article`
@@ -24,6 +32,15 @@ export const Questions = styled.article`
   flex-direction: column;
   justify-content: center;
   gap: ${toRem(10)};
+
+  ${isMobile &&
+  css`
+    all: unset;
+    margin-top: ${toRem(20)};
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    gap: ${toRem(10)};
+  `}
 `;
 
 export const Question = styled.button<{ $isSelected: boolean }>`
@@ -65,6 +82,11 @@ export const Question = styled.button<{ $isSelected: boolean }>`
         fill: ${({ theme }) => theme.colors.gold};
       }
     `}
+
+  ${isMobile &&
+  css`
+    justify-content: center;
+  `}
 `;
 
 export const Answers = styled.article`
@@ -75,17 +97,31 @@ export const Answers = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ${isMobile &&
+  css`
+    padding: 0;
+  `}
 `;
 
 export const Answer = styled.p`
-  text-align: center;
-  text-indent: ${toRem(15)};
+  text-align: left;
   font-weight: 300;
   font-size: ${toRem(30)};
 
-  strong {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.gold};
-    font-style: italic;
-  }
+  ${isMobile &&
+  css`
+    all: unset;
+    font-size: ${toRem(18)};
+    text-align: justify;
+    text-align-last: auto;
+    hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  `}
+`;
+
+export const QuestionMobile = styled.h2`
+  color: ${({ theme }) => theme.colors.gold};
+  margin-bottom: ${toRem(20)};
 `;

@@ -8,6 +8,7 @@ export const Overlay = styled.div`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  padding: ${toRem(20)};
 
   display: flex;
   align-items: center;

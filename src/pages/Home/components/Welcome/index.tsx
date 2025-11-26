@@ -1,11 +1,11 @@
+import animatedFlagBrazilGif from "@assets/images/animated-flag-brazil.gif";
+import animatedFlagUsaGif from "@assets/images/animated-flag-usa.gif";
 import { GhostButton } from "@components/GhostButton";
 import { useGSAP } from "@gsap/react";
 import { useTypewriter } from "@hooks/useTypewriter";
-import animatedFlagBrazilGif from "@images/animated-flag-brazil.gif";
-import animatedFlagUsaGif from "@images/animated-flag-usa.gif";
 import type { IconOptions } from "@interfaces/index";
+import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Button } from "../../../../components/Button";
@@ -18,11 +18,14 @@ interface WelcomeProps {
 }
 
 export function Welcome({ id }: WelcomeProps) {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
-
   const { start, TypedText } = useTypewriter({
-    baseText: `Programação é `,
-    words: [{ text: "Incrível" }, { text: "Desafiador" }],
+    baseText: ``,
+    words: [
+      {
+        text: "Desenvolvedor Full-Stack JavaScript/TypeScript",
+        pause: true,
+      },
+    ],
   });
   const { t, i18n } = useTranslation();
   const theme = useTheme();
@@ -67,9 +70,9 @@ export function Welcome({ id }: WelcomeProps) {
   useGSAP(() => {
     const tl = gsap.timeline();
 
-    tl.fromTo(".header", { y: "-100vh" }, { y: "0", ease: "back.out" });
+    tl.fromTo("header", { y: "-100vh" }, { y: "0", ease: "back.out" });
     tl.fromTo(
-      "#presentation",
+      "#greetings",
       { scale: 0 },
       { scale: 1, ease: "back.out", onComplete: start }
     );
@@ -137,63 +140,11 @@ export function Welcome({ id }: WelcomeProps) {
     };
   });
 
-  useGSAP(
-    () => {
-      if (scrollPercentage > 15) {
-        gsap.to(".header a svg", {
-          width: 30,
-          height: 30,
-        });
-
-        gsap.to(".header a p", {
-          fontSize: 0,
-          display: "none",
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      } else {
-        gsap.to(".header a svg", {
-          width: 25,
-          height: 25,
-        });
-
-        gsap.to(".header a p", {
-          fontSize: "1rem",
-          display: "block",
-          duration: 0.3,
-          ease: "power2.inOut",
-        });
-      }
-    },
-    { dependencies: [scrollPercentage] }
-  );
-
-  useEffect(() => {
-    function onScroll() {
-      const scrollY = window.scrollY;
-
-      const scrollableHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      setScrollPercentage(Math.round((scrollY / scrollableHeight) * 100));
-    }
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
   return (
     <Section id={id}>
       <Header className="header">
         {anchors.map((anchor) => (
-          <a
-            key={anchor.to}
-            href={anchor.to}
-            title={scrollPercentage > 15 ? anchor.text : ""}
-          >
+          <a key={anchor.to} href={anchor.to}>
             <Icon
               iconName={anchor.icon}
               color={theme.colors.text}
@@ -201,7 +152,7 @@ export function Welcome({ id }: WelcomeProps) {
               weight="fill"
             />
 
-            <p>{anchor.text}</p>
+            {!isMobile && <p>{anchor.text}</p>}
           </a>
         ))}
 
@@ -231,30 +182,35 @@ export function Welcome({ id }: WelcomeProps) {
         </GhostButton>
       </Header>
 
-      <Presentation id="presentation">
-        <h1 className="welcome">Ednan Dias</h1>
+      <Presentation>
+        <div id="greetings">
+          <h1>Ednan Dias</h1>
 
-        <Description>
-          <TypedText />
-        </Description>
+          <Description>
+            <TypedText />
+          </Description>
 
-        <ButtonsView>
-          <Button
-            className="know-more"
-            icon="HandTap"
-            title={t("welcome.knowButton")}
-            onClick={handleGoTo}
-          />
-
-          <a href="/download/curriculo.pdf" download="Currículo Ednan Dias.pdf">
+          <ButtonsView>
             <Button
-              type="submit"
               className="know-more"
-              icon="ReadCvLogo"
-              title={t("welcome.downloadButton")}
+              icon="HandTap"
+              title={t("welcome.knowButton")}
+              onClick={handleGoTo}
             />
-          </a>
-        </ButtonsView>
+
+            <a
+              href="/download/curriculo.pdf"
+              download="Currículo Ednan Dias.pdf"
+            >
+              <Button
+                type="submit"
+                className="know-more"
+                icon="ReadCvLogo"
+                title={t("welcome.downloadButton")}
+              />
+            </a>
+          </ButtonsView>
+        </div>
       </Presentation>
     </Section>
   );

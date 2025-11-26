@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { isMobile } from "@utils/isMobile";
+import styled, { css } from "styled-components";
 import { toRem } from "../../../../utils/toRem";
 
 export const Content = styled.div`
@@ -14,4 +15,10 @@ export const MyProjects = styled.div`
   display: flex;
   gap: ${toRem(20)};
   margin-top: ${toRem(20)};
+
+  ${isMobile &&
+  css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  `}
 `;

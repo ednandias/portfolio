@@ -3,7 +3,6 @@ import { toRem } from "../../utils/toRem";
 
 export const Container = styled.main`
   width: 100%;
-  height: auto;
 
   position: relative;
 
@@ -13,10 +12,12 @@ export const Container = styled.main`
 
 export const Section = styled.section`
   min-height: 100vh;
+  padding: ${toRem(20)};
 
   display: flex;
   flex-direction: column;
 
+  overflow-x: hidden !important;
   color: #fcf7f8;
 
   h1 {

@@ -1,5 +1,6 @@
+import { isMobile } from "@utils/isMobile";
 import { toRem } from "@utils/toRem";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Content = styled.div`
   flex: 1;
@@ -12,13 +13,17 @@ export const Content = styled.div`
 
 export const TechsView = styled.div`
   width: 100%;
-  margin: 0 auto;
   padding: ${toRem(20)};
 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
   gap: ${toRem(20)};
+
+  ${isMobile &&
+  css`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  `}
 `;

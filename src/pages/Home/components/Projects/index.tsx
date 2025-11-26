@@ -1,10 +1,11 @@
+import isaNailSvg from "@assets/icons/isa-nail.svg";
+import stillusSvg from "@assets/icons/stillus.svg";
+import ziphubSvg from "@assets/icons/ziphub.png";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
-import isaNailSvg from "@images/isa-nail.svg";
-import stillusSvg from "@images/stillus.svg";
-import ziphubSvg from "@images/ziphub.png";
 import Tippy from "@tippyjs/react";
+import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -124,6 +125,8 @@ export function Projects({ id }: ProjectsProps) {
             {projects.map((project) => (
               <Tippy key={project.id} content={project.title}>
                 <Card
+                  size={isMobile ? 100 : 0}
+                  imagesize={isMobile ? 50 : 80}
                   imgUrl={project.image}
                   onClick={() => handleSelectProject(project)}
                   noGlass={!!project.projectCardBackground}

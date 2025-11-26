@@ -1,9 +1,17 @@
-import styled from "styled-components";
+import { isMobile } from "@utils/isMobile";
+import styled, { css } from "styled-components";
 import { toRem } from "../../../../../utils/toRem";
 
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 25% auto;
+
+  ${isMobile &&
+  css`
+    all: unset;
+    display: flex;
+    flex-direction: column;
+  `}
 `;
 
 export const Info = styled.div`
@@ -41,10 +49,8 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: ${toRem(20)};
   gap: ${toRem(20)};
-  padding: ${toRem(30)} ${toRem(40)};
-  margin: 0 auto;
-  max-width: ${toRem(900)};
 
   p {
     font-size: ${toRem(20)};
@@ -63,8 +69,15 @@ export const Content = styled.div`
     margin-top: ${toRem(16)};
   }
 
-  strong {
-    color: #ffffff;
-    font-weight: 600;
-  }
+  ${isMobile &&
+  css`
+    p {
+      font-size: ${toRem(15)};
+      text-align: justify;
+      text-align-last: auto;
+      hyphens: auto;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+  `}
 `;

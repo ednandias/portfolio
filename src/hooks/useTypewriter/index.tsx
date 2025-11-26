@@ -1,44 +1,45 @@
 import { delay } from "@utils/delay";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Cursor, Text } from "./styled";
 
 interface Word {
   text: string;
+
   pause?: boolean;
 }
 
 interface UseTypewriterProps {
   baseText: string;
+  color?: string;
+  fontSize?: number;
   words: Word[];
 }
 
-export function useTypewriter({ baseText, words }: UseTypewriterProps) {
+export function useTypewriter({
+  baseText,
+  fontSize,
+  color,
+  words,
+}: UseTypewriterProps) {
   const [text, setText] = useState("");
+  const wordIndexRef = useRef(0);
 
   async function nextWord() {
-    // setCurrentWord((prevState) => {
-    //   const index = words.findIndex((word) => word === prevState);
-    //   if (index + 1 > words.length - 1) {
-    //     return words[0];
-    //   } else {
-    //     return words[index + 1];
-    //   }
-    // });
-    // await delay(1000);
-    // start();
+    wordIndexRef.current = (wordIndexRef.current + 1) % words.length;
+    await delay(1000);
+    writeWord();
   }
 
-  async function writeWord(word: string) {
-    const letters = word.split("");
+  async function writeWord() {
+    const currentWordText = words[wordIndexRef.current].text;
+    const letters = currentWordText.split("");
 
     for (const [index, letter] of letters.entries()) {
-      setText((prevState) => (prevState += letter));
+      setText((prevState) => prevState + letter);
+      await delay(100);
 
-      await delay(200);
-
-      if (index === letters.length - 1) {
+      if (index === letters.length - 1 && !words[wordIndexRef.current].pause) {
         await delay(1000);
-
         eraseWord(letters.length);
       }
     }
@@ -46,26 +47,23 @@ export function useTypewriter({ baseText, words }: UseTypewriterProps) {
 
   async function eraseWord(wordLength: number) {
     for (let c = wordLength; c > 0; c--) {
-      setText((prevState) => prevState.split("").slice(0, -1).join(""));
-
-      await delay(200);
+      setText((prevState) => prevState.slice(0, -1));
+      await delay(100);
 
       if (c === 1) {
-        await delay(1000);
-
         nextWord();
       }
     }
   }
 
   function start() {
-    writeWord(words[0]);
+    writeWord();
   }
 
   function TypedText() {
     return (
       <>
-        <Text>
+        <Text color={color} fontSize={fontSize}>
           {baseText} {text}
         </Text>
 

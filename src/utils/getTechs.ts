@@ -1,17 +1,17 @@
-import awsSvg from "@images/techs/aws.svg";
-import cssSvg from "@images/techs/css.svg";
-import dockerSvg from "@images/techs/docker.svg";
-import firebirdSvg from "@images/techs/firebirdsql.svg";
-import htmlSvg from "@images/techs/html.svg";
-import javascriptSvg from "@images/techs/javascript.svg";
-import linuxSvg from "@images/techs/linux.svg";
-import mysqlSvg from "@images/techs/mysql.svg";
-import nextSvg from "@images/techs/next.svg";
-import nodeSvg from "@images/techs/node.svg";
-import postgresqlSvg from "@images/techs/postgresql.svg";
-import reactNativeSvg from "@images/techs/react-native.svg";
-import reactSvg from "@images/techs/react.svg";
-import typescriptSvg from "@images/techs/typescript.svg";
+import awsSvg from "@assets/icons/aws.svg";
+import cssSvg from "@assets/icons/css.svg";
+import dockerSvg from "@assets/icons/docker.svg";
+import firebirdSvg from "@assets/icons/firebirdsql.svg";
+import htmlSvg from "@assets/icons/html.svg";
+import javascriptSvg from "@assets/icons/javascript.svg";
+import linuxSvg from "@assets/icons/linux.svg";
+import mysqlSvg from "@assets/icons/mysql.svg";
+import nextSvg from "@assets/icons/next.svg";
+import nodeSvg from "@assets/icons/node.svg";
+import postgresqlSvg from "@assets/icons/postgresql.svg";
+import reactNativeSvg from "@assets/icons/react-native.svg";
+import reactSvg from "@assets/icons/react.svg";
+import typescriptSvg from "@assets/icons/typescript.svg";
 
 interface Tech {
   name: string;

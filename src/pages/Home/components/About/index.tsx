@@ -4,6 +4,7 @@ import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import type { IconOptions } from "@interfaces/index";
+import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -15,6 +16,7 @@ import {
   Content,
   FormQuestions,
   Question,
+  QuestionMobile,
   Questions,
 } from "./styles";
 
@@ -44,14 +46,13 @@ export function About({ id }: AboutProps) {
 
   useSmoothScroll([
     { id: `#${id} .info-section` },
-    { id: `#${id} .question`, stagger: true },
-    { id: `#${id} .answer`, stagger: true },
+    { id: `#${id} .question` },
+    { id: `#${id} .answer` },
   ]);
 
   useGSAP(
     () => {
       //? SVG Icon
-
       gsap.to("#iconAbout", {
         duration: 0.3,
         morphSVG: isQuestionSectionOpen
@@ -73,7 +74,6 @@ export function About({ id }: AboutProps) {
   useGSAP(
     () => {
       //? Answer
-
       gsap.fromTo(
         `#${id} .answer`,
         {
@@ -112,21 +112,23 @@ export function About({ id }: AboutProps) {
 
         <FormQuestions>
           <Questions>
-            <GhostButton
-              onClick={() =>
-                setIsQuestionSectionOpen((prevState) => !prevState)
-              }
-              className="question"
-            >
-              <svg
-                width="35"
-                height="35"
-                fill={theme.colors.gold}
-                viewBox="0 0 256 256"
+            {!isMobile && (
+              <GhostButton
+                onClick={() =>
+                  setIsQuestionSectionOpen((prevState) => !prevState)
+                }
+                className="question"
               >
-                <path id="iconAbout" d={arrowsInLineHorizontal} />
-              </svg>
-            </GhostButton>
+                <svg
+                  width="35"
+                  height="35"
+                  fill={theme.colors.gold}
+                  viewBox="0 0 256 256"
+                >
+                  <path id="iconAbout" d={arrowsInLineHorizontal} />
+                </svg>
+              </GhostButton>
+            )}
 
             <Question
               className="question"
@@ -140,7 +142,7 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.howStarted.title")}</p>
+              {!isMobile && <p>{t("about.howStarted.title")}</p>}
             </Question>
 
             <Question
@@ -155,7 +157,7 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.myExperiences.title")}</p>
+              {!isMobile && <p>{t("about.myExperiences.title")}</p>}
             </Question>
 
             <Question
@@ -170,7 +172,7 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.whyProgramming.title")}</p>
+              {!isMobile && <p>{t("about.whyProgramming.title")}</p>}
             </Question>
 
             <Question
@@ -185,7 +187,7 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.mainStack.title")}</p>
+              {!isMobile && <p>{t("about.mainStack.title")}</p>}
             </Question>
 
             <Question
@@ -200,7 +202,7 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.myUniqueAdvantage.title")}</p>
+              {!isMobile && <p>{t("about.myUniqueAdvantage.title")}</p>}
             </Question>
 
             <Question
@@ -215,11 +217,17 @@ export function About({ id }: AboutProps) {
                 color={theme.colors.primary}
               />
 
-              <p>{t("about.myGoal.title")}</p>
+              {!isMobile && <p>{t("about.myGoal.title")}</p>}
             </Question>
           </Questions>
 
           <Answers>
+            {isMobile && (
+              <QuestionMobile className="up">
+                {t(`about.${selectedQuestion}.title`)}
+              </QuestionMobile>
+            )}
+
             {selectedQuestion === "howStarted" && (
               <Answer className="answer">{t("about.howStarted.text")}</Answer>
             )}

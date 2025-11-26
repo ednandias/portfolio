@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { isMobile } from "@utils/isMobile";
+import styled, { css } from "styled-components";
 import { toRem } from "../../../../utils/toRem";
 
 export const Presentation = styled.div`
@@ -8,17 +9,24 @@ export const Presentation = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${toRem(10)};
 
   color: white;
 
-  p {
-    font-size: ${toRem(20)};
-  }
+  div#greetings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: ${toRem(10)};
 
-  h1 {
-    margin: 0;
-    color: ${({ theme }) => theme.colors.gold};
+    p {
+      font-size: ${toRem(20)};
+    }
+
+    h1 {
+      margin: 0;
+      color: ${({ theme }) => theme.colors.gold};
+    }
   }
 `;
 
@@ -62,6 +70,11 @@ export const Header = styled.header`
       color: ${({ theme }) => theme.colors.text};
     }
   }
+
+  ${isMobile &&
+  css`
+    width: 90%;
+  `}
 `;
 
 export const ButtonsView = styled.div`

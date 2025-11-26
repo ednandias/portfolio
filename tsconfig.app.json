@@ -28,8 +28,8 @@
       "@types/*": [
         "./src/@types/*"
       ],
-      "@images/*": [
-        "./src/assets/images/*"
+      "@assets/*": [
+        "./src/assets/*"
       ],
       "@components/*": [
         "./src/components/*"

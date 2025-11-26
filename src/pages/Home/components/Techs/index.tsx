@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import Tippy from "@tippyjs/react";
 import { getTechs } from "@utils/getTechs";
+import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { Section } from "../../styles";
@@ -55,7 +56,11 @@ export function Techs({ id }: TechsProps) {
         <TechsView>
           {techs.map((tech) => (
             <Tippy key={tech.name} content={tech.name}>
-              <Card imgUrl={tech.image} imagesize={80} />
+              <Card
+                size={isMobile ? 100 : 0}
+                imgUrl={tech.image}
+                imagesize={isMobile ? 50 : 80}
+              />
             </Tippy>
           ))}
         </TechsView>

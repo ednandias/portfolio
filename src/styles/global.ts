@@ -18,11 +18,18 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    /* overflow: visible !important; */
+    overflow-y: visible !important;
   }
 
   html, body, div#root {
-    height: 100%;
+    min-height: 100vh;
+  }
+
+  div#root {
+    background-image: url('/src/assets/images/background.svg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
   }
 
   body, button, input, textarea, select {
