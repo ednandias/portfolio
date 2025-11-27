@@ -8,14 +8,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: IconOptions;
   mt?: number;
   size?: "full";
+  color?: string;
+  textColor?: string;
+  iconColor?: string;
+  noHoverAnimation?: boolean;
 }
 
 export function Button({
   title,
   icon,
   mt,
+  color,
+  textColor,
+  iconColor,
   className = "",
   size,
+  noHoverAnimation,
   ...rest
 }: ButtonProps) {
   return (
@@ -23,10 +31,18 @@ export function Button({
       className={`${className} custom-button`}
       mt={mt}
       size={size}
+      color={color}
+      textColor={textColor}
+      noHoverAnimation={noHoverAnimation}
       {...rest}
     >
       {icon && (
-        <Icon iconName={icon} weight="duotone" color="#0d1b2a" size={20} />
+        <Icon
+          iconName={icon}
+          weight="duotone"
+          color={iconColor || "#0d1b2a"}
+          size={20}
+        />
       )}
 
       {title}

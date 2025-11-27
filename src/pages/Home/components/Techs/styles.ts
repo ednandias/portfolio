@@ -16,10 +16,16 @@ export const TechsView = styled.div`
   padding: ${toRem(20)};
 
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: ${toRem(20)};
+
+  div.center-tech {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: ${toRem(20)};
+  }
 
   ${isMobile &&
   css`

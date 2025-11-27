@@ -1,9 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { toRem } from "../../utils/toRem";
 
 interface ContainerProps {
   mt?: number;
   size?: "full";
+  color?: string;
+  textColor?: string;
+  noHoverAnimation?: boolean;
 }
 
 export const Container = styled.button<ContainerProps>`
@@ -12,30 +15,32 @@ export const Container = styled.button<ContainerProps>`
   height: ${toRem(50)};
   padding: 0 ${toRem(20)};
   border-radius: 15px;
-
-  background: #fcf7f8;
-  color: #0d1b2a !important;
   font-size: ${toRem(16)};
   font-weight: bold;
-
   margin-top: ${({ mt }) => mt && toRem(mt)};
 
-  transition: background 0.2s;
+  background: ${({ color }) => color || "#fcf7f8"};
+  color: ${({ textColor }) => textColor || "#0d1b2a"} !important;
+
+  transition: all 0.2s;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: ${toRem(5)};
 
-  &:not(:disabled):hover {
-    background: ${({ theme }) => theme.colors.primaryDarker};
+  ${({ noHoverAnimation }) =>
+    !noHoverAnimation &&
+    css`
+      &:not(:disabled):hover {
+        background: ${({ theme }) => theme.colors.primaryDarker};
+        color: ${({ theme }) => theme.colors.gold} !important;
 
-    color: ${({ theme }) => theme.colors.gold} !important;
-
-    svg {
-      fill: ${({ theme }) => theme.colors.gold} !important;
-    }
-  }
+        svg {
+          fill: ${({ theme }) => theme.colors.gold} !important;
+        }
+      }
+    `}
 
   &:disabled {
     cursor: not-allowed;

@@ -36,7 +36,7 @@ export function useTypewriter({
 
     for (const [index, letter] of letters.entries()) {
       setText((prevState) => prevState + letter);
-      await delay(100);
+      await delay(80);
 
       if (index === letters.length - 1 && !words[wordIndexRef.current].pause) {
         await delay(1000);
@@ -48,7 +48,7 @@ export function useTypewriter({
   async function eraseWord(wordLength: number) {
     for (let c = wordLength; c > 0; c--) {
       setText((prevState) => prevState.slice(0, -1));
-      await delay(100);
+      await delay(80);
 
       if (c === 1) {
         nextWord();

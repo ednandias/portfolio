@@ -4,7 +4,6 @@ import ziphubSvg from "@assets/icons/ziphub.png";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
-import Tippy from "@tippyjs/react";
 import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useMemo, useState } from "react";
@@ -23,7 +22,7 @@ export interface Tech {
 export interface Project {
   id: string;
   title: string;
-  url: string;
+  link: string;
   image: string;
   about: string;
   platforms: string[];
@@ -45,7 +44,7 @@ export function Projects({ id }: ProjectsProps) {
       {
         id: v4(),
         title: "Stillus Academia",
-        url: "https://stillus-academia.site",
+        link: "https://stillus-academia.site",
         image: stillusSvg,
         projectCardBackground: "#000",
         about:
@@ -57,7 +56,7 @@ export function Projects({ id }: ProjectsProps) {
       {
         id: v4(),
         title: "Isabela Nail Designer",
-        url: "https://isabelanaildesigner.netlify.app/",
+        link: "https://isabelanaildesigner.netlify.app/",
         image: isaNailSvg,
         projectCardBackground: "#fff",
         about:
@@ -69,7 +68,7 @@ export function Projects({ id }: ProjectsProps) {
       {
         id: v4(),
         title: "ZipHub",
-        url: "https://ziphub.com.br/site",
+        link: "https://ziphub.com.br/site",
         image: ziphubSvg,
         projectCardBackground: "#2563eb",
         about:
@@ -123,16 +122,15 @@ export function Projects({ id }: ProjectsProps) {
 
           <MyProjects>
             {projects.map((project) => (
-              <Tippy key={project.id} content={project.title}>
-                <Card
-                  size={isMobile ? 100 : 0}
-                  imagesize={isMobile ? 50 : 80}
-                  imgUrl={project.image}
-                  onClick={() => handleSelectProject(project)}
-                  noGlass={!!project.projectCardBackground}
-                  backColor={project.projectCardBackground}
-                />
-              </Tippy>
+              <Card
+                key={project.id}
+                size={isMobile ? 100 : 0}
+                imagesize={isMobile ? 50 : 80}
+                imgUrl={project.image}
+                onClick={() => handleSelectProject(project)}
+                noGlass={!!project.projectCardBackground}
+                backColor={project.projectCardBackground}
+              />
             ))}
           </MyProjects>
         </Content>

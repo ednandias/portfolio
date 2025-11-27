@@ -51,6 +51,14 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
     { dependencies: [isOpen] }
   );
 
+  function handleVisit(url: string) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+
+    link.click();
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <Container>
@@ -81,13 +89,12 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
             )}
           </div>
 
-          <a href={project.url} target="_blank" rel="noreferrer">
-            <Button
-              icon="ArrowSquareOut"
-              title={t("projects.modalProject.button")}
-              size="full"
-            />
-          </a>
+          <Button
+            icon="HandTap"
+            title={t("projects.modalProject.button")}
+            size="full"
+            onClick={() => handleVisit(project.link)}
+          />
         </Info>
 
         <Content id="pj-content">

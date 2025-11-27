@@ -1,13 +1,12 @@
-import { Card } from "@components/Card";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
-import Tippy from "@tippyjs/react";
-import { getTechs } from "@utils/getTechs";
-import { isMobile } from "@utils/isMobile";
+import { useTechs } from "@hooks/useTechs";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "styled-components";
 import { Section } from "../../styles";
+import { LogoCard } from "../LogoCard";
 import { Content, TechsView } from "./styles";
 
 interface TechsProps {
@@ -15,8 +14,8 @@ interface TechsProps {
 }
 
 export function Techs({ id }: TechsProps) {
-  const techs = getTechs();
-
+  const theme = useTheme();
+  const techs = useTechs();
   const { t } = useTranslation();
 
   useSmoothScroll([
@@ -24,14 +23,14 @@ export function Techs({ id }: TechsProps) {
       id: `#${id} .info-section`,
     },
     {
-      id: `#${id} .card`,
+      id: `#${id} .logo-card`,
       stagger: true,
     },
   ]);
 
   useGSAP(() => {
     //? Cards
-    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
+    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .logo-card`);
 
     for (const tech of techs) {
       ["mouseenter", "mouseleave"].forEach((event) => {
@@ -54,15 +53,23 @@ export function Techs({ id }: TechsProps) {
         <InfoSection title={t("techs.h1")} paragraph={t("techs.p")} />
 
         <TechsView>
-          {techs.map((tech) => (
-            <Tippy key={tech.name} content={tech.name}>
-              <Card
-                size={isMobile ? 100 : 0}
-                imgUrl={tech.image}
-                imagesize={isMobile ? 50 : 80}
+          <div className="center-tech">
+            {techs.map((tech) => (
+              <LogoCard
+                key={tech.name}
+                text={tech.name}
+                contentColor={theme.colors.primaryDarker}
+                contentTextColor={theme.colors.gold}
+                icon={tech.icon}
               />
-            </Tippy>
-          ))}
+
+              // <Card
+              //   size={isMobile ? 100 : 0}
+              //   imgUrl={tech.image}
+              //   imagesize={isMobile ? 50 : 80}
+              // />
+            ))}
+          </div>
         </TechsView>
       </Content>
     </Section>
