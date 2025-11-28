@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface UseSmoothScrollProps {
@@ -9,7 +9,11 @@ interface UseSmoothScrollProps {
 
 export function useSmoothScroll(selectors: UseSmoothScrollProps[]) {
   useGSAP(
-    () => {
+    async () => {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
       const triggers: ScrollTrigger[] = [];
 
       for (const selector of selectors) {

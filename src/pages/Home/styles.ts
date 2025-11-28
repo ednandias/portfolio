@@ -25,13 +25,3 @@ export const Section = styled.section`
     font-size: ${toRem(50)};
   }
 `;
-
-export const Config = styled.div`
-  background: none;
-  border: none;
-
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: ${toRem(20)};
-`;

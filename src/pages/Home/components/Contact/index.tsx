@@ -1,5 +1,4 @@
 import { InfoSection } from "@components/InfoSection";
-
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { useState, type ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
@@ -24,7 +23,7 @@ interface ContactState {
   platforms: string[];
 }
 
-export function Contact({ id }: ContactProps) {
+export default function Contact({ id }: ContactProps) {
   const [data, setData] = useState<ContactState>({
     name: "",
     email: "",

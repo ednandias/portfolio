@@ -4,7 +4,6 @@ import LinkedInIcon from "@assets/icons/linkedin.svg";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
-import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Section } from "../../styles";
@@ -15,7 +14,7 @@ interface SocialMediaProps {
   id: string;
 }
 
-export function SocialMedia({ id }: SocialMediaProps) {
+export default function SocialMedia({ id }: SocialMediaProps) {
   const theme = useTheme();
   const { t } = useTranslation();
 
@@ -45,7 +44,8 @@ export function SocialMedia({ id }: SocialMediaProps) {
     { id: `#${id} .logo-card`, stagger: true },
   ]);
 
-  useGSAP(() => {
+  useGSAP(async () => {
+    const gsap = (await import("gsap")).default;
     const techs = gsap.utils.toArray<HTMLElement>(`#${id} .logo-card`);
 
     for (const tech of techs) {

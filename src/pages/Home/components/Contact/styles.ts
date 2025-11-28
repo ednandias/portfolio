@@ -42,13 +42,6 @@ export const Form = styled.section`
   `}
 `;
 
-export const Info = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: ${toRem(10)};
-`;
-
 export const ButtonSelect = styled.button<{ selected: boolean }>`
   min-width: ${toRem(150)};
   width: 100%;

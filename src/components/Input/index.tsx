@@ -46,7 +46,7 @@ export function Input({
 
         {error && (
           <Tippy content={error}>
-            <Icon name="Warning" size={24} color={theme.colors.danger} />
+            <Icon name="WarningIcon" size={24} color={theme.colors.danger} />
           </Tippy>
         )}
       </Container>

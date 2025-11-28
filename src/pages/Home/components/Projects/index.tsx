@@ -5,7 +5,6 @@ import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { isMobile } from "@utils/isMobile";
-import gsap from "gsap";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { v4 } from "uuid";
@@ -13,11 +12,6 @@ import { Card } from "../../../../components/Card";
 import { Section } from "../../styles";
 import { ModalProject } from "./ModalProject";
 import { Content, MyProjects } from "./styles";
-
-export interface Tech {
-  label: string;
-  value: string;
-}
 
 export interface Project {
   id: string;
@@ -33,7 +27,7 @@ interface ProjectsProps {
   id: string;
 }
 
-export function Projects({ id }: ProjectsProps) {
+export default function Projects({ id }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState({} as Project);
   const [isModalProjectOpen, setIsModalProjectOpen] = useState(false);
 
@@ -96,7 +90,8 @@ export function Projects({ id }: ProjectsProps) {
     },
   ]);
 
-  useGSAP(() => {
+  useGSAP(async () => {
+    const gsap = (await import("gsap")).default;
     const projects = gsap.utils.toArray<HTMLButtonElement>(`#${id} .card`);
 
     for (const project of projects) {

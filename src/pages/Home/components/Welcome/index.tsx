@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useTypewriter } from "@hooks/useTypewriter";
 import type { IconName } from "@interfaces/index";
 import { isMobile } from "@utils/isMobile";
-import gsap from "gsap";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Button } from "../../../../components/Button";
@@ -17,7 +17,7 @@ interface WelcomeProps {
   id: string;
 }
 
-export function Welcome({ id }: WelcomeProps) {
+export default function Welcome({ id }: WelcomeProps) {
   const { start, TypedText } = useTypewriter({
     baseText: ``,
     words: [
@@ -58,8 +58,17 @@ export function Welcome({ id }: WelcomeProps) {
     },
   ];
 
-  function handleGoTo() {
+  useEffect(() => {
+    import("gsap");
+    import("gsap/ScrollToPlugin");
+  }, []);
+
+  async function handleGoTo() {
     const container = document.querySelector<HTMLElement>("#about");
+
+    const gsap = (await import("gsap")).default;
+    const { ScrollToPlugin } = await import("gsap/ScrollToPlugin");
+    gsap.registerPlugin(ScrollToPlugin);
 
     gsap.to(window, {
       scrollTo: container?.offsetTop,
@@ -67,18 +76,17 @@ export function Welcome({ id }: WelcomeProps) {
     });
   }
 
-  useGSAP(() => {
+  useGSAP(async () => {
+    const gsap = (await import("gsap")).default;
+    const { ScrollToPlugin } = await import("gsap/ScrollToPlugin");
+    gsap.registerPlugin(ScrollToPlugin);
+
     const tl = gsap.timeline();
 
-    tl.fromTo("header", { y: "-100vh" }, { y: "0", ease: "back.out" });
-    tl.fromTo(
-      "#greetings",
-      { scale: 0 },
-      { scale: 1, ease: "back.out", onComplete: start }
-    );
+    tl.to("header", { y: "0", ease: "back.out" });
+    tl.to("#greetings", { scale: 1, ease: "back.out", onComplete: start });
 
     const links = gsap.utils.toArray<HTMLAnchorElement>("header a");
-
     const cleanups: (() => void)[] = [];
 
     for (const link of links) {
@@ -133,9 +141,7 @@ export function Welcome({ id }: WelcomeProps) {
       });
     }
 
-    return () => {
-      cleanups.forEach((fn) => fn());
-    };
+    return () => cleanups.forEach((fn) => fn());
   });
 
   return (

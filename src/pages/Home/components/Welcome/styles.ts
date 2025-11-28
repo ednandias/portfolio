@@ -18,6 +18,7 @@ export const Presentation = styled.div`
     align-items: center;
     justify-content: center;
     gap: ${toRem(10)};
+    transform: scale(0);
 
     p {
       font-size: ${toRem(20)};
@@ -44,6 +45,7 @@ export const Header = styled.header`
   height: ${toRem(50)};
   margin: ${toRem(16)} auto;
   padding: 0 ${toRem(20)};
+  transform: translateY(-100vh);
 
   position: fixed;
   left: 0;

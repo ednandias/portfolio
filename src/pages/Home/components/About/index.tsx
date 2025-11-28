@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import type { IconName } from "@interfaces/index";
 import { isMobile } from "@utils/isMobile";
-import gsap from "gsap";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
@@ -31,7 +30,7 @@ interface Question {
   content: string;
 }
 
-export function About({ id }: AboutProps) {
+export default function About({ id }: AboutProps) {
   const [selectedQuestion, setSelectedQuestion] = useState("howStarted");
   const [isQuestionSectionOpen, setIsQuestionSectionOpen] = useState(true);
 
@@ -51,7 +50,11 @@ export function About({ id }: AboutProps) {
   ]);
 
   useGSAP(
-    () => {
+    async () => {
+      const gsap = (await import("gsap")).default;
+      const { MorphSVGPlugin } = await import("gsap/MorphSVGPlugin");
+      gsap.registerPlugin(MorphSVGPlugin);
+
       //? SVG Icon
       gsap.to("#iconAbout", {
         duration: 0.3,
@@ -72,7 +75,9 @@ export function About({ id }: AboutProps) {
   );
 
   useGSAP(
-    () => {
+    async () => {
+      const gsap = (await import("gsap")).default;
+
       //? Answer
       gsap.fromTo(
         `#${id} .answer`,
@@ -90,7 +95,9 @@ export function About({ id }: AboutProps) {
     { dependencies: [selectedQuestion] }
   );
 
-  useGSAP(() => {
+  useGSAP(async () => {
+    const gsap = (await import("gsap")).default;
+
     //? Questions Mouse Event
     const questions = gsap.utils.toArray<HTMLButtonElement>(".question");
 

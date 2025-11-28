@@ -2,7 +2,6 @@ import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { useTechs } from "@hooks/useTechs";
-import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Section } from "../../styles";
@@ -13,7 +12,7 @@ interface TechsProps {
   id: string;
 }
 
-export function Techs({ id }: TechsProps) {
+export default function Techs({ id }: TechsProps) {
   const theme = useTheme();
   const techs = useTechs();
   const { t } = useTranslation();
@@ -28,8 +27,9 @@ export function Techs({ id }: TechsProps) {
     },
   ]);
 
-  useGSAP(() => {
-    //? Cards
+  useGSAP(async () => {
+    const gsap = (await import("gsap")).default;
+
     const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .logo-card`);
 
     for (const tech of techs) {
