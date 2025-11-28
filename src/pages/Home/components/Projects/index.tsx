@@ -125,7 +125,7 @@ export function Projects({ id }: ProjectsProps) {
               <Card
                 key={project.id}
                 size={isMobile ? 100 : 0}
-                imagesize={isMobile ? 50 : 80}
+                imageSize={isMobile ? 50 : 80}
                 imgUrl={project.image}
                 onClick={() => handleSelectProject(project)}
                 noGlass={!!project.projectCardBackground}

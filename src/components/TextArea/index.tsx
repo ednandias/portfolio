@@ -1,10 +1,10 @@
 import { useState, type TextareaHTMLAttributes } from "react";
-import type { IconOptions } from "../../interfaces";
+import type { IconName } from "../../interfaces";
 import { Icon } from "../Icon";
 import { Container, IconView, StyledTextArea } from "./styles";
 
 interface InputProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  icon?: IconOptions;
+  icon?: IconName;
   mask?: string | (string | RegExp)[];
 }
 
@@ -16,7 +16,7 @@ export function TextArea({ icon, className, ...rest }: InputProps) {
       <IconView>
         {icon && (
           <Icon
-            iconName={icon}
+            name={icon}
             color={isFocused ? "#111d4a" : "#747172"}
             size={25}
           />

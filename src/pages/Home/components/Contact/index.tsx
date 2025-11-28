@@ -96,7 +96,7 @@ export function Contact({ id }: ContactProps) {
             name="name"
             value={data.name}
             onChange={handleChange}
-            icon="UserCircle"
+            icon="UserCircleIcon"
             placeholder={t("contact.form.name")}
             className="up"
           />
@@ -106,7 +106,7 @@ export function Contact({ id }: ContactProps) {
             type="email"
             value={data.email}
             onChange={handleChange}
-            icon="Mailbox"
+            icon="MailboxIcon"
             placeholder={t("contact.form.email")}
             className="up"
             error={errors.email}
@@ -116,7 +116,7 @@ export function Contact({ id }: ContactProps) {
             name="message"
             value={data.message}
             onChange={handleChange}
-            icon="ArticleNyTimes"
+            icon="ArticleNyTimesIcon"
             placeholder={t("contact.form.message")}
             className="up"
             maxLength={800}
@@ -140,7 +140,7 @@ export function Contact({ id }: ContactProps) {
                 onChange={() => {}}
               />
               <Icon
-                iconName="Globe"
+                name="GlobeIcon"
                 weight="duotone"
                 color="#0d1b2a"
                 size={20}
@@ -158,7 +158,7 @@ export function Contact({ id }: ContactProps) {
                 onChange={() => {}}
               />
               <Icon
-                iconName="DeviceMobile"
+                name="DeviceMobileIcon"
                 weight="duotone"
                 color="#0d1b2a"
                 size={20}
@@ -168,7 +168,7 @@ export function Contact({ id }: ContactProps) {
           </div>
 
           <Button
-            icon="WhatsappLogo"
+            icon="WhatsappLogoIcon"
             title={t("contact.form.button")}
             className="up"
             onClick={handleSendMessage}

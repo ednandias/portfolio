@@ -76,13 +76,13 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
               <section id="platforms">
                 {project.platforms.includes("web") && (
                   <Tippy content="Web">
-                    <Card icon="Globe" size={50} />
+                    <Card icon="GlobeIcon" size={50} />
                   </Tippy>
                 )}
 
                 {project.platforms.includes("app") && (
                   <Tippy content="App">
-                    <Card icon="DeviceMobile" size={50} />
+                    <Card icon="DeviceMobileIcon" size={50} />
                   </Tippy>
                 )}
               </section>
@@ -90,7 +90,7 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
           </div>
 
           <Button
-            icon="HandTap"
+            icon="HandTapIcon"
             title={t("projects.modalProject.button")}
             size="full"
             onClick={() => handleVisit(project.link)}

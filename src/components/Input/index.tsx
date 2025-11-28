@@ -1,12 +1,12 @@
 import Tippy from "@tippyjs/react";
 import { useState, type InputHTMLAttributes } from "react";
 import { useTheme } from "styled-components";
-import type { IconOptions } from "../../interfaces";
+import type { IconName } from "../../interfaces";
 import { Icon } from "../Icon";
 import { Container, IconView, StyledInput } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: IconOptions;
+  icon?: IconName;
   mask?: string | (string | RegExp)[];
   error?: string;
 }
@@ -28,7 +28,7 @@ export function Input({
         <IconView>
           {icon && (
             <Icon
-              iconName={icon}
+              name={icon}
               color={isFocused ? "#111d4a" : "#747172"}
               size={25}
             />
@@ -46,7 +46,7 @@ export function Input({
 
         {error && (
           <Tippy content={error}>
-            <Icon iconName="Warning" size={24} color={theme.colors.danger} />
+            <Icon name="Warning" size={24} color={theme.colors.danger} />
           </Tippy>
         )}
       </Container>

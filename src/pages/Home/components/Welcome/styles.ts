@@ -26,6 +26,7 @@ export const Presentation = styled.div`
     h1 {
       margin: 0;
       color: ${({ theme }) => theme.colors.gold};
+      font-weight: 700;
     }
   }
 `;
@@ -42,6 +43,7 @@ export const Header = styled.header`
   width: 50%;
   height: ${toRem(50)};
   margin: ${toRem(16)} auto;
+  padding: 0 ${toRem(20)};
 
   position: fixed;
   left: 0;
@@ -56,7 +58,7 @@ export const Header = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: ${toRem(5)};
 
   a {
@@ -66,7 +68,7 @@ export const Header = styled.header`
     gap: ${toRem(5)};
 
     p {
-      font-weight: bold;
+      font-weight: 700;
       color: ${({ theme }) => theme.colors.text};
     }
   }

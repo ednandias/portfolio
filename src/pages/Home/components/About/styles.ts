@@ -64,7 +64,7 @@ export const Question = styled.button<{ $isSelected: boolean }>`
 
   p {
     font-size: ${toRem(20)};
-    font-weight: bold;
+    font-weight: 700;
     color: ${({ theme }) => theme.colors.primary};
   }
 

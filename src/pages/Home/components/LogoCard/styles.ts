@@ -19,11 +19,11 @@ export const Container = styled.article`
   cursor: pointer;
 `;
 
-export const IconView = styled.div<{ iconViewColor?: string }>`
-  ${({ iconViewColor }) =>
-    iconViewColor &&
+export const IconView = styled.div<{ $iconViewColor?: string }>`
+  ${({ $iconViewColor }) =>
+    $iconViewColor &&
     css`
-      background: ${iconViewColor};
+      background: ${$iconViewColor};
 
       border-top-left-radius: ${toRem(16)};
       border-top-right-radius: ${toRem(16)};
@@ -35,13 +35,13 @@ export const IconView = styled.div<{ iconViewColor?: string }>`
 `;
 
 export const Content = styled.div<{
-  contentColor?: string;
-  contentTextColor?: string;
+  $contentColor?: string;
+  $contentTextColor?: string;
 }>`
-  ${({ contentColor }) =>
-    contentColor &&
+  ${({ $contentColor }) =>
+    $contentColor &&
     css`
-      background: ${contentColor};
+      background: ${$contentColor};
       border-bottom-left-radius: ${toRem(16)};
       border-bottom-right-radius: ${toRem(16)};
     `}
@@ -55,7 +55,7 @@ export const Content = styled.div<{
   gap: ${toRem(10)};
 
   p {
-    font-weight: bold;
-    color: ${({ contentTextColor }) => contentTextColor || "#fff"};
+    font-weight: 700;
+    color: ${({ $contentTextColor }) => $contentTextColor || "#fff"};
   }
 `;

@@ -59,7 +59,7 @@ export const ButtonSelect = styled.button<{ selected: boolean }>`
   background: #fcf7f8;
   color: #0d1b2a !important;
   font-size: ${toRem(16)};
-  font-weight: bold;
+  font-weight: 700;
 
   display: flex;
   align-items: center;

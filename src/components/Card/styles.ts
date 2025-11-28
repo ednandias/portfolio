@@ -3,7 +3,7 @@ import { toRem } from "../../utils/toRem";
 
 interface ContainerProps {
   size?: number;
-  imagesize?: number;
+  $imageSize?: number;
   $noGlass?: boolean;
   $backColor?: string;
 }
@@ -30,6 +30,6 @@ export const Container = styled.button<ContainerProps>`
   justify-content: center;
 
   img {
-    width: ${({ imagesize }) => toRem(imagesize ? imagesize : 100)};
+    width: ${({ $imageSize }) => toRem($imageSize ? $imageSize : 100)};
   }
 `;

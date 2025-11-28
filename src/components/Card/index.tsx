@@ -1,5 +1,5 @@
 import { Icon } from "@components/Icon";
-import type { IconOptions } from "@interfaces/index";
+import type { IconName } from "@interfaces/index";
 import { type ButtonHTMLAttributes } from "react";
 import { useTheme } from "styled-components";
 import { Container } from "./styles";
@@ -7,16 +7,16 @@ import { Container } from "./styles";
 interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   imgUrl?: string;
   size?: number;
-  imagesize?: number;
+  imageSize?: number;
   noGlass?: boolean;
   backColor?: string;
-  icon?: IconOptions;
+  icon?: IconName;
 }
 
 export function Card({
   imgUrl,
   size,
-  imagesize,
+  imageSize,
   noGlass,
   backColor,
   icon,
@@ -28,7 +28,7 @@ export function Card({
     <Container
       className="card"
       size={size}
-      imagesize={imagesize}
+      $imageSize={imageSize}
       $noGlass={noGlass}
       $backColor={backColor}
       {...rest}
@@ -36,7 +36,7 @@ export function Card({
       {imgUrl && <img src={imgUrl} />}
       {icon && (
         <Icon
-          iconName={icon}
+          name={icon}
           size={22}
           weight="duotone"
           color={theme.colors.gold}

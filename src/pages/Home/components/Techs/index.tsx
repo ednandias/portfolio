@@ -58,8 +58,8 @@ export function Techs({ id }: TechsProps) {
               <LogoCard
                 key={tech.name}
                 text={tech.name}
-                contentColor={theme.colors.primaryDarker}
-                contentTextColor={theme.colors.gold}
+                contentColor="white"
+                contentTextColor={theme.colors.primary}
                 icon={tech.icon}
               />
 

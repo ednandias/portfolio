@@ -13,9 +13,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin, MorphSVGPlugin);
 
 export function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router />
-      <GlobalStyles />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+
+        <Router />
+      </ThemeProvider>
+    </>
   );
 }

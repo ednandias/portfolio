@@ -5,8 +5,8 @@ interface ContainerProps {
   mt?: number;
   size?: "full";
   color?: string;
-  textColor?: string;
-  noHoverAnimation?: boolean;
+  $textColor?: string;
+  $noHoverAnimation?: boolean;
 }
 
 export const Container = styled.button<ContainerProps>`
@@ -16,11 +16,11 @@ export const Container = styled.button<ContainerProps>`
   padding: 0 ${toRem(20)};
   border-radius: 15px;
   font-size: ${toRem(16)};
-  font-weight: bold;
+  font-weight: 700;
   margin-top: ${({ mt }) => mt && toRem(mt)};
 
   background: ${({ color }) => color || "#fcf7f8"};
-  color: ${({ textColor }) => textColor || "#0d1b2a"} !important;
+  color: ${({ $textColor }) => $textColor || "#0d1b2a"} !important;
 
   transition: all 0.2s;
 
@@ -29,8 +29,8 @@ export const Container = styled.button<ContainerProps>`
   justify-content: center;
   gap: ${toRem(5)};
 
-  ${({ noHoverAnimation }) =>
-    !noHoverAnimation &&
+  ${({ $noHoverAnimation }) =>
+    !$noHoverAnimation &&
     css`
       &:not(:disabled):hover {
         background: ${({ theme }) => theme.colors.primaryDarker};

@@ -29,18 +29,21 @@ export function LogoCard({
 
   return (
     <Container className="logo-card">
-      <IconView iconViewColor={iconViewColor}>
+      <IconView $iconViewColor={iconViewColor}>
         <img src={icon} width={40} height={40} />
       </IconView>
 
-      <Content contentColor={contentColor} contentTextColor={contentTextColor}>
+      <Content
+        $contentColor={contentColor}
+        $contentTextColor={contentTextColor}
+      >
         <p>{text}</p>
 
         {link && (
           <Button
             size="full"
             title="Visitar"
-            icon="HandTap"
+            icon="HandTapIcon"
             iconColor={getAppropriateColor(iconViewColor)}
             textColor={getAppropriateColor(iconViewColor)}
             color={iconViewColor}

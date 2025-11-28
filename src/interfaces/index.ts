@@ -1,3 +1,43 @@
-import * as PhosphorIcon from "@phosphor-icons/react";
+import {
+  ArticleNyTimesIcon,
+  BriefcaseIcon,
+  ChartLineUpIcon,
+  CodeIcon,
+  DeviceMobileIcon,
+  GlobeIcon,
+  HandTapIcon,
+  HeartIcon,
+  HouseIcon,
+  MailboxIcon,
+  PottedPlantIcon,
+  ReadCvLogoIcon,
+  StarIcon,
+  TargetIcon,
+  UserCircleIcon,
+  WarningIcon,
+  WhatsappLogoIcon,
+  XCircleIcon,
+} from "@phosphor-icons/react";
 
-export type IconOptions = keyof typeof PhosphorIcon;
+export const Icons = {
+  BriefcaseIcon,
+  HouseIcon,
+  HandTapIcon,
+  ReadCvLogoIcon,
+  UserCircleIcon,
+  MailboxIcon,
+  ChartLineUpIcon,
+  ArticleNyTimesIcon,
+  CodeIcon,
+  WhatsappLogoIcon,
+  DeviceMobileIcon,
+  GlobeIcon,
+  HeartIcon,
+  PottedPlantIcon,
+  StarIcon,
+  TargetIcon,
+  WarningIcon,
+  XCircleIcon,
+} as const;
+
+export type IconName = keyof typeof Icons;

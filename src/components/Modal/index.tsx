@@ -100,7 +100,7 @@ export function Modal({
           <Header>
             <button onClick={handleClose}>
               <Icon
-                iconName="XCircle"
+                name="XCircleIcon"
                 size={30}
                 weight="fill"
                 color={theme.colors.gold}

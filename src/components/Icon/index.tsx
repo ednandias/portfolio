@@ -1,24 +1,13 @@
-import type { ComponentType } from "react";
+import { type IconProps as PhosphorIconProps } from "@phosphor-icons/react";
 
-import * as PhosphorIcon from "@phosphor-icons/react";
+import { Icons, type IconName } from "../../interfaces";
 
-import type { IconOptions } from "../../interfaces";
-
-export interface IconProps extends PhosphorIcon.IconProps {
-  iconName: IconOptions;
+interface IconProps extends PhosphorIconProps {
+  name: IconName;
 }
 
-export function Icon({ iconName, color, ...rest }: IconProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const IconComponent = (PhosphorIcon as any)[
-    iconName
-  ] as ComponentType<PhosphorIcon.IconProps>;
+export function Icon({ name, color = "black", ...rest }: IconProps) {
+  const Component = Icons[name];
 
-  if (!IconComponent) {
-    const FallbackIcon =
-      PhosphorIcon.QuestionIcon as ComponentType<PhosphorIcon.IconProps>;
-    return <FallbackIcon color={color || "white"} {...rest} />;
-  }
-
-  return <IconComponent color={color || "black"} {...rest} />;
+  return <Component color={color} {...rest} />;
 }

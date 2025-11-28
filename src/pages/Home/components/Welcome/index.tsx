@@ -1,9 +1,9 @@
-import animatedFlagBrazilGif from "@assets/images/animated-flag-brazil.gif";
-import animatedFlagUsaGif from "@assets/images/animated-flag-usa.gif";
+import BrazilSvg from "@assets/icons/brazil.svg?react";
+import UsaSvg from "@assets/icons/usa.svg?react";
 import { GhostButton } from "@components/GhostButton";
 import { useGSAP } from "@gsap/react";
 import { useTypewriter } from "@hooks/useTypewriter";
-import type { IconOptions } from "@interfaces/index";
+import type { IconName } from "@interfaces/index";
 import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
@@ -30,30 +30,30 @@ export function Welcome({ id }: WelcomeProps) {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
 
-  const anchors: { to: string; icon: IconOptions; text: string }[] = [
+  const anchors: { to: string; icon: IconName; text: string }[] = [
     {
       to: "#welcome",
-      icon: "House",
+      icon: "HouseIcon",
       text: t("header.home"),
     },
     {
       to: "#about",
-      icon: "UserCircle",
+      icon: "UserCircleIcon",
       text: t("header.about"),
     },
     {
       to: "#techs",
-      icon: "Code",
+      icon: "CodeIcon",
       text: t("header.tecnologies"),
     },
     {
       to: "#projects",
-      icon: "Briefcase",
+      icon: "BriefcaseIcon",
       text: t("header.projects"),
     },
     {
       to: "#contact",
-      icon: "Mailbox",
+      icon: "MailboxIcon",
       text: t("header.contact"),
     },
   ];
@@ -82,9 +82,7 @@ export function Welcome({ id }: WelcomeProps) {
     const cleanups: (() => void)[] = [];
 
     for (const link of links) {
-      function handleClick(e: globalThis.PointerEvent) {
-        e.preventDefault();
-
+      function handleClick() {
         const target = link.getAttribute("href");
 
         if (target) {
@@ -146,7 +144,7 @@ export function Welcome({ id }: WelcomeProps) {
         {anchors.map((anchor) => (
           <a key={anchor.to} href={anchor.to}>
             <Icon
-              iconName={anchor.icon}
+              name={anchor.icon}
               color={theme.colors.text}
               size={25}
               weight="fill"
@@ -163,21 +161,9 @@ export function Welcome({ id }: WelcomeProps) {
           title={t("header.button")}
         >
           {i18n.language === "pt-BR" ? (
-            <img
-              src={animatedFlagBrazilGif}
-              style={{
-                width: "auto",
-                height: 20,
-              }}
-            />
+            <BrazilSvg width={25} height={25} />
           ) : (
-            <img
-              src={animatedFlagUsaGif}
-              style={{
-                width: "auto",
-                height: 20,
-              }}
-            />
+            <UsaSvg width={25} height={25} />
           )}
         </GhostButton>
       </Header>
@@ -193,7 +179,7 @@ export function Welcome({ id }: WelcomeProps) {
           <ButtonsView>
             <Button
               className="know-more"
-              icon="HandTap"
+              icon="HandTapIcon"
               title={t("welcome.knowButton")}
               onClick={handleGoTo}
             />
@@ -205,7 +191,7 @@ export function Welcome({ id }: WelcomeProps) {
               <Button
                 type="submit"
                 className="know-more"
-                icon="ReadCvLogo"
+                icon="ReadCvLogoIcon"
                 title={t("welcome.downloadButton")}
               />
             </a>

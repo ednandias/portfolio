@@ -1,11 +1,11 @@
 import { type ButtonHTMLAttributes } from "react";
-import type { IconOptions } from "../../interfaces";
+import type { IconName } from "../../interfaces";
 import { Icon } from "../Icon";
 import { Container } from "./styles";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
-  icon?: IconOptions;
+  icon?: IconName;
   mt?: number;
   size?: "full";
   color?: string;
@@ -32,13 +32,13 @@ export function Button({
       mt={mt}
       size={size}
       color={color}
-      textColor={textColor}
-      noHoverAnimation={noHoverAnimation}
+      $textColor={textColor}
+      $noHoverAnimation={noHoverAnimation}
       {...rest}
     >
       {icon && (
         <Icon
-          iconName={icon}
+          name={icon}
           weight="duotone"
           color={iconColor || "#0d1b2a"}
           size={20}

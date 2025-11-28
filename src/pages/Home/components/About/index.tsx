@@ -3,7 +3,7 @@ import { Icon } from "@components/Icon";
 import { InfoSection } from "@components/InfoSection";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
-import type { IconOptions } from "@interfaces/index";
+import type { IconName } from "@interfaces/index";
 import { isMobile } from "@utils/isMobile";
 import gsap from "gsap";
 import { useState } from "react";
@@ -27,7 +27,7 @@ interface AboutProps {
 interface Question {
   id: number;
   text: string;
-  icon: IconOptions;
+  icon: IconName;
   content: string;
 }
 
@@ -136,7 +136,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "howStarted"}
             >
               <Icon
-                iconName="PottedPlant"
+                name="PottedPlantIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
@@ -151,7 +151,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "myExperiences"}
             >
               <Icon
-                iconName="ChartLineUp"
+                name="ChartLineUpIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
@@ -166,7 +166,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "whyProgramming"}
             >
               <Icon
-                iconName="Heart"
+                name="HeartIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
@@ -181,7 +181,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "mainStack"}
             >
               <Icon
-                iconName="Code"
+                name="CodeIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
@@ -196,7 +196,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "myUniqueAdvantage"}
             >
               <Icon
-                iconName="Star"
+                name="StarIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
@@ -211,7 +211,7 @@ export function About({ id }: AboutProps) {
               $isSelected={selectedQuestion === "myGoal"}
             >
               <Icon
-                iconName="Target"
+                name="TargetIcon"
                 size={25}
                 weight="duotone"
                 color={theme.colors.primary}
