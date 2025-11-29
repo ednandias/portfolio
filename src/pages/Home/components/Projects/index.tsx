@@ -122,6 +122,7 @@ export default function Projects({ id }: ProjectsProps) {
                 size={isMobile ? 100 : 0}
                 imageSize={isMobile ? 50 : 80}
                 imgUrl={project.image}
+                alt={`Logo ${project.title}`}
                 onClick={() => handleSelectProject(project)}
                 noGlass={!!project.projectCardBackground}
                 backColor={project.projectCardBackground}

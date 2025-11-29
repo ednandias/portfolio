@@ -5,7 +5,10 @@
     "tecnologies": "Techs",
     "projects": "Projetos",
     "contact": "Contato",
-    "button": "Mudar idioma"
+    "button": "Mudar idioma",
+    "aria": {
+      "changeLanguage": "Mudar idioma"
+    }
   },
   "welcome": {
     "greetings": "Olá, Seja Bem Vindo!",
@@ -16,6 +19,10 @@
   "about": {
     "h1": "Sobre",
     "p": "Saiba um pouco mais sobre mim, minha carreira e meus objetivos.",
+    "aria": {
+      "expandQuestions": "Expandir perguntas",
+      "closeQuestions": "Fechar perguntas"
+    },
     "howStarted": {
       "title": "Como tudo começou?",
       "text": "Meu interesse por programação começou em 2018, quando fiz um curso técnico presencial de Análise e Desenvolvimento de Sistemas e tive meu primeiro contato com tecnologias web, como HTML, CSS e Javascript."

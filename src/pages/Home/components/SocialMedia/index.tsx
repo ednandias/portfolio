@@ -2,12 +2,12 @@ import GitHubIcon from "@assets/icons/github.svg";
 import InstagramIcon from "@assets/icons/instagram.svg";
 import LinkedInIcon from "@assets/icons/linkedin.svg";
 import { InfoSection } from "@components/InfoSection";
+import { LogoCard } from "@components/LogoCard";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "styled-components";
 import { Section } from "../../styles";
-import { LogoCard, type LogoCardProps } from "../LogoCard";
 import { Content, SocialCardsView } from "./styles";
 
 interface SocialMediaProps {
@@ -18,7 +18,7 @@ export default function SocialMedia({ id }: SocialMediaProps) {
   const theme = useTheme();
   const { t } = useTranslation();
 
-  const socialMedias: LogoCardProps[] = [
+  const socialMedias = [
     {
       text: "GitHub",
       icon: GitHubIcon,
@@ -46,6 +46,7 @@ export default function SocialMedia({ id }: SocialMediaProps) {
 
   useGSAP(async () => {
     const gsap = (await import("gsap")).default;
+
     const techs = gsap.utils.toArray<HTMLElement>(`#${id} .logo-card`);
 
     for (const tech of techs) {
@@ -79,6 +80,7 @@ export default function SocialMedia({ id }: SocialMediaProps) {
               icon={socialMedia.icon}
               iconViewColor={socialMedia.iconViewColor}
               link={socialMedia.link}
+              alt={`Logo ${socialMedia.text}`}
             />
           ))}
         </SocialCardsView>

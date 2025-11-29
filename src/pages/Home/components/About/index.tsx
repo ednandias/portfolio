@@ -121,6 +121,11 @@ export default function About({ id }: AboutProps) {
           <Questions>
             {!isMobile && (
               <GhostButton
+                aria-label={
+                  isQuestionSectionOpen
+                    ? t("about.aria.closeQuestions")
+                    : t("about.aria.expandQuestions")
+                }
                 onClick={() =>
                   setIsQuestionSectionOpen((prevState) => !prevState)
                 }

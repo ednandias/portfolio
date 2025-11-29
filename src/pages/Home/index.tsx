@@ -7,12 +7,18 @@ const Projects = React.lazy(() => import("./components/Projects"));
 const Contact = React.lazy(() => import("./components/Contact"));
 const SocialMedia = React.lazy(() => import("./components/SocialMedia"));
 
-import { Container } from "./styles";
+import { Container, Content, FallbackLoading } from "./styles";
 
 export function Home() {
   return (
     <Container>
-      <Suspense fallback="Carregando...">
+      <Suspense
+        fallback={
+          <Content>
+            <FallbackLoading />
+          </Content>
+        }
+      >
         <Welcome id="welcome" />
 
         <About id="about" />

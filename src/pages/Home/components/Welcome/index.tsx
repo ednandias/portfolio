@@ -22,7 +22,7 @@ export default function Welcome({ id }: WelcomeProps) {
     baseText: ``,
     words: [
       {
-        text: "Desenvolvedor Full-Stack JavaScript/TypeScript",
+        text: "Desenvolvedor Full-Stack JavaScript",
         pause: true,
       },
     ],
@@ -161,6 +161,7 @@ export default function Welcome({ id }: WelcomeProps) {
         ))}
 
         <GhostButton
+          aria-label={t("header.aria.changeLanguage")}
           onClick={() =>
             i18n.changeLanguage(i18n.language === "pt-BR" ? "en-US" : "pt-BR")
           }

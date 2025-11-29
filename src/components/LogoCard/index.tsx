@@ -5,6 +5,7 @@ import { Container, Content, IconView } from "./styles";
 export interface LogoCardProps {
   text: string;
   icon: string;
+  alt: string;
   iconViewColor?: string;
   contentColor?: string;
   contentTextColor?: string;
@@ -18,6 +19,7 @@ export function LogoCard({
   contentColor,
   contentTextColor,
   link,
+  alt,
 }: LogoCardProps) {
   function handleVisit(url: string) {
     const link = document.createElement("a");
@@ -30,7 +32,7 @@ export function LogoCard({
   return (
     <Container className="logo-card">
       <IconView $iconViewColor={iconViewColor}>
-        <img src={icon} width={40} height={40} />
+        <img src={icon} width={40} height={40} alt={alt} />
       </IconView>
 
       <Content

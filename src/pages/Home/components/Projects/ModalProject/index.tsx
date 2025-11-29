@@ -68,6 +68,7 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
               imgUrl={project.image}
               noGlass={!!project.projectCardBackground}
               backColor={project.projectCardBackground}
+              alt={`Logo ${project.title}`}
             />
 
             <h1>{project.title}</h1>
@@ -76,13 +77,17 @@ export function ModalProject({ isOpen, onClose, project }: ModalProjectProps) {
               <section id="platforms">
                 {project.platforms.includes("web") && (
                   <Tippy content="Web">
-                    <Card icon="GlobeIcon" size={50} />
+                    <Card icon="GlobeIcon" size={50} alt="Globe Icon" />
                   </Tippy>
                 )}
 
                 {project.platforms.includes("app") && (
                   <Tippy content="App">
-                    <Card icon="DeviceMobileIcon" size={50} />
+                    <Card
+                      icon="DeviceMobileIcon"
+                      size={50}
+                      alt="Device Mobile Icon"
+                    />
                   </Tippy>
                 )}
               </section>

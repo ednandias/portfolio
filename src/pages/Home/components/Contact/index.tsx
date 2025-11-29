@@ -135,6 +135,7 @@ export default function Contact({ id }: ContactProps) {
               className="up"
             >
               <Checkbox
+                label="Quero um site"
                 checked={data.platforms.includes("web")}
                 onChange={() => {}}
               />
@@ -153,6 +154,7 @@ export default function Contact({ id }: ContactProps) {
               className="up"
             >
               <Checkbox
+                label="Quero um app"
                 checked={data.platforms.includes("app")}
                 onChange={() => {}}
               />

@@ -64,22 +64,22 @@
 					</g>
 					<g>
 						<linearGradient id="XMLID_1_" gradientUnits="userSpaceOnUse" x1="86.3638" y1="337.96" x2="86.3638" y2="7.1206">
-							<stop  offset="0" style="stop-color:#F40A0B"/>
-							<stop  offset="1" style="stop-color:#F5E710"/>
-							<a:midPointStop  offset="0" style="stop-color:#F40A0B"/>
-							<a:midPointStop  offset="0.5" style="stop-color:#F40A0B"/>
-							<a:midPointStop  offset="1" style="stop-color:#F5E710"/>
+							<stop  offset="0" style="stop-color:#FFFFFF"/>
+							<stop  offset="1" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="0" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="0.5" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="1" style="stop-color:#FFFFFF"/>
 						</linearGradient>
 						<path i:knockout="Off" fill-rule="evenodd" clip-rule="evenodd" fill="url(#XMLID_1_)" d="M79.704,273.88
 							c3.24,25.704,17.208,45.072,38.592,64.08l-7.704-3.888C49.824,307.936,7.344,247.527,7.344,177.256
 							c0-89.28,68.904-163.512,158.04-170.136C76.248,13.744,7.344,87.976,7.344,177.256c0-89.28,68.904-163.512,158.04-170.136
 							C63.288,27.28-34.56,145.216,79.704,273.88z"/>
 						<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="216.1084" y1="348.9883" x2="216.1084" y2="7.2769">
-							<stop  offset="0" style="stop-color:#F40A0B"/>
-							<stop  offset="1" style="stop-color:#F5E710"/>
-							<a:midPointStop  offset="0" style="stop-color:#F40A0B"/>
-							<a:midPointStop  offset="0.5" style="stop-color:#F40A0B"/>
-							<a:midPointStop  offset="1" style="stop-color:#F5E710"/>
+							<stop  offset="0" style="stop-color:#FFFFFF"/>
+							<stop  offset="1" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="0" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="0.5" style="stop-color:#FFFFFF"/>
+							<a:midPointStop  offset="1" style="stop-color:#FFFFFF"/>
 						</linearGradient>
 						<path i:knockout="Off" fill-rule="evenodd" clip-rule="evenodd" fill="url(#XMLID_2_)" d="M312.769,122.896
 							C305.064,67.672,262.656,29.008,185.4,6.832c91.152,4.032,163.081,79.2,163.081,170.424

@@ -6,6 +6,7 @@ import { Container } from "./styles";
 
 interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   imgUrl?: string;
+  alt?: string;
   size?: number;
   imageSize?: number;
   noGlass?: boolean;
@@ -15,6 +16,7 @@ interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Card({
   imgUrl,
+  alt,
   size,
   imageSize,
   noGlass,
@@ -33,7 +35,8 @@ export function Card({
       $backColor={backColor}
       {...rest}
     >
-      {imgUrl && <img src={imgUrl} />}
+      {imgUrl && <img src={imgUrl} alt={alt} />}
+
       {icon && (
         <Icon
           name={icon}

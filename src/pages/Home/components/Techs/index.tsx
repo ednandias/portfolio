@@ -1,11 +1,10 @@
 import { InfoSection } from "@components/InfoSection";
+import { LogoCard } from "@components/LogoCard";
 import { useGSAP } from "@gsap/react";
 import { useSmoothScroll } from "@hooks/useSmoothScroll";
 import { useTechs } from "@hooks/useTechs";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "styled-components";
 import { Section } from "../../styles";
-import { LogoCard } from "../LogoCard";
 import { Content, TechsView } from "./styles";
 
 interface TechsProps {
@@ -13,7 +12,6 @@ interface TechsProps {
 }
 
 export default function Techs({ id }: TechsProps) {
-  const theme = useTheme();
   const techs = useTechs();
   const { t } = useTranslation();
 
@@ -30,18 +28,14 @@ export default function Techs({ id }: TechsProps) {
   useGSAP(async () => {
     const gsap = (await import("gsap")).default;
 
-    const techs = gsap.utils.toArray<HTMLButtonElement>(`#${id} .logo-card`);
+    const logoCards = gsap.utils.toArray<HTMLDivElement>(`#${id} .logo-card`);
 
-    for (const tech of techs) {
+    for (const logoCard of logoCards) {
       ["mouseenter", "mouseleave"].forEach((event) => {
-        tech.addEventListener(event, () => {
-          techs
-            .filter((element) => element !== tech)
-            .forEach((element) => {
-              gsap.to(element, {
-                opacity: event === "mouseenter" ? 0.3 : 1,
-              });
-            });
+        logoCard.addEventListener(event, () => {
+          gsap.to(logoCard.children[0].children, {
+            scale: event === "mouseenter" ? 1.5 : 1,
+          });
         });
       });
     }
@@ -58,9 +52,10 @@ export default function Techs({ id }: TechsProps) {
               <LogoCard
                 key={tech.name}
                 text={tech.name}
-                contentColor="white"
-                contentTextColor={theme.colors.primary}
+                iconViewColor={tech.color}
+                contentTextColor="white"
                 icon={tech.icon}
+                alt={`Logo ${tech.name}`}
               />
 
               // <Card

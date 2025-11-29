@@ -1,7 +1,7 @@
 import { toRem } from "@utils/toRem";
 import styled, { css } from "styled-components";
 
-export const Container = styled.article`
+export const Container = styled.div`
   width: ${toRem(200)};
   height: ${toRem(240)};
   border-radius: ${toRem(16)};
